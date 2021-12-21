@@ -1,0 +1,96 @@
+{
+    "name": "project-notes",
+    "displayName": "Project Notes",
+    "description": "Color Highlighted Comments with Links to Markdown File Notes",
+    "publisher": "willasm",
+    "author": {
+        "name": "William McKeever"
+    },
+    "license": "MIT - SEE LICENSE IN LICENSE.md",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.63.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "icon": "images/icon.png",
+    "keywords": [
+        "todo",
+        "notes",
+        "highlighter",
+        "comments",
+        "project",
+        "markdown",
+        "tasks",
+        "organize"
+    ],
+    "activationEvents": [
+        "onStartupFinished",
+        "onCommand:project-notes.openorcreatenote"
+    ],
+    "bugs": {
+        "url": "",
+        "email": "willmck63@gmail.com"
+    },
+    "homepage": "",
+    "repository": {
+        "type": "git",
+        "url": ""
+    },
+    "main": "./src/extension.js",
+    "contributes": {
+        "commands": [{
+            "command": "project-notes.openorcreatenote",
+            "title": "Project Notes: Open or Create Note"
+        }],
+        "grammars": [{
+            "path": "./syntaxes/project-notes.tmGrammar.json",
+            "scopeName": "project-notes.injection",
+            "injectTo": [
+                "source",
+                "text.html"
+            ],
+            "tokenTypes": {
+                "meta.embedded.project-notes.color-parentheses": "other",
+                "meta.embedded.project-notes.color-filelink": "other",
+                "meta.embedded.project-notes.color-codeblock": "other",
+                "meta.embedded.project-notes.color-dblquote": "other",
+                "meta.embedded.project-notes.color-singlequote": "other",
+                "meta.embedded.project-notes.color-one": "other",
+                "meta.embedded.project-notes.color-two": "other",
+                "meta.embedded.project-notes.color-three": "other",
+                "meta.embedded.project-notes.color-four": "other",
+                "meta.embedded.project-notes.color-todo": "other",
+                "meta.embedded.project-notes.color-note": "other",
+                "meta.embedded.project-notes.color-fixme": "other",
+                "meta.embedded.project-notes.color-bug": "other",
+                "meta.embedded.project-notes.color-debug": "other",
+                "meta.embedded.project-notes.color-hack": "other",
+                "meta.embedded.project-notes.color-temp": "other",
+                "meta.embedded.project-notes.color-idea": "other",
+                "meta.embedded.project-notes.color-review": "other",
+                "meta.embedded.project-notes.color-research": "other",
+                "meta.embedded.project-notes.color-changed": "other",
+                "meta.embedded.project-notes.color-optimize": "other"
+            }
+        }]
+    },
+    "scripts": {
+        "lint": "eslint .",
+        "pretest": "npm run lint",
+        "test": "node ./test/runTest.js"
+    },
+    "devDependencies": {
+        "@types/vscode": "^1.63.0",
+        "@types/glob": "^7.1.4",
+        "@types/mocha": "^9.0.0",
+        "@types/node": "14.x",
+        "eslint": "^7.32.0",
+        "glob": "^7.1.7",
+        "mocha": "^9.1.1",
+        "typescript": "^4.4.3",
+        "@vscode/test-electron": "^1.6.2"
+    }
+
+}

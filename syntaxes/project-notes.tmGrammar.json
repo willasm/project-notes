@@ -1,0 +1,247 @@
+{
+    "scopeName": "project-notes.injection",
+    "injectionSelector": "L:comment",
+    "patterns": [{
+            "include": "#project-notes-color-parentheses"
+        },
+        {
+            "include": "#project-notes-color-filelink"
+        },
+        {
+            "include": "#project-notes-color-codeblock"
+        },
+        {
+            "include": "#project-notes-color-dblquote"
+        },
+        {
+            "include": "#project-notes-color-singlequote"
+        },
+        {
+            "include": "#project-notes-color-one"
+        },
+        {
+            "include": "#project-notes-color-two"
+        },
+        {
+            "include": "#project-notes-color-three"
+        },
+        {
+            "include": "#project-notes-color-four"
+        },
+        {
+            "include": "#project-notes-color-todo"
+        },
+        {
+            "include": "#project-notes-color-note"
+        },
+        {
+            "include": "#project-notes-color-fixme"
+        },
+        {
+            "include": "#project-notes-color-bug"
+        },
+        {
+            "include": "#project-notes-color-debug"
+        },
+        {
+            "include": "#project-notes-color-hack"
+        },
+        {
+            "include": "#project-notes-color-temp"
+        },
+        {
+            "include": "#project-notes-color-idea"
+        },
+        {
+            "include": "#project-notes-color-review"
+        },
+        {
+            "include": "#project-notes-color-research"
+        },
+        {
+            "include": "#project-notes-color-changed"
+        },
+        {
+            "include": "#project-notes-color-optimize"
+        }
+    ],
+    "repository": {
+        "project-notes-color-parentheses": {
+            "match": "(\\(|\\{|\\[){1}(.+)(\\]|\\}|\\){1})",
+            "captures": {
+                "2": {
+                    "name": "meta.embedded.project-notes.color-parentheses"
+                }
+            }
+        },
+        "project-notes-color-filelink": {
+            "match": "(?i)file:\\s*([a-zA-Z0-9_-]+(.md)?)\\s|$",
+            "captures": {
+                "1": {
+                    "name": "meta.embedded.project-notes.color-filelink"
+                }
+            }
+        },
+        "project-notes-color-codeblock": {
+            "match": "\\s*`([\\w ]+)`(\\s|$)+",
+            "name": "meta.embedded.project-notes.color-codeblock"
+        },
+        "project-notes-color-dblquote": {
+            "match": "\\s*\"([\\w ]+)\"(\\s|$)+",
+            "name": "meta.embedded.project-notes.color-dblquote"
+        },
+        "project-notes-color-singlequote": {
+            "match": "\\s*'([\\w ]+)'(\\s|$)+",
+            "name": "meta.embedded.project-notes.color-singlequote"
+        },
+        "project-notes-color-one": {
+            "match": "\\s+!{1}(\\w+\\b|$)",
+            "name": "meta.embedded.project-notes.color-one"
+        },
+        "project-notes-color-two": {
+            "match": "\\s+@{1}(\\w+\\b|$)",
+            "name": "meta.embedded.project-notes.color-two"
+        },
+        "project-notes-color-three": {
+            "match": "\\s+#{1}(\\w+\\b|$)",
+            "name": "meta.embedded.project-notes.color-three"
+        },
+        "project-notes-color-four": {
+            "match": "\\s+\\${1}(\\w+\\b|$)",
+            "name": "meta.embedded.project-notes.color-four"
+        },
+        "project-notes-color-todo": {
+            "match": "(?i)(\\s+todo:?\\s|$)",
+            "name": "meta.embedded.project-notes.color-todo"
+        },
+        "project-notes-color-note": {
+            "match": "(?i)(\\s+note:?\\s|$)",
+            "name": "meta.embedded.project-notes.color-note"
+        },
+        "project-notes-color-fixme": {
+            "match": "(?i)(\\s+fixme:?\\s|$)",
+            "name": "meta.embedded.project-notes.color-fixme"
+        },
+        "project-notes-color-bug": {
+            "match": "(?i)(\\s+bug:?\\s|$)",
+            "name": "meta.embedded.project-notes.color-bug"
+        },
+        "project-notes-color-debug": {
+            "match": "(?i)(\\s+debug:?\\s|$)",
+            "name": "meta.embedded.project-notes.color-debug"
+        },
+        "project-notes-color-hack": {
+            "match": "(?i)(\\s+hack:?\\s|$)",
+            "name": "meta.embedded.project-notes.color-hack"
+        },
+        "project-notes-color-temp": {
+            "match": "(?i)(\\s+temp:?\\s|$)",
+            "name": "meta.embedded.project-notes.color-temp"
+        },
+        "project-notes-color-idea": {
+            "match": "(?i)(\\s+idea:?\\s|$)",
+            "name": "meta.embedded.project-notes.color-idea"
+        },
+        "project-notes-color-review": {
+            "match": "(?i)(\\s+review:?\\s|$)",
+            "name": "meta.embedded.project-notes.color-review"
+        },
+        "project-notes-color-research": {
+            "match": "(?i)(\\s+research:?\\s|$)",
+            "name": "meta.embedded.project-notes.color-research"
+        },
+        "project-notes-color-changed": {
+            "match": "(?i)(\\s+changed:?\\s|$)",
+            "name": "meta.embedded.project-notes.color-changed"
+        },
+        "project-notes-color-optimize": {
+            "match": "(?i)(\\s+optimize:?\\s|$)",
+            "name": "meta.embedded.project-notes.color-optimize"
+        },
+        "tokenColors": [{
+                "name": "Project-Notes Color Parentheses",
+                "scope": "meta.embedded.project-notes.color-parentheses"
+            },
+            {
+                "name": "Project-Notes Color File Link",
+                "scope": "meta.embedded.project-notes.color-filelink"
+            },
+            {
+                "name": "Project-Notes Color Backticks",
+                "scope": "meta.embedded.project-notes.color-codeblock"
+            },
+            {
+                "name": "Project-Notes Color Double Quotes",
+                "scope": "meta.embedded.project-notes.color-dblquote"
+            },
+            {
+                "name": "Project-Notes Color Single Quotes",
+                "scope": "meta.embedded.project-notes.color-singlequote"
+            },
+            {
+                "name": "Project-Notes Color 1",
+                "scope": "meta.embedded.project-notes.color-one"
+            },
+            {
+                "name": "Project-Notes Color 2",
+                "scope": "meta.embedded.project-notes.color-two"
+            },
+            {
+                "name": "Project-Notes Color 3",
+                "scope": "meta.embedded.project-notes.color-three"
+            },
+            {
+                "name": "Project-Notes Color 4",
+                "scope": "meta.embedded.project-notes.color-four"
+            },
+            {
+                "name": "Project-Notes Color TODO",
+                "scope": "meta.embedded.project-notes.color-todo"
+            },
+            {
+                "name": "Project-Notes Color NOTE",
+                "scope": "meta.embedded.project-notes.color-note"
+            },
+            {
+                "name": "Project-Notes Color FIXME",
+                "scope": "meta.embedded.project-notes.color-fixme"
+            },
+            {
+                "name": "Project-Notes Color BUG",
+                "scope": "meta.embedded.project-notes.color-bug"
+            },
+            {
+                "name": "Project-Notes Color DEBUG",
+                "scope": "meta.embedded.project-notes.color-debug"
+            },
+            {
+                "name": "Project-Notes Color HACK",
+                "scope": "meta.embedded.project-notes.color-hack"
+            },
+            {
+                "name": "Project-Notes Color TEMP",
+                "scope": "meta.embedded.project-notes.color-temp"
+            },
+            {
+                "name": "Project-Notes Color IDEA",
+                "scope": "meta.embedded.project-notes.color-idea"
+            },
+            {
+                "name": "Project-Notes Color REVIEW",
+                "scope": "meta.embedded.project-notes.color-review"
+            },
+            {
+                "name": "Project-Notes Color RESEARCH",
+                "scope": "meta.embedded.project-notes.color-research"
+            },
+            {
+                "name": "Project-Notes Color CHANGED",
+                "scope": "meta.embedded.project-notes.color-changed"
+            },
+            {
+                "name": "Project-Notes Color OPTIMIZE",
+                "scope": "meta.embedded.project-notes.color-optimize"
+            }
+        ]
+    }
+}
