@@ -5,6 +5,12 @@
             "include": "#project-notes-color-parentheses"
         },
         {
+            "include": "#project-notes-color-curly"
+        },
+        {
+            "include": "#project-notes-color-bracket"
+        },
+        {
             "include": "#project-notes-color-filelink"
         },
         {
@@ -67,12 +73,16 @@
     ],
     "repository": {
         "project-notes-color-parentheses": {
-            "match": "(\\(|\\{|\\[){1}(.+)(\\]|\\}|\\){1})",
-            "captures": {
-                "2": {
-                    "name": "meta.embedded.project-notes.color-parentheses"
-                }
-            }
+            "match": "\\s*\\(([\\w -]+)\\)(\\s|$)+",
+            "name": "meta.embedded.project-notes.color-parentheses"
+        },
+        "project-notes-color-curly": {
+            "match": "\\s*\\{([\\w -]+)\\}(\\s|$)+",
+            "name": "meta.embedded.project-notes.color-curly"
+        },
+        "project-notes-color-bracket": {
+            "match": "\\s*\\[([\\w -]+)\\](\\s|$)+",
+            "name": "meta.embedded.project-notes.color-bracket"
         },
         "project-notes-color-filelink": {
             "match": "(?i)file:\\s*([a-zA-Z0-9_-]+(.md)?)\\s|$",
@@ -95,19 +105,19 @@
             "name": "meta.embedded.project-notes.color-singlequote"
         },
         "project-notes-color-one": {
-            "match": "\\s+!{1}(\\w+\\b|$)",
+            "match": "!\\w+\\b|$",
             "name": "meta.embedded.project-notes.color-one"
         },
         "project-notes-color-two": {
-            "match": "\\s+@{1}(\\w+\\b|$)",
+            "match": "@\\w+\\b|$",
             "name": "meta.embedded.project-notes.color-two"
         },
         "project-notes-color-three": {
-            "match": "\\s+#{1}(\\w+\\b|$)",
+            "match": "#\\w+\\b|$",
             "name": "meta.embedded.project-notes.color-three"
         },
         "project-notes-color-four": {
-            "match": "\\s+\\${1}(\\w+\\b|$)",
+            "match": "\\$\\w+\\b|$",
             "name": "meta.embedded.project-notes.color-four"
         },
         "project-notes-color-todo": {
@@ -161,6 +171,14 @@
         "tokenColors": [{
                 "name": "Project-Notes Color Parentheses",
                 "scope": "meta.embedded.project-notes.color-parentheses"
+            },
+            {
+                "name": "Project-Notes Color Curly",
+                "scope": "meta.embedded.project-notes.color-curly"
+            },
+            {
+                "name": "Project-Notes Color Bracket",
+                "scope": "meta.embedded.project-notes.color-bracket"
             },
             {
                 "name": "Project-Notes Color File Link",

@@ -30,13 +30,13 @@
         "onCommand:project-notes.openorcreatenote"
     ],
     "bugs": {
-        "url": "",
+        "url": "https://github.com/willasm/project-notes/issues",
         "email": "willmck63@gmail.com"
     },
-    "homepage": "",
+    "homepage": "https://github.com/willasm/project-notes",
     "repository": {
         "type": "git",
-        "url": ""
+        "url": "https://github.com/willasm/project-notes.git"
     },
     "main": "./src/extension.js",
     "contributes": {
@@ -53,6 +53,8 @@
             ],
             "tokenTypes": {
                 "meta.embedded.project-notes.color-parentheses": "other",
+                "meta.embedded.project-notes.color-curly": "other",
+                "meta.embedded.project-notes.color-bracket": "other",
                 "meta.embedded.project-notes.color-filelink": "other",
                 "meta.embedded.project-notes.color-codeblock": "other",
                 "meta.embedded.project-notes.color-dblquote": "other",
