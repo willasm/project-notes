@@ -19,7 +19,7 @@ Adds TODO syntax highlighting support to your source files.
 
 ## Screenshots
 Example Highlighting ....
-![Example Screenshot](.\images\project-notes-example.png)
+![Example Screenshot](https://github.com/willasm/project-notes/blob/master/images/project-notes-example.pnghttps://github.com/willasm/project-notes/blob/master/images/project-notes-example.png)
 
 ## Requirements
 To enable syntax highlighting you will need to add the following to your Setttings.json file.
