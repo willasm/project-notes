@@ -25,8 +25,7 @@ Example Highlighting ....
 
 
 ## Requirements
-To enable syntax highlighting you will need to copy the text from the file AddToSetting.txt then paste it into your settings.json file.
-
+To enable syntax highlighting you will need to add to your `settings.json` file the settings found in [addtosettings.txt](./resources/addtosettings.txt). Just copy and paste them into your settings.json file.
 
 ## Extension Settings
 There is only one command availiable from the command pallette `Project Notes: Open or Create Note`
