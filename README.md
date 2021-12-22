@@ -23,7 +23,7 @@ Example Highlighting ....
 
 ## Requirements
 To enable syntax highlighting you will need to add the following to your Setttings.json file.
-You can [Copy these settings](AddToSetting.MD) from the file AddToSetting.MD file then paste them into your settings.json file.
+You can [Copy these settings](AddToSetting.txt) from the file AddToSetting.MD file then paste them into your settings.json file.
 ````
   "editor.tokenColorCustomizations": {
     "comments": "#11bb58",
