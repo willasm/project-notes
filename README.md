@@ -44,6 +44,25 @@ Running the command `Project Notes: Open or Create Note` with the cursor on any 
 
 All Note Files are stored in your projects `.vscode` folder (which is created if it does not exist). You may want to ad to your `.gitignore` file `.vscode/*.MD` if you do not want Git to track your notes.
 
+
+## Changing TAG Colors and Styling
+After adding the settings from the file [addtosettings.txt](./resources/addtosettings.txt) to your `settings.json` file you can change the color and styling of each of your tags as you can see from the following example...
+
+The line `"scope"` identifies the tag `TODO`
+
+The line `"foreground": "#89daff",` is the color setting for the tag `TODO`. Changing this to `"foreground": "#ffffff"` would set the tag color to white.
+
+The line `"fontStyle": ""` sets the font styling. Changing this to `"fontStyle": "bold"` would set the tag `TODO` as bold.
+
+````
+        "scope": "meta.embedded.project-notes.color-todo",
+        "settings": {
+          "foreground": "#89daff",
+          "fontStyle": ""
+        }
+      },
+````
+
 ## To Do
 Add snippet support.
 
