@@ -31,7 +31,7 @@
         }
       },
       {
-        "scope": "meta.embedded.project-notes.color-codeblock",
+        "scope": "meta.embedded.project-notes.color-backticks",
         "settings": {
           "foreground": "#21a0d3",
           "fontStyle": "italic"

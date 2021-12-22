@@ -14,7 +14,7 @@
             "include": "#project-notes-color-filelink"
         },
         {
-            "include": "#project-notes-color-codeblock"
+            "include": "#project-notes-color-backticks"
         },
         {
             "include": "#project-notes-color-dblquote"
@@ -92,9 +92,9 @@
                 }
             }
         },
-        "project-notes-color-codeblock": {
+        "project-notes-color-backticks": {
             "match": "\\s*`([\\w ]+)`(\\s|$)+",
-            "name": "meta.embedded.project-notes.color-codeblock"
+            "name": "meta.embedded.project-notes.color-backticks"
         },
         "project-notes-color-dblquote": {
             "match": "\\s*\"([\\w ]+)\"(\\s|$)+",
@@ -186,7 +186,7 @@
             },
             {
                 "name": "Project-Notes Color Backticks",
-                "scope": "meta.embedded.project-notes.color-codeblock"
+                "scope": "meta.embedded.project-notes.color-backticks"
             },
             {
                 "name": "Project-Notes Color Double Quotes",
