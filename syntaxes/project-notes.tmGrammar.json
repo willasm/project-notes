@@ -105,19 +105,19 @@
             "name": "meta.embedded.project-notes.color-singlequote"
         },
         "project-notes-color-one": {
-            "match": "!\\w+\\b|$",
+            "match": "!\\w+\\b",
             "name": "meta.embedded.project-notes.color-one"
         },
         "project-notes-color-two": {
-            "match": "@\\w+\\b|$",
+            "match": "@\\w+\\b",
             "name": "meta.embedded.project-notes.color-two"
         },
         "project-notes-color-three": {
-            "match": "#\\w+\\b|$",
+            "match": "#\\w+\\b",
             "name": "meta.embedded.project-notes.color-three"
         },
         "project-notes-color-four": {
-            "match": "\\$\\w+\\b|$",
+            "match": "\\$\\w+\\b",
             "name": "meta.embedded.project-notes.color-four"
         },
         "project-notes-color-todo": {
