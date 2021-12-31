@@ -7,7 +7,7 @@
         "name": "William McKeever"
     },
     "license": "MIT - SEE LICENSE IN LICENSE.md",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "engines": {
         "vscode": "^1.63.0"
     },
@@ -41,9 +41,18 @@
     "main": "./src/extension.js",
     "contributes": {
         "commands": [{
-            "command": "project-notes.openorcreatenote",
-            "title": "Project Notes: Open or Create Note"
-        }],
+                "command": "project-notes.openorcreatenote",
+                "title": "Project Notes: Open or Create Note"
+            },
+            {
+                "command": "project-notes.browsenotesedit",
+                "title": "Project Notes: Open Existing Note (Edit Mode)"
+            },
+            {
+                "command": "project-notes.browsenotespreview",
+                "title": "Project Notes: Open Existing Note (Preview Mode)"
+            }
+        ],
         "grammars": [{
             "path": "./syntaxes/project-notes.tmGrammar.json",
             "scopeName": "project-notes.injection",

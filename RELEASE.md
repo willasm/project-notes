@@ -1,6 +1,7 @@
 # Release Notes
-## v0.0.1
-Initial Release.
+## v0.0.2
+- Added "Project Notes: Open Existing Note (Edit Mode)" Command
+- Added "Project Notes: Open Existing Note (Preview Mode)" Command
 
 For a full list of changes, please see the projects [Changelog](CHANGELOG.md) file.
 

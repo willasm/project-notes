@@ -27,8 +27,17 @@ Example Highlighting ....
 ## Requirements
 To enable syntax highlighting you will need to add to your `settings.json` file the settings found in [addtosettings.txt](./resources/addtosettings.txt). Just copy and paste them into your settings.json file.
 
-## Extension Settings
-There is only one command availiable from the command pallette `Project Notes: Open or Create Note`
+## Extension Commands
+There is three commands availiable from the command pallette.
+- `Project Notes: Open or Create Note`
+
+    Opens or Creates a Project Note File from a Comment File Link. [See Using File Links](#using-file-links)
+- `Project Notes: Open Existing Note (Edit Mode)`
+
+    Opens an Existing Project Note File in Edit Mode.
+- `Project Notes: Open Existing Note (Preview Mode)`
+
+    Opens an Existing Project Note File in Preview Mode.
 
 If you plan to use the File Link feature quite often it is recommended that you set a default key binding for the command.
 
@@ -38,15 +47,15 @@ Create a comment in the format `// File: Filename.MD`. The `File:` portion is th
 
 Note that the `MD` extension is optional. The file name is styled as underlined by default (It is not an actual clickable link).
 
-To create (or open an existing note) simply run the command `Project Notes: Open or Create Note` with the cursor anywhere on the same line as the `Filename.MD` comment. If the file already exists it will be opened in a new editor, otherwise a new file is created and opened for editing.
+To create (or open an existing note) simply run the command `Project Notes: Open or Create Note` with the cursor anywhere on the same line as the `Filename.MD` comment. If the file already exists it will be opened in a new editor window, otherwise a new file is created and opened for editing.
 
 Running the command `Project Notes: Open or Create Note` with the cursor on any line without a `File: filename.MD` comment will create (or open) a file with the base name of the folder opened in VSCode. (Typically your projects name).
 
-All Note Files are stored in your projects `.vscode` folder (which is created if it does not exist). You may want to ad to your `.gitignore` file `.vscode/*.MD` if you do not want Git to track your notes.
+All Note Files are stored in your projects `.vscode` folder (which is created if it does not exist). You may want to add to your `.gitignore` file `.vscode/*.MD` if you do not want Git to track your notes.
 
 
 ## Changing TAG Colors and Styling
-After adding the settings from the file [addtosettings.txt](./resources/addtosettings.txt) to your `settings.json` file you can change the color and styling of each of your tags as you can see from the following example...
+After adding the settings from the file [addtosettings.txt](./resources/addtosettings.txt) to your `settings.json` file you can change the color and styling of each of the tags as you can see from the following example...
 
 The line `"scope"` identifies the tag `TODO`
 
