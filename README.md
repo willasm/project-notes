@@ -1,4 +1,4 @@
-![](https://vsmarketplacebadge.apphb.com/version-short/willasm.project-notes.svg) -->
+![](https://vsmarketplacebadge.apphb.com/version-short/willasm.project-notes.svg)
 ![](https://vsmarketplacebadge.apphb.com/installs-short/willasm.project-notes.svg)
 ![](https://vsmarketplacebadge.apphb.com/downloads-short/willasm.project-notes.svg)
 ![](https://vsmarketplacebadge.apphb.com/rating/willasm.project-notes.svg)
