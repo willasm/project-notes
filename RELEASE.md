@@ -1,6 +1,6 @@
 # Release Notes
 
-## [0.0.3] 2022-01-08
+## [0.0.3] 2022-01-21
 - Removed unnecessary lines from addtosettings.txt
 - Updated package.json
 - Updated example screenshot
