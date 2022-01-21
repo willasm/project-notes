@@ -6,11 +6,11 @@
 - Updated example screenshot
 - Updated Readme
 
-## [0.0.2]
+## [0.0.2] 2022-01-15
 
 - Added "Project Notes: Open Existing Note (Edit Mode)" Command
 - Added "Project Notes: Open Existing Note (Preview Mode)" Command
 
-## [0.0.1]
+## [0.0.1] 2022-01-15
 
 - Initial release
