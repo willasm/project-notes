@@ -1,6 +1,4 @@
   "editor.tokenColorCustomizations": {
-    "comments": "#11bb58",
-    "numbers": "#48c2a8",
     "textMateRules": [
       {
         "scope": "meta.embedded.project-notes.color-parentheses",

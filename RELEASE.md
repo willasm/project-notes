@@ -1,7 +1,10 @@
 # Release Notes
-## v0.0.2
-- Added "Project Notes: Open Existing Note (Edit Mode)" Command
-- Added "Project Notes: Open Existing Note (Preview Mode)" Command
+
+## [0.0.3] 2022-01-08
+- Removed unnecessary lines from addtosettings.txt
+- Updated package.json
+- Updated example screenshot
+- Updated Readme
 
 For a full list of changes, please see the projects [Changelog](CHANGELOG.md) file.
 

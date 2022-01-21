@@ -8,6 +8,9 @@ Adds inline file links to notes in markdown files.
 
 Adds TODO syntax highlighting support to your source files.
 
+Note: This extension should work with any programming language that supports comments. It has been tested with the following languages by file extension...
+
+`asm bat cmd coffee css go html ini js jsx less md php py rb scss ts tbs tsx vue`
 
 ## Features
 - Link to project note files in Markdown format.
@@ -69,7 +72,6 @@ The line `"fontStyle": ""` sets the font styling. Changing this to `"fontStyle":
           "foreground": "#89daff",
           "fontStyle": ""
         }
-      },
 ````
 
 ## To Do
