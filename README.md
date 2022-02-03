@@ -3,14 +3,16 @@
 ![](https://vsmarketplacebadge.apphb.com/downloads-short/willasm.project-notes.svg)
 ![](https://vsmarketplacebadge.apphb.com/rating/willasm.project-notes.svg)
 
-# project-notes
+# Project Notes + TODO Highlighter
 Adds inline file links to notes in markdown files.
 
-Adds TODO syntax highlighting support to your source files.
+Adds TODO syntax highlighting support to comments in your source files.
 
 Note: This extension should work with any programming language that supports comments. It has been tested with the following languages by file extension...
 
 `asm bat cmd coffee css go html ini js jsx less md php py rb scss ts tbs tsx vue`
+
+If you are using a programming language that this extension does not work with please submit an issue on my [Github Issues page](https://github.com/willasm/project-notes/issues) and I will add it to this extension.
 
 ## Features
 - Link to project note files in Markdown format.
@@ -28,10 +30,10 @@ Example Highlighting ....
 
 
 ## Requirements
-To enable syntax highlighting you will need to add to your `settings.json` file the settings found in [addtosettings.txt](./resources/addtosettings.txt). Just copy and paste them into your settings.json file.
+The requirement to manually add the `"textMateRules"` section to your settings.json file was removed in v0-0-4. This is now only required if you wish to change the default colors and styling of the tags. To change the colors and styling of the tags you will need to add to your `settings.json` file the settings found in [addtosettings.txt](./resources/addtosettings.txt). Just copy and paste them into your settings.json file. See [Changing TAG Colors and Styling](#changing-tag-colors-and-styling) for in depth explanation of how to change the colors and styling of the tags.
 
 ## Extension Commands
-There is three commands availiable from the command pallette.
+There are three commands availiable from the command pallette: (Windows: CTRL+Shift+P or F1) (Mac: CMD+Shift+P)
 - `Project Notes: Open or Create Note`
 
     Opens or Creates a Project Note File from a Comment File Link. [See Using File Links](#using-file-links)
@@ -48,11 +50,11 @@ If you plan to use the File Link feature quite often it is recommended that you 
 ## Using File Links
 Create a comment in the format `// File: Filename.MD`. The `File:` portion is the trigger for highlighting the following file name.
 
-Note that the `MD` extension is optional. The file name is styled as underlined by default (It is not an actual clickable link).
+Note that the `MD` extension is optional. The file name is styled as underlined by default (Note that it is not an actual clickable link).
 
 To create (or open an existing note) simply run the command `Project Notes: Open or Create Note` with the cursor anywhere on the same line as the `Filename.MD` comment. If the file already exists it will be opened in a new editor window, otherwise a new file is created and opened for editing.
 
-Running the command `Project Notes: Open or Create Note` with the cursor on any line without a `File: filename.MD` comment will create (or open) a file with the base name of the folder opened in VSCode. (Typically your projects name).
+Running the command `Project Notes: Open or Create Note` with the cursor on any line without a `File: {filename}.MD` comment will create (or open) a file with the base name of the folder opened in VSCode. (Typically your projects name).
 
 All Note Files are stored in your projects `.vscode` folder (which is created if it does not exist). You may want to add to your `.gitignore` file `.vscode/*.MD` if you do not want Git to track your notes.
 
@@ -65,6 +67,7 @@ The line `"scope"` identifies the tag `TODO`
 The line `"foreground": "#89daff",` is the color setting for the tag `TODO`. Changing this to `"foreground": "#ffffff"` would set the tag color to white.
 
 The line `"fontStyle": ""` sets the font styling. Changing this to `"fontStyle": "bold"` would set the tag `TODO` as bold.
+The styles available are `"italic"`, `"bold"`, `"underline"`, `"italic bold"`, `"italic underline"`, `"bold underline"` and `"italic bold underline"`.
 
 ````
         "scope": "meta.embedded.project-notes.color-todo",
@@ -73,14 +76,6 @@ The line `"fontStyle": ""` sets the font styling. Changing this to `"fontStyle":
           "fontStyle": ""
         }
 ````
-
-## To Do
-Add snippet support.
-
-
-## Known Issues
-None.
-
 
 ## Release Notes
 See the [Release Notes](RELEASE.md) for details.

@@ -1,10 +1,15 @@
 # Release Notes
 
-## [0.0.3] 2022-01-21
-- Removed unnecessary lines from addtosettings.txt
-- Updated package.json
-- Updated example screenshot
-- Updated Readme
+## [0.0.4] 2022-02-03
+### Added
+- package.json Added `"configurationDefaults"` section to remove manual settings.json editing requirement
+
+### Removed
+- Requirement to add scopes to textMateRules in settings.json
+    - This is only reqired if you want to modify the colors and styling
+
+### Updated 
+- README.md to reflect the new changes
 
 For a full list of changes, please see the projects [Changelog](CHANGELOG.md) file.
 
