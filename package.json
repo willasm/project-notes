@@ -7,7 +7,7 @@
 		"name": "William McKeever"
 	},
 	"license": "MIT - SEE LICENSE IN LICENSE.md",
-	"version": "0.0.4",
+	"version": "0.0.5",
 	"engines": {
 		"vscode": "^1.63.0"
 	},
@@ -46,12 +46,28 @@
 				"title": "Project Notes: Open or Create Note"
 			},
 			{
-				"command": "project-notes.browsenotesedit",
+				"command": "project-notes.notesedit",
 				"title": "Project Notes: Open Existing Note (Edit Mode)"
 			},
 			{
-				"command": "project-notes.browsenotespreview",
+				"command": "project-notes.notespreview",
 				"title": "Project Notes: Open Existing Note (Preview Mode)"
+			},
+			{
+				"command": "project-notes.setnotesglobalfolder",
+				"title": "Project Notes: Set Globals Notes Folder Location"
+			},
+			{
+				"command": "project-notes.openorcreateglobalnote",
+				"title": "Project Notes: Open or Create Global Note"
+			},
+			{
+				"command": "project-notes.notesglobaledit",
+				"title": "Project Notes: Open Existing Global Note (Edit Mode)"
+			},
+			{
+				"command": "project-notes.notesglobalpreview",
+				"title": "Project Notes: Open Existing Global Note (Preview Mode)"
 			}
 		],
 		"grammars": [
@@ -69,6 +85,7 @@
 					"meta.embedded.project-notes.color-curly": "other",
 					"meta.embedded.project-notes.color-bracket": "other",
 					"meta.embedded.project-notes.color-filelink": "other",
+					"meta.embedded.project-notes.color-globalfilelink": "other",
 					"meta.embedded.project-notes.color-backticks": "other",
 					"meta.embedded.project-notes.color-dblquote": "other",
 					"meta.embedded.project-notes.color-singlequote": "other",
@@ -88,6 +105,18 @@
 					"meta.embedded.project-notes.color-research": "other",
 					"meta.embedded.project-notes.color-changed": "other",
 					"meta.embedded.project-notes.color-optimize": "other"
+				}
+			}
+		],
+		"configuration": [
+			{
+				"title": "Project Notes",
+				"properties": {
+					"project-notes.globalNotesFolder": {
+						"type": "string",
+						"default": "",
+						"description": "Folder Location for Global Notes"
+					}
 				}
 			}
 		],
@@ -121,6 +150,13 @@
 						"scope": "meta.embedded.project-notes.color-filelink",
 						"settings": {
 							"foreground": "#6ed3c2",
+							"fontStyle": "underline"
+						}
+					},
+					{
+						"scope": "meta.embedded.project-notes.color-globalfilelink",
+						"settings": {
+							"foreground": "#6e9ad3",
 							"fontStyle": "underline"
 						}
 					},

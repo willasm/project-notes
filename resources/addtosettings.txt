@@ -29,6 +29,13 @@
         }
       },
       {
+        "scope": "meta.embedded.project-notes.color-globalfilelink",
+        "settings": {
+          "foreground": "#6e9ad3",
+          "fontStyle": "underline"
+        }
+      },
+      {
         "scope": "meta.embedded.project-notes.color-backticks",
         "settings": {
           "foreground": "#21a0d3",

@@ -1,15 +1,15 @@
 # Release Notes
 
-## [0.0.4] 2022-02-03
+## [0.0.5] 2022-02-04
 ### Added
-- package.json Added `"configurationDefaults"` section to remove manual settings.json editing requirement
+- New command - `Project Notes: Set Globals Notes Folder Location`
+- New command - `Project Notes: Open or Create Global Note`
+- New command - `Project Notes: Open Existing Global Note (Edit Mode)`
+- New command - `Project Notes: Open Existing Global Note (Preview Mode)`
+- Global Note files text Highlighting
+### Fixed
+- File link trigger `File:` is now case insensitive - it was only triggering on lowercase
 
-### Removed
-- Requirement to add scopes to textMateRules in settings.json
-    - This is only reqired if you want to modify the colors and styling
-
-### Updated 
-- README.md to reflect the new changes
 
 For a full list of changes, please see the projects [Changelog](CHANGELOG.md) file.
 
