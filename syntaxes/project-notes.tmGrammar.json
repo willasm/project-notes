@@ -14,6 +14,9 @@
             "include": "#project-notes-color-filelink"
         },
         {
+            "include": "#project-notes-color-globalfilelink"
+        },
+        {
             "include": "#project-notes-color-backticks"
         },
         {
@@ -89,6 +92,14 @@
             "captures": {
                 "1": {
                     "name": "meta.embedded.project-notes.color-filelink"
+                }
+            }
+        },
+        "project-notes-color-globalfilelink": {
+            "match": "(?i)global file:\\s*([a-zA-Z0-9_-]+(.md)?)\\s|$",
+            "captures": {
+                "1": {
+                    "name": "meta.embedded.project-notes.color-globalfilelink"
                 }
             }
         },
@@ -183,6 +194,10 @@
             {
                 "name": "Project-Notes Color File Link",
                 "scope": "meta.embedded.project-notes.color-filelink"
+            },
+            {
+                "name": "Project-Notes Color Global File Link",
+                "scope": "meta.embedded.project-notes.color-globalfilelink"
             },
             {
                 "name": "Project-Notes Color Backticks",
