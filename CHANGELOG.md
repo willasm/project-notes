@@ -6,6 +6,7 @@
 ### Deprecated
 ### Removed
 ### Fixed
+- Global Note Files picker for View/Edit was only detecting lowercase .md
 ### Security
 ### Updated 
 -->
