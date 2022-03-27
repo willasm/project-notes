@@ -30,8 +30,15 @@ let commentsRegEx;
     await initTagSettingsFilePath();                        // Initialize Tag settings file
     tagFileData = await readFile(tagSettingsFile, 'utf-8'); // Read file into memory
     const tagFileJsonData = JSON.parse(tagFileData);        // Parse the tag settings json file
+
+    //---- Set gutter icon, but it overwrites breakpoints so I'm leaving it out
+    // tagFileJsonData.tagsArray.forEach(element => {
+    //     element.decoratorOptions.gutterIconSize = "contain";
+    //     element.decoratorOptions.gutterIconPath = "C:\\programming\\code\\my_code\\vscode\\project-notes\\images\\gutterIcon.png";
+    // });
+
     getExtension();                                         // Get the extension for current file
-    
+
     // ========================================================================== //
     //      Activate - Register Extension Commands
     vscode.commands.registerCommand('project-notes.openorcreatenote', openOrCreateNote);
@@ -160,6 +167,7 @@ function updateDecorations() {
                 for (let hoverTextIndex = 1; hoverTextIndex < 5; hoverTextIndex++) {
                     hoverText = commentMatch[0];                        // Default to entire comment in case no match found
                     if (commentMatch[hoverTextIndex] != undefined) {
+                        //console.log(commentMatch[hoverTextIndex]);
                         hoverText = commentMatch[hoverTextIndex];
                         break;
                     }

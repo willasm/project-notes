@@ -6,19 +6,15 @@
       "keyword": "bug",
       "isEnabled": true,
       "decoratorOptions": {
-        "overviewRulerLane": "vscode.OverviewRulerLane.Right",
-        "overviewRulerColor": "yellow",
-        "borderWidth": "2px",
-        "borderStyle": "solid",
         "borderRadius": "5px",
         "light": {
+          "borderColor": "#ff806f",
           "backgroundColor": "#ff806f",
-          "borderColor": "white",
           "color": "#79180b"
         },
         "dark": {
+          "borderColor": "#79180b",
           "backgroundColor": "#79180b",
-          "borderColor": "white",
           "color": "#ff806f"
         }
       }
@@ -28,8 +24,6 @@
       "keyword": "changed",
       "isEnabled": true,
       "decoratorOptions": {
-        "borderWidth": "2px",
-        "borderStyle": "solid",
         "borderRadius": "5px",
         "light": {
           "borderColor": "#c5952d",
@@ -37,8 +31,8 @@
           "color": "#33270b"
         },
         "dark": {
-          "borderColor": "#33270b",
-          "backgroundColor": "#33270b",
+          "borderColor": "#4b3d17",
+          "backgroundColor": "#4b3d17",
           "color": "#c5952d"
         }
       }
@@ -48,8 +42,6 @@
       "keyword": "debug",
       "isEnabled": true,
       "decoratorOptions": {
-        "borderWidth": "2px",
-        "borderStyle": "solid",
         "borderRadius": "5px",
         "light": {
           "borderColor": "#c07936",
@@ -68,8 +60,6 @@
       "keyword": "fixme",
       "isEnabled": true,
       "decoratorOptions": {
-        "borderWidth": "2px",
-        "borderStyle": "solid",
         "borderRadius": "5px",
         "light": {
           "borderColor": "#f3c280",
@@ -88,8 +78,6 @@
       "keyword": "hack",
       "isEnabled": true,
       "decoratorOptions": {
-        "borderWidth": "2px",
-        "borderStyle": "solid",
         "borderRadius": "5px",
         "light": {
           "borderColor": "#c83ef1",
@@ -108,8 +96,6 @@
       "keyword": "idea",
       "isEnabled": true,
       "decoratorOptions": {
-        "borderWidth": "2px",
-        "borderStyle": "solid",
         "borderRadius": "5px",
         "light": {
           "borderColor": "#f0cc2e",
@@ -128,8 +114,6 @@
       "keyword": "note",
       "isEnabled": true,
       "decoratorOptions": {
-        "borderWidth": "2px",
-        "borderStyle": "solid",
         "borderRadius": "5px",
         "light": {
           "borderColor": "#d1bbdd",
@@ -148,8 +132,6 @@
       "keyword": "optimize",
       "isEnabled": true,
       "decoratorOptions": {
-        "borderWidth": "2px",
-        "borderStyle": "solid",
         "borderRadius": "5px",
         "light": {
           "borderColor": "#a6ffdd",
@@ -168,8 +150,6 @@
       "keyword": "research",
       "isEnabled": true,
       "decoratorOptions": {
-        "borderWidth": "2px",
-        "borderStyle": "solid",
         "borderRadius": "5px",
         "light": {
           "borderColor": "#94e1f1",
@@ -188,8 +168,6 @@
       "keyword": "review",
       "isEnabled": true,
       "decoratorOptions": {
-        "borderWidth": "2px",
-        "borderStyle": "solid",
         "borderRadius": "5px",
         "light": {
           "borderColor": "#40bdee",
@@ -208,8 +186,6 @@
       "keyword": "temp",
       "isEnabled": true,
       "decoratorOptions": {
-        "borderWidth": "2px",
-        "borderStyle": "solid",
         "borderRadius": "5px",
         "light": {
           "borderColor": "#97af8f",
@@ -228,8 +204,6 @@
       "keyword": "todo",
       "isEnabled": true,
       "decoratorOptions": {
-        "borderWidth": "2px",
-        "borderStyle": "solid",
         "borderRadius": "5px",
         "light": {
           "borderColor": "#b5c058",
@@ -247,8 +221,8 @@
   "tagBlocksArray": [
     {
       "description": "Main Title - Highlights Main Title Block",
-      "startText": " ~~** ",
-      "endText": " **~~ ",
+      "startText": " ● ",
+      "endText": " ● ",
       "isEnabled": true,
       "decoratorOptions": {
         "borderWidth": "2px",
@@ -268,8 +242,8 @@
     },
     {
       "description": "Sub Title - Highlights Sub Title Block",
-      "startText": " ~* ",
-      "endText": " *~ ",
+      "startText": " • ",
+      "endText": " • ",
       "isEnabled": true,
       "decoratorOptions": {
         "borderWidth": "1px",
@@ -278,11 +252,11 @@
         "light": {
           "borderColor": "red",
           "backgroundColor": "DarkBlue",
-          "color": "#79180b"
+          "color": "pink"
         },
         "dark": {
           "borderColor": "yellow",
-          "backgroundColor": "brown",
+          "backgroundColor": "#3c300e",
           "color": "gold"
         }
       }
@@ -310,11 +284,11 @@
     },
     {
       "description": "Underline - Underline Text Block",
-      "startText": "_",
-      "endText": "_",
+      "startText": "₋",
+      "endText": "₋",
       "isEnabled": true,
       "decoratorOptions": {
-        "borderRadius": "5px",
+        "fontWeight": "bold",
         "light": {
           "backgroundColor": "",
           "color": "black",
@@ -330,20 +304,20 @@
     },
     {
       "description": "Strikethrough - Strikethrough Text Block",
-      "startText": " -",
-      "endText": "- ",
+      "startText": "╶",
+      "endText": "╴",
       "isEnabled": true,
       "decoratorOptions": {
-        "borderRadius": "5px",
+        "fontWeight": "bold",
         "light": {
           "backgroundColor": "",
-          "color": "red",
+          "color": "black",
           "textDecoration": "line-through red 2px"
         },
         "dark": {
           "backgroundColor": "",
-          "color": "pink",
-          "textDecoration": "line-through pink 2px"
+          "color": "lime",
+          "textDecoration": "line-through yellow 2px"
         }
       }
     }
