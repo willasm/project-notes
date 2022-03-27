@@ -68,48 +68,19 @@
 			{
 				"command": "project-notes.notesglobalpreview",
 				"title": "Project Notes: Open Existing Global Note (Preview Mode)"
-			}
-		],
-		"grammars": [
+			},
 			{
-				"path": "./syntaxes/project-notes.tmGrammar.json",
-				"scopeName": "project-notes.injection",
-				"injectTo": [
-					"source",
-					"text.html",
-					"source.vue",
-					"source.tbscript"
-				],
-				"tokenTypes": {
-					"meta.embedded.project-notes.color-parentheses": "other",
-					"meta.embedded.project-notes.color-curly": "other",
-					"meta.embedded.project-notes.color-bracket": "other",
-					"meta.embedded.project-notes.color-filelink": "other",
-					"meta.embedded.project-notes.color-globalfilelink": "other",
-					"meta.embedded.project-notes.color-backticks": "other",
-					"meta.embedded.project-notes.color-dblquote": "other",
-					"meta.embedded.project-notes.color-singlequote": "other",
-					"meta.embedded.project-notes.color-one": "other",
-					"meta.embedded.project-notes.color-two": "other",
-					"meta.embedded.project-notes.color-three": "other",
-					"meta.embedded.project-notes.color-four": "other",
-					"meta.embedded.project-notes.color-todo": "other",
-					"meta.embedded.project-notes.color-note": "other",
-					"meta.embedded.project-notes.color-fixme": "other",
-					"meta.embedded.project-notes.color-bug": "other",
-					"meta.embedded.project-notes.color-debug": "other",
-					"meta.embedded.project-notes.color-hack": "other",
-					"meta.embedded.project-notes.color-temp": "other",
-					"meta.embedded.project-notes.color-idea": "other",
-					"meta.embedded.project-notes.color-review": "other",
-					"meta.embedded.project-notes.color-research": "other",
-					"meta.embedded.project-notes.color-changed": "other",
-					"meta.embedded.project-notes.color-optimize": "other"
-				}
+				"command": "project-notes.edit-settings-file",
+				"title": "Project Notes: Edit Tags Settings File"
+			},
+			{
+				"command": "project-notes.restore-settings-file",
+				"title": "Project Notes: Restore Tag Settings File"
 			}
 		],
 		"configuration": [
 			{
+				"type": "object",
 				"title": "Project Notes",
 				"properties": {
 					"project-notes.globalNotesFolder": {
@@ -119,183 +90,7 @@
 					}
 				}
 			}
-		],
-		"configurationDefaults": {
-			"editor.tokenColorCustomizations": {
-				"textMateRules": [
-					{
-						"scope": [
-							"meta.embedded.project-notes.color-parentheses"
-						],
-						"settings": {
-							"foreground": "#a38cda",
-							"fontStyle": "bold"
-						}
-					},
-					{
-						"scope": "meta.embedded.project-notes.color-curly",
-						"settings": {
-							"foreground": "#fcf950",
-							"fontStyle": "bold"
-						}
-					},
-					{
-						"scope": "meta.embedded.project-notes.color-bracket",
-						"settings": {
-							"foreground": "#3afff5",
-							"fontStyle": "bold"
-						}
-					},
-					{
-						"scope": "meta.embedded.project-notes.color-filelink",
-						"settings": {
-							"foreground": "#6ed3c2",
-							"fontStyle": "underline"
-						}
-					},
-					{
-						"scope": "meta.embedded.project-notes.color-globalfilelink",
-						"settings": {
-							"foreground": "#6e9ad3",
-							"fontStyle": "underline"
-						}
-					},
-					{
-						"scope": "meta.embedded.project-notes.color-backticks",
-						"settings": {
-							"foreground": "#21a0d3",
-							"fontStyle": "italic"
-						}
-					},
-					{
-						"scope": "meta.embedded.project-notes.color-dblquote",
-						"settings": {
-							"foreground": "#a7e0f7",
-							"fontStyle": "italic"
-						}
-					},
-					{
-						"scope": "meta.embedded.project-notes.color-singlequote",
-						"settings": {
-							"foreground": "#5ecaf5",
-							"fontStyle": "italic"
-						}
-					},
-					{
-						"scope": "meta.embedded.project-notes.color-one",
-						"settings": {
-							"foreground": "#ff4040",
-							"fontStyle": "bold"
-						}
-					},
-					{
-						"scope": "meta.embedded.project-notes.color-two",
-						"settings": {
-							"foreground": "#fffb00",
-							"fontStyle": "underline"
-						}
-					},
-					{
-						"scope": "meta.embedded.project-notes.color-three",
-						"settings": {
-							"foreground": "#bfffac",
-							"fontStyle": "italic"
-						}
-					},
-					{
-						"scope": "meta.embedded.project-notes.color-four",
-						"settings": {
-							"foreground": "#acf5ff",
-							"fontStyle": "italic bold underline"
-						}
-					},
-					{
-						"scope": "meta.embedded.project-notes.color-todo",
-						"settings": {
-							"foreground": "#89daff",
-							"fontStyle": ""
-						}
-					},
-					{
-						"scope": "meta.embedded.project-notes.color-note",
-						"settings": {
-							"foreground": "#21bed3",
-							"fontStyle": ""
-						}
-					},
-					{
-						"scope": "meta.embedded.project-notes.color-fixme",
-						"settings": {
-							"foreground": "#c7743d",
-							"fontStyle": ""
-						}
-					},
-					{
-						"scope": "meta.embedded.project-notes.color-bug",
-						"settings": {
-							"foreground": "#f3725c",
-							"fontStyle": ""
-						}
-					},
-					{
-						"scope": "meta.embedded.project-notes.color-debug",
-						"settings": {
-							"foreground": "#f09036",
-							"fontStyle": ""
-						}
-					},
-					{
-						"scope": "meta.embedded.project-notes.color-hack",
-						"settings": {
-							"foreground": "#c83ef1",
-							"fontStyle": ""
-						}
-					},
-					{
-						"scope": "meta.embedded.project-notes.color-temp",
-						"settings": {
-							"foreground": "#97af8f",
-							"fontStyle": ""
-						}
-					},
-					{
-						"scope": "meta.embedded.project-notes.color-idea",
-						"settings": {
-							"foreground": "#f0cc2e",
-							"fontStyle": ""
-						}
-					},
-					{
-						"scope": "meta.embedded.project-notes.color-review",
-						"settings": {
-							"foreground": "#40bdee",
-							"fontStyle": ""
-						}
-					},
-					{
-						"scope": "meta.embedded.project-notes.color-research",
-						"settings": {
-							"foreground": "#7ad8f0",
-							"fontStyle": ""
-						}
-					},
-					{
-						"scope": "meta.embedded.project-notes.color-changed",
-						"settings": {
-							"foreground": "#f3b736",
-							"fontStyle": ""
-						}
-					},
-					{
-						"scope": "meta.embedded.project-notes.color-optimize",
-						"settings": {
-							"foreground": "#a6ffdd",
-							"fontStyle": ""
-						}
-					}
-				]
-			}
-		}
+		]
 	},
 	"scripts": {
 		"lint": "eslint .",
