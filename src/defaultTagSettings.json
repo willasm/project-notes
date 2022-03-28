@@ -468,7 +468,7 @@
     },
     {
       "description": "// Single line comments -or- /* Single line comments */ -or- /* Multiline comments */",
-      "ext": ["c", "cc", "cp", "cs", "cpp", "c++", "cxx", "cppm", "ixx", "go", "java", "js", "jsx", "kt", "kts", "ktm", "less", "php", "scss", "ts", "tsx", "vue", "jsonc"],
+      "ext": ["c", "cc", "cp", "cs", "cpp", "c++", "cxx", "cppm", "ixx", "go", "java", "js", "jsx", "kt", "kts", "ktm", "less", "php", "scss", "ts", "txs", "vue", "jsonc"],
       "commentsRegEx": "(?<!:)\\/\\/\\s*(.+$)|\\/\\*\\s*([\\s\\S]+?)\\s*\\*\\/|\\/\\*\\*?[\\r?\\n]([\\s\\S]+?)\\*\\*?\\/"
     },
     {

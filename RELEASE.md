@@ -1,26 +1,14 @@
 # Release Notes
 
-<!-- ## [v-inc] ${YEAR4}-${MONTHNUMBER}-${DATE} -->
-
-## [0.0.6] 2022-03-28
-- New command - `Project Notes: Edit Tags Settings File`
-- New command - `Project Notes: Restore Tag Settings File`
-- All tag settings are now stored in `project-notes-tag-settings.json` file
-- Light and Dark theme aware highlighting
-- New `Tags` can be added to the [settings](SETTINGS.md) file
-- All `Tags` can be enabled or disabled individually in the [settings](SETTINGS.md) file
-- Highlighting of user definable `Tag Blocks`
-- Added [settings](SETTINGS.md) documentation file
-- Added [Upgrading from previous versions](UPGRADING.md) documentation file
-- New screenshots to reflect the new changes
+## [0.0.5] 2022-02-04
+### Added
+- New command - `Project Notes: Set Globals Notes Folder Location`
+- New command - `Project Notes: Open or Create Global Note`
+- New command - `Project Notes: Open Existing Global Note (Edit Mode)`
+- New command - `Project Notes: Open Existing Global Note (Preview Mode)`
+- Global Note files text Highlighting
 ### Fixed
-- Highlighting in multiline comments was not working properly
-### Changed
-- Now uses text decorations for highlighting
-- File link trigger `File: filename.md` has been changed to `Project File: filename.md`
-- File link trigger now requires the `.MD` extension to remove any confusion on notes file format
-### Removed
-- Dependency on TextMateRules for syntax highlighting
+- File link trigger `File:` is now case insensitive - it was only triggering on lowercase
 
 
 For a full list of changes, please see the projects [Changelog](CHANGELOG.md) file.
