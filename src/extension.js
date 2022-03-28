@@ -321,7 +321,7 @@ function updateDecorations() {
     specialTagIndex ++;
 
     // ========================================================================== //
-    // Special Tags -Backticks
+    // Special Tags - Backticks
     let backtickRegEx = /(`.*?`)/gi;
     while (commentMatch = commentsRegEx.exec(text)) {
         while (specialMatch = backtickRegEx.exec(commentMatch[0])) {
@@ -498,7 +498,7 @@ async function openOrCreateNote() {
     // ========================================================================== //
     //      openOrCreateNote - Get current lines text
     const lineText = editor.document.lineAt(editor.selection.active.line).text;
-    const fileregex = new RegExp(/file: *([A-Za-z0-9_-]+)/i);
+    const fileregex = new RegExp(/project file: *([A-Za-z0-9_-]+)/i);
     var found = fileregex.test(lineText);
 
     // ========================================================================== //
