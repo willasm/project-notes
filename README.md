@@ -5,7 +5,7 @@
 
 # Project Notes + TODO Highlighter
 
-Important!!! For users that are upgrading please see [Upgrading Notes File](UPGRADING.md) for important information regarding changes from the old version..
+Important!!! For users that are upgrading from v0.0.5 or earlier please see [Upgrading Notes File](UPGRADING.md) for important information regarding changes from the older versions..
 
 Adds inline file links to notes in markdown files.
 
@@ -13,7 +13,7 @@ Adds TODO syntax highlighting support to comments in your source files.
 
 Note: This extension provides syntax highlighting for definable keywords within your source code. The highlighting is enabled by file extension. It has support for the following languages by file extension...
 
-`asm bat c c++ cc cmd coffee cp cpp cppm css cxx go html ini ixx js jsonc jsx less md php py rb scss tbs ts tsx vue`
+`asm bas bat c c++ cc cls cmd coffee cp cpp cppm css cxx dpr go html ini ixx js jsonc jsx less m mat md pas pl php py r rlib rs rb scss sql swift tbs ts twig txs vue`
 
 It is possible to [add new extensions](SETTINGS.md) to the settings file. If you are using a programming language that this extension does not support and you need assistance adding it to the settings file, please submit an issue on my [Github Issues page](https://github.com/willasm/project-notes/issues) and I will add support for it to this extension.
 

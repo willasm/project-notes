@@ -464,22 +464,22 @@
     {
       "description": "# or ; Single line comments",
       "ext": ["asm", "ini"],
-      "commentsRegEx": "[#|;][^\\r?\\n]\\s*([^\\r?\\n]+?)[\\r?\\n]"
+      "commentsRegEx": "[#|;][^\\r\\n]\\s*([^\\r\\n]+?)[\\r\\n]"
     },
     {
       "description": "// Single line comments -or- /* Single line comments */ -or- /* Multiline comments */",
-      "ext": ["c", "cc", "cp", "cs", "cpp", "c++", "cxx", "cppm", "ixx", "go", "java", "js", "jsx", "kt", "kts", "ktm", "less", "php", "scss", "ts", "tsx", "vue", "jsonc"],
-      "commentsRegEx": "(?<!:)\\/\\/\\s*(.+$)|\\/\\*\\s*([\\s\\S]+?)\\s*\\*\\/|\\/\\*\\*?[\\r?\\n]([\\s\\S]+?)\\*\\*?\\/"
+      "ext": ["c", "cc", "cp", "cs", "cpp", "c++", "cxx", "cppm", "ixx", "go", "java", "js", "jsx", "kt", "kts", "ktm", "less", "php", "scss", "swift", "ts", "tsx", "vue", "jsonc"],
+      "commentsRegEx": "(?<!:)\\/\\/\\s*(.+$)|\\/\\*\\s*([\\s\\S]+?)\\s*\\*\\/|\\/\\*\\*?[\\r\\n]([\\s\\S]+?)\\*\\*?\\/"
     },
     {
-      "description": "/* Single line comments */ -or- /* Multiline comments */",
+      "description": "/* Single line comments */ -and- /* Multiline comments */",
       "ext": ["css"],
-      "commentsRegEx": "\\/\\*\\s*([\\s\\S]+?)\\s*\\*\\/|\\/\\*\\*?[\\r?\\n]([\\s\\S]+?)\\*\\*?\\/"
+      "commentsRegEx": "\\/\\*\\s*([\\s\\S]+?)\\s*\\*\\/"
     },
     {
       "description": "### Multiline comments -or- # Single line comments",
       "ext": ["coffee"],
-      "commentsRegEx": "\\#\\#\\#\\s*([\\s\\S]+?)\\s*\\#\\#\\#[\\r?\\n]?|\\#[^\\r?\\n]\\s*([\\s\\S]+?)[\\r?\\n]"
+      "commentsRegEx": "\\#\\#\\#\\s*([\\s\\S]+?)\\s*\\#\\#\\#[\\r\\n]?|\\#[^\\r\\n]\\s*([\\s\\S]+?)[\\r\\n]"
     },
     {
       "description": "// -or- ; Single line comments",
@@ -489,17 +489,67 @@
     {
       "description": "rem -or- :: -or- & :: Single line comments",
       "ext": ["bat", "cmd"],
-      "commentsRegEx": "rem\\s*([^\\r?\\n]+?)[\\r?\\n]|::\\s*([^\\r?\\n]+?)[\\r?\\n]|& ::\\s*([^\\r?\\n]+?)[\\r?\\n]"
+      "commentsRegEx": "rem\\s*([^\\r\\n]+?)[\\r\\n]|::\\s*([^\\r\\n]+?)[\\r\\n]|& ::\\s*([^\\r\\n]+?)[\\r\\n]"
     },
     {
       "description": "<!-- Single line comments --> -or- {{* Single and Multiline comments *}} -or- // Single line comments -or- /* Single line comments */ -or- /* Multiline comments */",
       "ext": ["html", "vue"],
-      "commentsRegEx": "<!--\\s*([\\s\\S]*?)\\s*-->|\\{\\{\\/\\*[\\r?\\n]?([\\s\\S]*?)\\*\\/}\\}|(?<!:)\\/\\/\\s*(.+$)|\\/\\*\\s*([\\s\\S]+?)\\s*\\*\\/|\\/\\*\\*?[\\r?\\n]([\\s\\S]+?)\\*\\*?\\/"
+      "commentsRegEx": "<!--\\s*([\\s\\S]*?)\\s*-->|\\{\\{\\/\\*[\\r\\n]?([\\s\\S]*?)\\*\\/}\\}|(?<!:)\\/\\/\\s*(.+$)|\\/\\*\\s*([\\s\\S]+?)\\s*\\*\\/|\\/\\*\\*?[\\r\\n]([\\s\\S]+?)\\*\\*?\\/"
     },
     {
       "description": "<!-- Single line and Multiline comments --> -or- {::comment} Single line and Multiline comments {:/comment} -or- []: # Single line comments",
       "ext": ["md"],
-      "commentsRegEx": "<!---?\\s*([\\s\\S]+?)\\s*-->|{::comment}[\\r?\\n]?\\s*([\\s\\S]+?){:\\/comment}|\\[[\\s\\S]*?\\]:\\s+#\\s+([^\\r?\\n]+)[\\r?\\n]?"
+      "commentsRegEx": "<!---?\\s*([\\s\\S]+?)\\s*-->|{::comment}[\\r\\n]?\\s*([\\s\\S]+?){:\\/comment}|\\[[\\s\\S]*?\\]:\\s+#\\s+([^\\r\\n]+)[\\r\\n]?"
+    },
+    {
+      "description": "/* Multiline comments */ -and- /* Single line comments */ -or- -- Single line comments",
+      "ext": ["sql"],
+      "commentsRegEx": "\\/\\*\\s*([\\s\\S]+?)\\s*\\*\\/|--\\s*([^\\r\\n]+)"
+    },
+    {
+      "description": "\"\"\" Multiline comments \"\"\" -or- # Single line comments",
+      "ext": ["py"],
+      "commentsRegEx": "\\\"\\\"\\\"\\s*([\\s\\S]+?)[\\r\\n]*\\\"\\\"\\\"|#\\s*([^\\r\\n]+)"
+    },
+    {
+      "description": "=begin Multiline comments =end -or- # Single line comments",
+      "ext": ["rb"],
+      "commentsRegEx": "(?:=begin)[\\r\\n]+\\s*([\\s\\S]*?)(?:=end)|#\\s*([^\\r\\n]+)"
+    },
+    {
+      "description": "/// Single line comments -and- //! Single line comments -and- // Single line comments",
+      "ext": ["rs", "rlib"],
+      "commentsRegEx": "\\/\\/\\/[^\\r\\n]\\s*([^\\r\\n]+)|\\/\\/![^\\r\\n]\\s*([^\\r\\n]+)|\\/\\/[^\\/!\\r\\n]([^\\r\\n]+)"
+    },
+    {
+      "description": "{# Single line comments -and- Multiline comments #}",
+      "ext": ["twig"],
+      "commentsRegEx": "{#\\s*([\\s\\S]+?)\\s*#}"
+    },
+    {
+      "description": "{# Single line comments -or- =anyword Multiline comments =cut",
+      "ext": ["pl"],
+      "commentsRegEx": "(?:^=)(?:[^\\r\\n]+)[\\r\\n]\\s*([\\s\\S]+?)[\\r\\n]+=cut|(?:#)\\s*([^\\r\\n]+)"
+    },
+    {
+      "description": "%{ Multiline comments %} -or % Single line comments -or- ...Commenting part of a statement spanning multiple lines uses ellipsis...",
+      "ext": ["m", "mat"],
+      "commentsRegEx": "^%{[\\r\\n]([\\s\\S]+?)^%}|%\\s*([^\\r\\n]+)|\\.\\.\\.([^\\r\\n]+)\\.\\.\\."
+    },
+    {
+      "description": "(single quote) Single line comment",
+      "ext": ["bas", "cls"],
+      "commentsRegEx": "'\\s*([^\\r\\n]+)"
+    },
+    {
+      "description": "# Single line comment",
+      "ext": ["r"],
+      "commentsRegEx": "#\\s*([^\\r\\n]+)"
+    },
+    {
+      "description": "// Single line comment -or- { Multiline comment } -or- (* Multiline comment*)",
+      "ext": ["dpr", "pas"],
+      "commentsRegEx": "\\/\\/\\s*([^\\r\\n]+?)[\\r\\n]|\\(\\*\\s*([\\s\\S]+?)\\s*\\*\\)|\\{\\s*([\\s\\S]+?)\\s*\\}"
     }
   ]
 }
