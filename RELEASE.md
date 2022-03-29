@@ -16,7 +16,7 @@
 - New screenshots to reflect the new changes
 ### Fixed
 - Highlighting in multiline comments was not working properly
-- Opening project files not adding lowercase extension files to pick list
+- Opening project note files not adding lowercase extension files to pick list
 ### Changed
 - Now uses text decorations for highlighting
 - File link trigger `File: filename.md` has been changed to `Project File: filename.md`
