@@ -15,14 +15,14 @@ let tagSettingsFile;
 let currentFileExt;
 let commentsRegEx;
 
-// ========================================================================== //
-//                     ---=== [Function Activate] ===---
-//                          (Extension Activation)
-// ========================================================================== //
+//  ╭──────────────────────────────────────────────────────────────────────────────╮
+//  │                            ● Function Activate ●                             │
+//  │                                                                              │
+//  │                          • Update Our Decorations •                          │
+//  ╰──────────────────────────────────────────────────────────────────────────────╯
 async function activate(context) {
 
-    // ========================================================================== //
-    //      Activate - Initialize Extension
+    // Activate - Initialize Extension 
     myContext = context;                                    // Save Context
     // Get Tag Settings Data
     tagSettingsPath = context.globalStorageUri.fsPath;      // Get Global Storage Path
@@ -38,10 +38,8 @@ async function activate(context) {
     // });
 
     getExtension();                                         // Get the extension for current file
-    //console.log('got ext', currentFileExt);
 
-    // ========================================================================== //
-    //      Activate - Register Extension Commands
+    // Activate - Register Extension Commands 
     vscode.commands.registerCommand('project-notes.openorcreatenote', openOrCreateNote);
     vscode.commands.registerCommand('project-notes.notesedit', notesEdit);
     vscode.commands.registerCommand('project-notes.notespreview', notesPreview);
@@ -53,8 +51,7 @@ async function activate(context) {
     vscode.commands.registerCommand('project-notes.restore-settings-file', restoreTagSettingsFile);
     vscode.commands.registerCommand('project-notes.init-settings-file', initTagSettingsFilePath);
 
-    // ========================================================================== //
-    //      Activate - Push Subscriptions
+    // Activate - Push Subscriptions 
     context.subscriptions.push(openOrCreateNote);
     context.subscriptions.push(notesEdit);
     context.subscriptions.push(notesPreview);
@@ -68,65 +65,53 @@ async function activate(context) {
 
 	let activeEditor = vscode.window.activeTextEditor;      // Get active editor
 
-    // ========================================================================== //
-    //      Set Decoration Types
+    // Activate - Set Decoration Types 
     let decorationTypes = [];
     // Tag Types Objects
     tagFileJsonData.tagsArray.forEach(element => {
-        //console.log(element);
         let decorationType = vscode.window.createTextEditorDecorationType(element.decoratorOptions);
         decorationTypes.push(decorationType);
     });
     // Tag Block Types Objects
     tagFileJsonData.tagBlocksArray.forEach(element => {
-        //console.log(element);
         let decorationType = vscode.window.createTextEditorDecorationType(element.decoratorOptions);
         decorationTypes.push(decorationType);
     });
     // Special Tag Types Objects
     tagFileJsonData.specialTagsArray.forEach(element => {
-        //console.log(element);
         let decorationType = vscode.window.createTextEditorDecorationType(element.decoratorOptions);
         decorationTypes.push(decorationType);
     });
 
 
-// ========================================================================== //
-//                 ---=== [Function updateDecorations] ===---
-//                          (Update Our Decorations)
-// ========================================================================== //
+//  ╭──────────────────────────────────────────────────────────────────────────────╮
+//  │                        ● Function updateDecorations ●                        │
+//  │                                                                              │
+//  │                          • Update Our Decorations •                          │
+//  ╰──────────────────────────────────────────────────────────────────────────────╯
 function updateDecorations() {
-//    console.log("-------------------------------------------------------");
-//    console.log("Updating Decorations...");
 	if (!activeEditor) {                    // If no active editor then return
 		return;
 	}
     
-    // ========================================================================== //
-    //      updateDecorations - If no file extension found then return
+    // updateDecorations - If no file extension found then return 
     if (currentFileExt === "") {
         return;
     }
 
-    // ========================================================================== //
-    //      updateDecorations - Clear previous comment Regex definition
+    // updateDecorations - Clear previous comment Regex definition 
     commentsRegEx = "";
 
-    // ========================================================================== //
-    //      updateDecorations - Get comment symbols and set comments RegEx
+    // updateDecorations - Get comment symbols and set comments RegEx 
     let i = 0;
     tagFileJsonData.extensions.forEach(e => {
         let arr = tagFileJsonData.extensions[i].ext;
         const extMatch = arr.some((e) => {
             return e === currentFileExt;
         })
-        //console.log('Current File Extension ',currentFileExt);
         if (extMatch) {                        // If extension supported then set comment's RegEx
-            //console.log('Matched', currentFileExt);
             commentString = tagFileJsonData.extensions[i].commentsRegEx;
-            //console.log(commentString);
             commentsRegEx = new RegExp(commentString,'gmi')
-            //console.log(commentsRegEx);
         }
         i ++;
     })
@@ -134,8 +119,7 @@ function updateDecorations() {
         return;
     }
 
-    // ========================================================================== //
-    //      updateDecorations - Search for tag matches
+    // updateDecorations - Search for tag matches 
     let commentMatch;
     let keywordMatch;
     const text = activeEditor.document.getText();                   // Load active document into text buffer
@@ -157,35 +141,25 @@ function updateDecorations() {
         decorationOptionsArray.push(decorationOptions);
     });
 
-    // ========================================================================== //
-    // Pre-defined Tags
+    // updateDecorations - Pre-defined Tags 
     let index = 0;
     tagFileJsonData.tagsArray.forEach(element => {
         let keyword = element.keyword
         let keywordRegex = new RegExp('\\b'+keyword+'\\b:?', 'gi');
-        //console.log(keywordRegex);
         while (commentMatch = commentsRegEx.exec(text)) {
-            //console.log(`Found ${commentMatch[0]} at position ${commentMatch.index} with a length of ${commentMatch[0].length}`)
             while (keywordMatch = keywordRegex.exec(commentMatch[0])) {
-                //console.log("-------------------------------------------------------");
-                //console.log(`Found ${keywordMatch[0]} at position ${keywordMatch.index} with a length of ${keywordMatch[0].length}`)
                 let startPosition = commentMatch.index + keywordMatch.index;
                 let endPosition = startPosition + keywordMatch[0].length;
                 for (let hoverTextIndex = 1; hoverTextIndex < 5; hoverTextIndex++) {
                     hoverText = commentMatch[0];                        // Default to entire comment in case no match found
                     if (commentMatch[hoverTextIndex] != undefined) {
-                        //console.log(commentMatch[hoverTextIndex]);
                         hoverText = commentMatch[hoverTextIndex];
                         break;
                     }
                 };
-                //console.log(hoverText);
-                //console.log(`Found ${keywordMatch[0]} starting at file position ${startPosition} and ending at file position ${endPosition}`);
-                //console.log("-------------------------------------------------------");
                 let rangeStart = activeEditor.document.positionAt(startPosition);
                 let rangeEnd = activeEditor.document.positionAt(endPosition);
                 const decoration = { range: new vscode.Range(rangeStart, rangeEnd), hoverMessage: hoverText };
-                //console.log(decoration);
                 decorationOptionsArray[index].push(decoration);
             }
         }
@@ -193,18 +167,15 @@ function updateDecorations() {
             activeEditor.setDecorations(decorationTypes[index], decorationOptionsArray[index]);
         }
         index ++;
-        //console.log(index);
     })
 
-    // ========================================================================== //
-    // Tag Blocks - Main Title
+    // updateDecorations - Tag Blocks - Main Title 
     tagFileJsonData.tagBlocksArray.forEach(element => {
         let regExStart = element.startText;
         let regExStartFixed = regExStart.replace(/[|\\{}()[\]^$+*?.]/g, '\\$&');
         let regExEnd = element.endText;
         let regExEndFixed = regExEnd.replace(/[|\\{}()[\]^$+*?.]/g, '\\$&');
         let tagBlockRegEx = new RegExp(regExStartFixed+'([^\r\n]+?)'+regExEndFixed,'gi');
-        //console.log(tagBlockRegEx);
         while (commentMatch = commentsRegEx.exec(text)) {
             while (specialMatch = tagBlockRegEx.exec(commentMatch[0])) {
                 let startPosition = commentMatch.index + specialMatch.index;
@@ -222,8 +193,7 @@ function updateDecorations() {
         index ++;
     })
 
-    // ========================================================================== //
-    // Special Tags - File Link
+    // updateDecorations - Special Tags - File Link 
     let specialTagIndex = 0;
     let filelinkRegEx = /project file:\s*([\w\s\d!@()\-+]+.md)/gi;
     while (commentMatch = commentsRegEx.exec(text)) {
@@ -245,8 +215,7 @@ function updateDecorations() {
     index ++;
     specialTagIndex ++;
 
-    // ========================================================================== //
-    // Special Tags - Global File Link
+    // updateDecorations - Special Tags - Global File Link 
     let globalFilelinkRegEx = /global file:\s*([\w\s\d!@()\-+]+.md)/gi;
     while (commentMatch = commentsRegEx.exec(text)) {
         while (specialMatch = globalFilelinkRegEx.exec(commentMatch[0])) {
@@ -267,8 +236,7 @@ function updateDecorations() {
     index ++;
     specialTagIndex ++;
 
-    // ========================================================================== //
-    // Special Tags - Parentheses
+    // updateDecorations - Special Tags - Parentheses 
     let parenthesesRegEx = /(\(.+\))/gi;
     while (commentMatch = commentsRegEx.exec(text)) {
         while (specialMatch = parenthesesRegEx.exec(commentMatch[0])) {
@@ -287,8 +255,7 @@ function updateDecorations() {
     index ++;
     specialTagIndex ++;
 
-    // ========================================================================== //
-    // Special Tags - Curly Braces
+    // updateDecorations - Special Tags - Curly Braces 
     let curlyRegEx = /(\{.+\})/gi;
     while (commentMatch = commentsRegEx.exec(text)) {
         while (specialMatch = curlyRegEx.exec(commentMatch[0])) {
@@ -307,8 +274,7 @@ function updateDecorations() {
     index ++;
     specialTagIndex ++;
 
-    // ========================================================================== //
-    // Special Tags - Brackets
+    // updateDecorations - Special Tags - Brackets 
     let bracketRegEx = /(\[(.+)\])/gi;
     while (commentMatch = commentsRegEx.exec(text)) {
         while (specialMatch = bracketRegEx.exec(commentMatch[0])) {
@@ -327,8 +293,7 @@ function updateDecorations() {
     index ++;
     specialTagIndex ++;
 
-    // ========================================================================== //
-    // Special Tags - Backticks
+    // updateDecorations - Special Tags - Backticks 
     let backtickRegEx = /(`.*?`)/gi;
     while (commentMatch = commentsRegEx.exec(text)) {
         while (specialMatch = backtickRegEx.exec(commentMatch[0])) {
@@ -347,8 +312,7 @@ function updateDecorations() {
     index ++;
     specialTagIndex ++;
 
-    // ========================================================================== //
-    // Special Tags - Double Quotes
+    // updateDecorations - Special Tags - Double Quotes 
     let doubleQuotesRegEx = /(\".*?\")/gi;
     while (commentMatch = commentsRegEx.exec(text)) {
         while (specialMatch = doubleQuotesRegEx.exec(commentMatch[0])) {
@@ -367,8 +331,7 @@ function updateDecorations() {
     index ++;
     specialTagIndex ++;
 
-    // ========================================================================== //
-    // Special Tags - Single Quotes
+    // updateDecorations - Special Tags - Single Quotes 
     let singleQuotesRegEx = /('.*')/gi;
     while (commentMatch = commentsRegEx.exec(text)) {
         while (specialMatch = singleQuotesRegEx.exec(commentMatch[0])) {
@@ -390,10 +353,11 @@ function updateDecorations() {
 };
 
 
-// ========================================================================== //
-//             ---=== [Function triggerUpdateDecorations] ===---
-//                    (Timer for Updating Our Decoraions)
-// ========================================================================== //
+//  ╭──────────────────────────────────────────────────────────────────────────────╮
+//  │                    ● Function triggerUpdateDecorations ●                     │
+//  │                                                                              │
+//  │                    • Timer for Updating Our Decoraions •                     │
+//  ╰──────────────────────────────────────────────────────────────────────────────╯
 function triggerUpdateDecorations(throttle = false) {
 		if (timeout) {
 			clearTimeout(timeout);
@@ -410,17 +374,6 @@ function triggerUpdateDecorations(throttle = false) {
 		triggerUpdateDecorations();
 	}
 
-    vscode.workspace.onDidSaveTextDocument((TextDocument) => {
-        //console.log('Saved');
-        //console.log(TextDocument.fileName);
-        if (activeEditor && TextDocument.fileName === tagSettingsFile) {
-            // do work
-            //console.log('Settings Saved');
-            //await vscode.window.showInformationMessage('Window needs to reload for new settings to take effect', 'Yes', 'No');
-            //vscode.commands.executeCommand("workbench.action.reloadWindow");
-        };
-    }, null, context.subscriptions);
-
     vscode.window.onDidChangeActiveTextEditor(editor => {
 		activeEditor = editor;
 		if (editor) {
@@ -436,8 +389,6 @@ function triggerUpdateDecorations(throttle = false) {
 	}, null, context.subscriptions);
 
     vscode.workspace.onDidSaveTextDocument((TextDocument) => {
-        //console.log('Saved');
-        //console.log(TextDocument.fileName);
         if (activeEditor && TextDocument.fileName === tagSettingsFile) {
             promptUserForRestart();
         };
@@ -446,10 +397,11 @@ function triggerUpdateDecorations(throttle = false) {
 };
 
 
-// ========================================================================== //
-//                       ---=== [promptUserForRestart] ===---
-//               (Prompt user for restart after settings file saved)
-// ========================================================================== //
+//  ╭──────────────────────────────────────────────────────────────────────────────╮
+//  │                      ● Function promptUserForRestart ●                       │
+//  │                                                                              │
+//  │            • Prompt user for restart after settings file saved •             │
+//  ╰──────────────────────────────────────────────────────────────────────────────╯
 async function promptUserForRestart() {
 
     const action = 'Reload';
@@ -464,10 +416,11 @@ async function promptUserForRestart() {
 };
 
 
-// ========================================================================== //
-//                       ---=== [getExtension] ===---
-//      (Set Single and Multi-line Comment Identifiers fot Current File)
-// ========================================================================== //
+//  ╭──────────────────────────────────────────────────────────────────────────────╮
+//  │                          ● Function getExtension ●                           │
+//  │                                                                              │
+//  │      • Set Single and Multi-line Comment Identifiers fot Current File •      │
+//  ╰──────────────────────────────────────────────────────────────────────────────╯
 function getExtension() {
     var a = vscode.window.activeTextEditor.document.fileName.split(".");
     if( a.length === 1 || ( a[0] === "" && a.length === 2 ) ) {
@@ -479,10 +432,11 @@ function getExtension() {
 };
 
 
-// ========================================================================== //
-//                    ---=== [editTagSettingsFile] ===---
-//                         (Edit Tag Settings File) 
-// ========================================================================== //
+//  ╭──────────────────────────────────────────────────────────────────────────────╮
+//  │                       ● Function editTagSettingsFile ●                       │
+//  │                                                                              │
+//  │                          • Edit Tag Settings File •                          │
+//  ╰──────────────────────────────────────────────────────────────────────────────╯
 async function editTagSettingsFile() {
     initTagSettingsFilePath();
     var document = await vscode.workspace.openTextDocument(tagSettingsFile);    // Open it for editing
@@ -490,10 +444,11 @@ async function editTagSettingsFile() {
 };
 
 
-// ========================================================================== //
-//                 ---=== [restoreTagSettingsFile] ===---
-//            (Restore Tag Settings File to Default Settings) 
-// ========================================================================== //
+//  ╭──────────────────────────────────────────────────────────────────────────────╮
+//  │                     ● Function restoreTagSettingsFile ●                      │
+//  │                                                                              │
+//  │              • Restore Tag Settings File to Default Settings •               │
+//  ╰──────────────────────────────────────────────────────────────────────────────╯
 async function restoreTagSettingsFile() {
     fs.rmSync(tagSettingsFile);
     initTagSettingsFilePath();
@@ -501,10 +456,11 @@ async function restoreTagSettingsFile() {
 };
 
 
-// ========================================================================== //
-//                  ---=== [initTagSettingsFilePath] ===---
-//                  (Initialize Tag Settings File and Path) 
-// ========================================================================== //
+//  ╭──────────────────────────────────────────────────────────────────────────────╮
+//  │                     ● Function initTagSettingsFilePath ●                     │
+//  │                                                                              │
+//  │                  • Initialize Tag Settings File and Path •                   │
+//  ╰──────────────────────────────────────────────────────────────────────────────╯
 async function initTagSettingsFilePath() {
 
     // If folder does exist then verifiy extensions files exist
@@ -520,14 +476,14 @@ async function initTagSettingsFilePath() {
 };
 
 
-// ========================================================================== //
-//                 ---=== [Function openOrCreateNote] ===---
-//                         (Open or Create New Note)
-// ========================================================================== //
+//  ╭──────────────────────────────────────────────────────────────────────────────╮
+//  │                        ● Function openOrCreateNote ●                         │
+//  │                                                                              │
+//  │                 • Open Existing Project Note in Edit Mode •                  │
+//  ╰──────────────────────────────────────────────────────────────────────────────╯
 async function openOrCreateNote() {
 
-    // ========================================================================== //
-    //      openOrCreateNote - Verify Text Editor Open + Workspace Folder Exists
+    // openOrCreateNote - Verify Text Editor Open + Workspace Folder Exists 
     let editor = vscode.window.activeTextEditor;
     if (!editor) {
         vscode.window.showWarningMessage('Text Editor Not Open!');
@@ -539,14 +495,12 @@ async function openOrCreateNote() {
         return;
     }
 
-    // ========================================================================== //
-    //      openOrCreateNote - Get current lines text
+    // openOrCreateNote - Get current lines text 
     const lineText = editor.document.lineAt(editor.selection.active.line).text;
     const fileregex = new RegExp(/project file: *([A-Za-z0-9_-]+)/i);
     var found = fileregex.test(lineText);
 
-    // ========================================================================== //
-    //      openOrCreateNote - Get Filename from comment
+    // openOrCreateNote - Get Filename from comment 
     if (found) {
         const filenameArray = fileregex.exec(lineText);
         var filename = filenameArray[1] + '.MD';
@@ -557,8 +511,7 @@ async function openOrCreateNote() {
         var filename = new String(filepath).substring(filepath.lastIndexOf('/') + 1) + '.MD';
     }
 
-    // ========================================================================== //
-    //      openOrCreateNote - Open Filename.MD
+    // openOrCreateNote - Open Filename.MD 
     const activeTextEditor = vscode.window.activeTextEditor;
     const notesFilePath = path.join(workspaceFolders[0].uri.fsPath, './.vscode/') + filename;
     if (!activeTextEditor || activeTextEditor.document.fileName !== notesFilePath) {
@@ -580,30 +533,28 @@ async function openOrCreateNote() {
 };
 
 
-// ========================================================================== //
-//                     ---=== [Function notesEdit] ===---
-//                 (Open Existing Project Note in Edit Mode) 
-// ========================================================================== //
+//  ╭──────────────────────────────────────────────────────────────────────────────╮
+//  │                            ● Function notesEdit ●                            │
+//  │                                                                              │
+//  │                 • Open Existing Project Note in Edit Mode •                  │
+//  ╰──────────────────────────────────────────────────────────────────────────────╯
 async function notesEdit() {
 
-    // ========================================================================== //
-    //      notesEdit - Verify Workspace Folder Exists
+    // notesEdit - Verify Workspace Folder Exists 
     const workspaceFolders = vscode.workspace.workspaceFolders;
     if (!workspaceFolders || workspaceFolders.length === 0) {
         vscode.window.showWarningMessage('Workspace Folder Not Available!');
         return;
     }
 
-    // ========================================================================== //
-    //      notesEdit - Initialize Quick Pick
+    // notesEdit - Initialize Quick Pick 
     let items = [];
     let options = {
         placeHolder: "Select Project Note to Edit",
         title: "---=== Project Notes - View Note in Edit Mode ===---"
     };
 
-    // ========================================================================== //
-    //      notesEdit - Search for Project Notes and Show Quick Pick
+    // notesEdit - Search for Project Notes and Show Quick Pick 
     let inputAsWorkspaceRelativeFolder = '.vscode';
     let glob = '**/' + inputAsWorkspaceRelativeFolder + '/*.{MD,md,Md,mD}';
     let results = await vscode.workspace.findFiles(glob, null, 500);
@@ -617,8 +568,7 @@ async function notesEdit() {
     }
     const result = await vscode.window.showQuickPick(items, options);
 
-    // ========================================================================== //
-    //      notesEdit - Open Project Note File or Return if Cancelled
+    // notesEdit - Open Project Note File or Return if Cancelled 
     if (result == undefined) {
         // If Result = `undefined`, No File was Picked so Return
         return;
@@ -629,30 +579,28 @@ async function notesEdit() {
 };
 
 
-// ========================================================================== //
-//                   ---=== [Function notesPreview]  ===---
-//                (Open Existing Project Note in Preview Mode)
-// ========================================================================== //
+//  ╭──────────────────────────────────────────────────────────────────────────────╮
+//  │                          ● Function notesPreview ●                           │
+//  │                                                                              │
+//  │               • Open Existing Project Note in Preview Mode •                 │
+//  ╰──────────────────────────────────────────────────────────────────────────────╯
 async function notesPreview() {
 
-    // ========================================================================== //
-    //      notesPreview - Verify Workspace Folder Exists
+    // notesPreview - Verify Workspace Folder Exists 
     const workspaceFolders = vscode.workspace.workspaceFolders;
     if (!workspaceFolders || workspaceFolders.length === 0) {
         vscode.window.showWarningMessage('Workspace Folder Not Available!');
         return;
     }
 
-    // ========================================================================== //
-    //      notesPreview - Initialize Quick Pick
+    // notesPreview - Initialize Quick Pick 
     let items = [];
     let options = {
         placeHolder: "Select Project Note to Preview",
         title: "---=== Project Notes - View Note in Preview Mode ===---"
     };
 
-    // ========================================================================== //
-    //      notesPreview - Search for Project Notes and Show Quick Pick
+    // notesPreview - Search for Project Notes and Show Quick Pick 
     let inputAsWorkspaceRelativeFolder = '.vscode';
     let glob = '**/' + inputAsWorkspaceRelativeFolder + '/*.{MD,md,Md,mD}';
     let results = await vscode.workspace.findFiles(glob, null, 500);
@@ -666,8 +614,7 @@ async function notesPreview() {
     }
     const result = await vscode.window.showQuickPick(items, options);
 
-    // ========================================================================== //
-    //      notesPreview - Open Project Note File or Return if Cancelled
+    // notesPreview - Open Project Note File or Return if Cancelled 
     if (result == undefined) {
         // If Result = `undefined`, No File was Picked so Return
         return;
@@ -677,12 +624,14 @@ async function notesPreview() {
 };
 
 
-// ========================================================================== //
-//               ---=== [Function setNotesGlobalFolder] ===---
-//                    (Set Global Notes Folder Location)
-// ========================================================================== //
+//  ╭──────────────────────────────────────────────────────────────────────────────╮
+//  │                      ● Function setNotesGlobalFolder ●                       │
+//  │                                                                              │
+//  │                     • Set Global Notes Folder Location •                     │
+//  ╰──────────────────────────────────────────────────────────────────────────────╯
 async function setNotesGlobalFolder() {
-    // Get Global Notes Folder From User
+
+    // setNotesGlobalFolder - Get Global Notes Folder From User 
     const home = vscode.Uri.file(path.join(os.homedir()))
     const options = OpenDialogOptions = {
         title: "Select Folder Location for Global Notes Storage",
@@ -703,13 +652,14 @@ async function setNotesGlobalFolder() {
 };
 
 
-// ========================================================================== //
-//                 ---=== [Function openOrCreateGlobalNote] ===---
-//                         (Create New Global Note)
-// ========================================================================== //
+//  ╭──────────────────────────────────────────────────────────────────────────────╮
+//  │                     ● Function openOrCreateGlobalNote ●                      │
+//  │                                                                              │
+//  │                          • Create New Global Note •                          │
+//  ╰──────────────────────────────────────────────────────────────────────────────╯
 async function openOrCreateGlobalNote() {
-    // ========================================================================== //
-    //      openOrCreateGlobalNote - Verify Text Editor Open + Global Notes Folder Exists
+
+    // openOrCreateGlobalNote - Verify Text Editor Open + Global Notes Folder Exists 
     let editor = vscode.window.activeTextEditor;
     if (!editor) {
         vscode.window.showWarningMessage('Text Editor Not Open!');
@@ -721,22 +671,20 @@ async function openOrCreateGlobalNote() {
 
     }
 
-    // ========================================================================== //
-    //      openOrCreateGlobalNote - Get current lines text
+    // openOrCreateGlobalNote - Get current lines text 
     const lineText = editor.document.lineAt(editor.selection.active.line).text;
     const globalfileregex = new RegExp(/global file: *([A-Za-z0-9_-]+)/i);
     var found = globalfileregex.test(lineText);
     let fileName;
     let filePath;
 
-    // ========================================================================== //
-    //      openOrCreateGlobalNote - Get Filename from comment
+    // openOrCreateGlobalNote - Get Filename from comment 
     if (found) {
         const filenameArray = globalfileregex.exec(lineText);
         fileName = filenameArray[1] + '.MD';
         filePath = globalNotesFolder+'\\'+fileName;
-        // ========================================================================== //
-        //      openOrCreateGlobalNote - Prompt for Filename from User
+    
+    // openOrCreateGlobalNote - Prompt for Filename from User 
     } else {
         fileName = await vscode.window.showInputBox({
         placeHolder: "Global Note Name to Open or Create",
@@ -747,8 +695,7 @@ async function openOrCreateGlobalNote() {
         filePath = globalNotesFolder+'\\'+fileName;
     }
 
-    // ========================================================================== //
-    //      openOrCreateGlobalNote - Open Filename.MD
+    // openOrCreateGlobalNote - Open Filename.MD 
     const activeTextEditor = vscode.window.activeTextEditor;
     if (!activeTextEditor || activeTextEditor.document.fileName !== filePath) {
         const workspaceEdit = new vscode.WorkspaceEdit();
@@ -769,11 +716,14 @@ async function openOrCreateGlobalNote() {
 };
 
 
-// ========================================================================== //
-//                  ---=== [Function notesGlobalEdit] ===---
-//                  (Open Existing Global Note in Edit Mode)
-// ========================================================================== //
+//  ╭──────────────────────────────────────────────────────────────────────────────╮
+//  │                         ● Function notesGlobalEdit ●                         │
+//  │                                                                              │
+//  │                  • Open Existing Global Note in Edit Mode •                  │
+//  ╰──────────────────────────────────────────────────────────────────────────────╯
 async function notesGlobalEdit() {
+
+    // notesGlobalEdit - Inform User if Global Folder has not been Defined 
     if (globalNotesFolder.length == 0) {
         vscode.window.showWarningMessage('Global Folder Location has not been defined yet.');
         return;
@@ -784,8 +734,7 @@ async function notesGlobalEdit() {
         title: "---=== Project Notes - View Global Note in Preview Mode ===---"
     };
 
-    // ========================================================================== //
-    //      notesGlobalEdit - Search for Global Notes and Show Quick Pick
+    // notesGlobalEdit - Search for Global Notes and Show Quick Pick 
     results = await vscode.workspace.findFiles(new vscode.RelativePattern(globalNotesFolder, '*.{md,MD,mD,Md}'));
     if (results.length == 0) { // If Zero Note Files Found, Inform User and Return
         vscode.window.showWarningMessage('No Global Note Files Found!');
@@ -797,8 +746,7 @@ async function notesGlobalEdit() {
     }
     const result = await vscode.window.showQuickPick(items, options);
 
-    // ========================================================================== //
-    //      notesGlobalEdit - Open Global Note File or Return if Cancelled
+    // notesGlobalEdit - Open Global Note File or Return if Cancelled 
     if (result == undefined) {
         // If Result = `undefined`, No File was Picked so Return
         return;
@@ -808,11 +756,11 @@ async function notesGlobalEdit() {
     await vscode.window.showTextDocument(document);
 };
 
-
-// ========================================================================== //
-//                ---=== [Function notesGlobalPreview] ===---
-//                (Open Existing Global Note in Preview Mode)
-// ========================================================================== //
+//  ╭──────────────────────────────────────────────────────────────────────────────╮
+//  │                       ● Function notesGlobalPreview ●                        │
+//  │                                                                              │
+//  │                 • Open Existing Global Note in Preview Mode •                │
+//  ╰──────────────────────────────────────────────────────────────────────────────╯
 async function notesGlobalPreview() {
     if (globalNotesFolder.length == 0) {
         vscode.window.showWarningMessage('Global Folder Location has not been defined yet.');
@@ -824,8 +772,7 @@ async function notesGlobalPreview() {
         title: "---=== Project Notes - View Global Note in Preview Mode ===---"
     };
 
-    // ========================================================================== //
-    //      notesGlobalPreview - Search for Global Notes and Show Quick Pick
+    // notesGlobalPreview - Search for Global Notes and Show Quick Pick 
     results = await vscode.workspace.findFiles(new vscode.RelativePattern(globalNotesFolder, '*.{md,MD,mD,Md}'));
     if (results.length == 0) { // If Zero Note Files Found, Inform User and Return
         vscode.window.showWarningMessage('No Global Note Files Found!');
@@ -837,8 +784,7 @@ async function notesGlobalPreview() {
     }
     const result = await vscode.window.showQuickPick(items, options);
 
-    // ========================================================================== //
-    //      notesGlobalPreview - Open Global Note File or Return if Cancelled
+    // notesGlobalPreview - Open Global Note File or Return if Cancelled 
     if (result == undefined) {
         // If Result = `undefined`, No File was Picked so Return
         return;
@@ -848,16 +794,16 @@ async function notesGlobalPreview() {
 };
 
 
-// ========================================================================== //
-//                 ---=== [Function deactivate] ===---
-//         (This Method is Called When Extension is Deactivated)
-// ========================================================================== //
+//  ╭──────────────────────────────────────────────────────────────────────────────╮
+//  │                           ● Function deactivate ●                            │
+//  │                                                                              │
+//  │           • This Method is Called When Extension is Deactivated •            │
+//  ╰──────────────────────────────────────────────────────────────────────────────╯
 function deactivate() {};
 
-
-// ========================================================================== //
-//                       ---=== [Export modules] ===---
-// ========================================================================== //
+//  ╭──────────────────────────────────────────────────────────────────────────────╮
+//  │                              ● Export modules ●                              │
+//  ╰──────────────────────────────────────────────────────────────────────────────╯
 module.exports = {
     activate,
     deactivate

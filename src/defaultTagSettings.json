@@ -277,8 +277,8 @@
         },
         "dark": {
           "borderColor": "yellow",
-          "backgroundColor": "#79180b",
-          "color": "#ff806f"
+          "backgroundColor": "#72600c",
+          "color": "#E6F1C8"
         }
       }
     },
