@@ -14,12 +14,13 @@ let tagSettingsPath;
 let tagSettingsFile;
 let currentFileExt;
 let commentsRegEx;
+let decorationTypes = [];
 
 // ========================================================================== //
 //                     ---=== [Function Activate] ===---
 //                          (Extension Activation)
 // ========================================================================== //
- async function activate(context) {
+async function activate(context) {
 
     // ========================================================================== //
     //      Activate - Initialize Extension
@@ -38,6 +39,7 @@ let commentsRegEx;
     // });
 
     getExtension();                                         // Get the extension for current file
+    //console.log('got ext', currentFileExt);
 
     // ========================================================================== //
     //      Activate - Register Extension Commands
@@ -69,7 +71,7 @@ let commentsRegEx;
 
     // ========================================================================== //
     //      Set Decoration Types
-    let decorationTypes = [];
+    //let decorationTypes = [];
     // Tag Types Objects
     tagFileJsonData.tagsArray.forEach(element => {
         //console.log(element);
@@ -94,8 +96,8 @@ let commentsRegEx;
 //                          (Update Our Decorations)
 // ========================================================================== //
 function updateDecorations() {
-    console.log("-------------------------------------------------------");
-    console.log("Updating Decorations...");
+//    console.log("-------------------------------------------------------");
+//    console.log("Updating Decorations...");
 	if (!activeEditor) {                    // If no active editor then return
 		return;
 	}
@@ -118,7 +120,9 @@ function updateDecorations() {
         const extMatch = arr.some((e) => {
             return e === currentFileExt;
         })
+        //console.log('Current File Extension ',currentFileExt);
         if (extMatch) {                        // If extension supported then set comment's RegEx
+            //console.log('Matched', currentFileExt);
             commentString = tagFileJsonData.extensions[i].commentsRegEx;
             //console.log(commentString);
             commentsRegEx = new RegExp(commentString,'gmi')
@@ -126,6 +130,9 @@ function updateDecorations() {
         }
         i ++;
     })
+    if (commentsRegEx === "") {
+        return;
+    }
 
     // ========================================================================== //
     //      updateDecorations - Search for tag matches
@@ -403,7 +410,18 @@ function triggerUpdateDecorations(throttle = false) {
 		triggerUpdateDecorations();
 	}
 
-	vscode.window.onDidChangeActiveTextEditor(editor => {
+    vscode.workspace.onDidSaveTextDocument((TextDocument) => {
+        //console.log('Saved');
+        //console.log(TextDocument.fileName);
+        if (activeEditor && TextDocument.fileName === tagSettingsFile) {
+            // do work
+            //console.log('Settings Saved');
+            //await vscode.window.showInformationMessage('Window needs to reload for new settings to take effect', 'Yes', 'No');
+            vscode.commands.executeCommand("workbench.action.reloadWindow");
+        };
+    }, null, context.subscriptions);
+
+    vscode.window.onDidChangeActiveTextEditor(editor => {
 		activeEditor = editor;
 		if (editor) {
             getExtension();
@@ -417,8 +435,44 @@ function triggerUpdateDecorations(throttle = false) {
 		}
 	}, null, context.subscriptions);
 
-}
+    vscode.workspace.onDidSaveTextDocument((TextDocument) => {
+        //console.log('Saved');
+        //console.log(TextDocument.fileName);
+        if (activeEditor && TextDocument.fileName === tagSettingsFile) {
+            promptUserForRestart();
+        };
+    }, null, context.subscriptions);
 
+};
+
+
+// ========================================================================== //
+//                       ---=== [promptUserForRestart] ===---
+//      ()
+// ========================================================================== //
+// function promptUserForRestart() {
+//     const action = 'Reload';
+//     vscode.window.showInformationMessage(`Reload window in order for change in extension \`${EXTENSION_ID}\` configuration to take effect.`, action)
+//     .then(selectedAction => {
+//         if (selectedAction === action) {
+//           vscode.commands.executeCommand('workbench.action.reloadWindow');
+//         }
+//     });
+// }
+/** Prompts user to reload editor window in order for configuration change to take effect. */
+async function promptUserForRestart() {
+    const action = 'Reload';
+  
+    await vscode.window.showInformationMessage(
+        `Reload window in order for change in extension \`${EXTENSION_ID}\` configuration to take effect.`,
+        action
+      )
+      .then(selectedAction => {
+        if (selectedAction === action) {
+          vscode.commands.executeCommand('workbench.action.reloadWindow');
+        }
+      });
+  }
 
 // ========================================================================== //
 //                       ---=== [getExtension] ===---
