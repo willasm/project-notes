@@ -14,7 +14,6 @@ let tagSettingsPath;
 let tagSettingsFile;
 let currentFileExt;
 let commentsRegEx;
-let decorationTypes = [];
 
 // ========================================================================== //
 //                     ---=== [Function Activate] ===---
@@ -71,7 +70,7 @@ async function activate(context) {
 
     // ========================================================================== //
     //      Set Decoration Types
-    //let decorationTypes = [];
+    let decorationTypes = [];
     // Tag Types Objects
     tagFileJsonData.tagsArray.forEach(element => {
         //console.log(element);
@@ -90,6 +89,7 @@ async function activate(context) {
         let decorationType = vscode.window.createTextEditorDecorationType(element.decoratorOptions);
         decorationTypes.push(decorationType);
     });
+
 
 // ========================================================================== //
 //                 ---=== [Function updateDecorations] ===---
@@ -387,7 +387,7 @@ function updateDecorations() {
     index ++;
     specialTagIndex ++;
 
-}
+};
 
 
 // ========================================================================== //
@@ -417,7 +417,7 @@ function triggerUpdateDecorations(throttle = false) {
             // do work
             //console.log('Settings Saved');
             //await vscode.window.showInformationMessage('Window needs to reload for new settings to take effect', 'Yes', 'No');
-            vscode.commands.executeCommand("workbench.action.reloadWindow");
+            //vscode.commands.executeCommand("workbench.action.reloadWindow");
         };
     }, null, context.subscriptions);
 
@@ -448,31 +448,21 @@ function triggerUpdateDecorations(throttle = false) {
 
 // ========================================================================== //
 //                       ---=== [promptUserForRestart] ===---
-//      ()
+//               (Prompt user for restart after settings file saved)
 // ========================================================================== //
-// function promptUserForRestart() {
-//     const action = 'Reload';
-//     vscode.window.showInformationMessage(`Reload window in order for change in extension \`${EXTENSION_ID}\` configuration to take effect.`, action)
-//     .then(selectedAction => {
-//         if (selectedAction === action) {
-//           vscode.commands.executeCommand('workbench.action.reloadWindow');
-//         }
-//     });
-// }
-/** Prompts user to reload editor window in order for configuration change to take effect. */
 async function promptUserForRestart() {
+
     const action = 'Reload';
-  
     await vscode.window.showInformationMessage(
-        `Reload window in order for change in extension \`${EXTENSION_ID}\` configuration to take effect.`,
-        action
-      )
-      .then(selectedAction => {
+            `Reload window required in order for changes in settings file to take effect.`, 'Cancel', action
+        )
+        .then(selectedAction => {
         if (selectedAction === action) {
-          vscode.commands.executeCommand('workbench.action.reloadWindow');
+            vscode.commands.executeCommand('workbench.action.reloadWindow');
         }
-      });
-  }
+    });
+};
+
 
 // ========================================================================== //
 //                       ---=== [getExtension] ===---
@@ -486,7 +476,7 @@ function getExtension() {
     currentFileExt = a.pop().toLowerCase();
     };
 
-}
+};
 
 
 // ========================================================================== //
@@ -497,7 +487,7 @@ async function editTagSettingsFile() {
     initTagSettingsFilePath();
     var document = await vscode.workspace.openTextDocument(tagSettingsFile);    // Open it for editing
     await vscode.window.showTextDocument(document);
-}
+};
 
 
 // ========================================================================== //
@@ -508,7 +498,7 @@ async function restoreTagSettingsFile() {
     fs.rmSync(tagSettingsFile);
     initTagSettingsFilePath();
     var document = await vscode.workspace.openTextDocument(tagSettingsFile);    // Open it for editing
-}
+};
 
 
 // ========================================================================== //
@@ -527,7 +517,7 @@ async function initTagSettingsFilePath() {
     }
     fs.mkdirSync(tagSettingsPath, { recursive: true });
     fs.writeFileSync(tagSettingsFile, JSON.stringify(defaultTagSettings, null, 2));
-}
+};
 
 
 // ========================================================================== //
@@ -587,7 +577,7 @@ async function openOrCreateNote() {
             vscode.commands.executeCommand("workbench.action.closeActiveEditor");
         }
     }
-}
+};
 
 
 // ========================================================================== //
@@ -636,7 +626,7 @@ async function notesEdit() {
     const notesFilePath = path.join(workspaceFolders[0].uri.fsPath, './.vscode/') + result;
     const document = await vscode.workspace.openTextDocument(notesFilePath);
     vscode.window.showTextDocument(document, { preview: false });
-}
+};
 
 
 // ========================================================================== //
@@ -684,7 +674,8 @@ async function notesPreview() {
     }
     const document = vscode.Uri.file(path.join(workspaceFolders[0].uri.fsPath, './.vscode/') + result);
     await vscode.commands.executeCommand('markdown.showPreview', document);
-}
+};
+
 
 // ========================================================================== //
 //               ---=== [Function setNotesGlobalFolder] ===---
@@ -709,7 +700,7 @@ async function setNotesGlobalFolder() {
         let settings = vscode.workspace.getConfiguration("project-notes");
         settings.update("globalNotesFolder",globalNotesFolder,1);
     }
-}
+};
 
 
 // ========================================================================== //
@@ -775,7 +766,7 @@ async function openOrCreateGlobalNote() {
             vscode.commands.executeCommand("workbench.action.closeActiveEditor");
         }
     }
-}
+};
 
 
 // ========================================================================== //
@@ -815,7 +806,7 @@ async function notesGlobalEdit() {
     const notesFilePath = path.join(globalNotesFolder, '\\') + result;
     document = vscode.workspace.openTextDocument(notesFilePath);
     await vscode.window.showTextDocument(document);
-}
+};
 
 
 // ========================================================================== //
@@ -854,14 +845,14 @@ async function notesGlobalPreview() {
     }
     const document = vscode.Uri.file(path.join(globalNotesFolder,'/') + result);
     await vscode.commands.executeCommand('markdown.showPreview', document);
-}
+};
 
 
 // ========================================================================== //
 //                 ---=== [Function deactivate] ===---
 //         (This Method is Called When Extension is Deactivated)
 // ========================================================================== //
-function deactivate() {}
+function deactivate() {};
 
 
 // ========================================================================== //
@@ -870,4 +861,4 @@ function deactivate() {}
 module.exports = {
     activate,
     deactivate
-}
+};
