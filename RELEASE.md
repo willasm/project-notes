@@ -2,10 +2,11 @@
 
 <!-- ## [v-inc] ${YEAR4}-${MONTHNUMBER}-${DATE} -->
 
-## [0.0.6] 2022-03-28
+## [0.0.6] 2022-03-29
 - New command - `Project Notes: Edit Tags Settings File`
 - New command - `Project Notes: Restore Tag Settings File`
 - All tag settings are now stored in `project-notes-tag-settings.json` file
+- Added schema json file for settings file
 - Light and Dark theme aware highlighting
 - New `Tags` can be added to the [settings](SETTINGS.md) file
 - All `Tags` can be enabled or disabled individually in the [settings](SETTINGS.md) file
@@ -15,6 +16,7 @@
 - New screenshots to reflect the new changes
 ### Fixed
 - Highlighting in multiline comments was not working properly
+- Opening project files not adding lowercase extension files to pick list
 ### Changed
 - Now uses text decorations for highlighting
 - File link trigger `File: filename.md` has been changed to `Project File: filename.md`
