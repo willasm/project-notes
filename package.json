@@ -90,6 +90,12 @@
 					}
 				}
 			}
+		],
+		"jsonValidation": [
+			{
+				"fileMatch": "project-notes-tag-settings.json",
+				"url": "./src\\tagSettings-schema.json"
+			}
 		]
 	},
 	"scripts": {

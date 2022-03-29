@@ -1,0 +1,1558 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "http://example.com/example.json",
+    "type": "object",
+    "title": "The root schema",
+    "description": "The root schema comprises the entire JSON document.",
+    "default": {},
+    "examples": [
+        {
+            "tagSettingsVersion": "1 - Used Internally for Future Updates to this Settings File",
+            "tagsArray": [
+                {
+                    "description": "BUG - Highlights the Word BUG",
+                    "keyword": "bug",
+                    "isEnabled": true,
+                    "decoratorOptions": {
+                        "borderRadius": "5px",
+                        "light": {
+                            "borderColor": "#ff806f",
+                            "backgroundColor": "#ff806f",
+                            "color": "#79180b"
+                        },
+                        "dark": {
+                            "borderColor": "#79180b",
+                            "backgroundColor": "#79180b",
+                            "color": "#ff806f"
+                        }
+                    }
+                },
+                {
+                    "description": "CHANGED - Highlights the Word CHANGED",
+                    "keyword": "changed",
+                    "isEnabled": true,
+                    "decoratorOptions": {
+                        "borderRadius": "5px",
+                        "light": {
+                            "borderColor": "#c5952d",
+                            "backgroundColor": "#c5952d",
+                            "color": "#33270b"
+                        },
+                        "dark": {
+                            "borderColor": "#4b3d17",
+                            "backgroundColor": "#4b3d17",
+                            "color": "#c5952d"
+                        }
+                    }
+                },
+                {
+                    "description": "DEBUG - Highlights the Word DEBUG",
+                    "keyword": "debug",
+                    "isEnabled": true,
+                    "decoratorOptions": {
+                        "borderRadius": "5px",
+                        "light": {
+                            "borderColor": "#c07936",
+                            "backgroundColor": "#c07936",
+                            "color": "#5f3919"
+                        },
+                        "dark": {
+                            "borderColor": "#5f3919",
+                            "backgroundColor": "#5f3919",
+                            "color": "#c07936"
+                        }
+                    }
+                },
+                {
+                    "description": "FIXME - Highlights the Word FIXME",
+                    "keyword": "fixme",
+                    "isEnabled": true,
+                    "decoratorOptions": {
+                        "borderRadius": "5px",
+                        "light": {
+                            "borderColor": "#f3c280",
+                            "backgroundColor": "#f3c280",
+                            "color": "#502f05"
+                        },
+                        "dark": {
+                            "borderColor": "#502f05",
+                            "backgroundColor": "#502f05",
+                            "color": "#f3c280"
+                        }
+                    }
+                },
+                {
+                    "description": "HACK - Highlights the Word HACK",
+                    "keyword": "hack",
+                    "isEnabled": true,
+                    "decoratorOptions": {
+                        "borderRadius": "5px",
+                        "light": {
+                            "borderColor": "#c83ef1",
+                            "backgroundColor": "#c83ef1",
+                            "color": "#562e63"
+                        },
+                        "dark": {
+                            "borderColor": "#562e63",
+                            "backgroundColor": "#562e63",
+                            "color": "#c83ef1"
+                        }
+                    }
+                },
+                {
+                    "description": "IDEA - Highlights the Word IDEA",
+                    "keyword": "idea",
+                    "isEnabled": true,
+                    "decoratorOptions": {
+                        "borderRadius": "5px",
+                        "light": {
+                            "borderColor": "#f0cc2e",
+                            "backgroundColor": "#f0cc2e",
+                            "color": "#57480d"
+                        },
+                        "dark": {
+                            "borderColor": "#57480d",
+                            "backgroundColor": "#57480d",
+                            "color": "#f0cc2e"
+                        }
+                    }
+                },
+                {
+                    "description": "NOTE - Highlights the Word NOTE",
+                    "keyword": "note",
+                    "isEnabled": true,
+                    "decoratorOptions": {
+                        "borderRadius": "5px",
+                        "light": {
+                            "borderColor": "#d1bbdd",
+                            "backgroundColor": "#d1bbdd",
+                            "color": "#73548f"
+                        },
+                        "dark": {
+                            "borderColor": "#73548f",
+                            "backgroundColor": "#73548f",
+                            "color": "#d1bbdd"
+                        }
+                    }
+                },
+                {
+                    "description": "OPTIMIZE - Highlights the Word OPTIMIZE",
+                    "keyword": "optimize",
+                    "isEnabled": true,
+                    "decoratorOptions": {
+                        "borderRadius": "5px",
+                        "light": {
+                            "borderColor": "#a6ffdd",
+                            "backgroundColor": "#a6ffdd",
+                            "color": "#3c5e51"
+                        },
+                        "dark": {
+                            "borderColor": "#3c5e51",
+                            "backgroundColor": "#3c5e51",
+                            "color": "#a6ffdd"
+                        }
+                    }
+                },
+                {
+                    "description": "RESEARCH - Highlights the Word RESEARCH",
+                    "keyword": "research",
+                    "isEnabled": true,
+                    "decoratorOptions": {
+                        "borderRadius": "5px",
+                        "light": {
+                            "borderColor": "#94e1f1",
+                            "backgroundColor": "#94e1f1",
+                            "color": "#293e44"
+                        },
+                        "dark": {
+                            "borderColor": "#293e44",
+                            "backgroundColor": "#293e44",
+                            "color": "#94e1f1"
+                        }
+                    }
+                },
+                {
+                    "description": "REVIEW - Highlights the Word REVIEW",
+                    "keyword": "review",
+                    "isEnabled": true,
+                    "decoratorOptions": {
+                        "borderRadius": "5px",
+                        "light": {
+                            "borderColor": "#40bdee",
+                            "backgroundColor": "#40bdee",
+                            "color": "#153c4b"
+                        },
+                        "dark": {
+                            "borderColor": "#153c4b",
+                            "backgroundColor": "#153c4b",
+                            "color": "#40bdee"
+                        }
+                    }
+                },
+                {
+                    "description": "TEMP - Highlights the Word TEMP",
+                    "keyword": "temp",
+                    "isEnabled": true,
+                    "decoratorOptions": {
+                        "borderRadius": "5px",
+                        "light": {
+                            "borderColor": "#97af8f",
+                            "backgroundColor": "#97af8f",
+                            "color": "#45812e"
+                        },
+                        "dark": {
+                            "borderColor": "#45812e",
+                            "backgroundColor": "#45812e",
+                            "color": "#97af8f"
+                        }
+                    }
+                },
+                {
+                    "description": "TODO - Highlights the Word TODO",
+                    "keyword": "todo",
+                    "isEnabled": true,
+                    "decoratorOptions": {
+                        "borderRadius": "5px",
+                        "light": {
+                            "borderColor": "#b5c058",
+                            "backgroundColor": "#b5c058",
+                            "color": "#6a721e"
+                        },
+                        "dark": {
+                            "borderColor": "#6a721e",
+                            "backgroundColor": "#6a721e",
+                            "color": "#b5c058"
+                        }
+                    }
+                }
+            ],
+            "tagBlocksArray": [
+                {
+                    "description": "Main Title - Highlights Main Title Block",
+                    "startText": " ● ",
+                    "endText": " ● ",
+                    "isEnabled": true,
+                    "decoratorOptions": {
+                        "borderWidth": "2px",
+                        "borderStyle": "solid",
+                        "borderRadius": "8px",
+                        "light": {
+                            "borderColor": "red",
+                            "backgroundColor": "yellow",
+                            "color": "black"
+                        },
+                        "dark": {
+                            "borderColor": "gold",
+                            "backgroundColor": "teal",
+                            "color": "gold"
+                        }
+                    }
+                },
+                {
+                    "description": "Sub Title - Highlights Sub Title Block",
+                    "startText": " • ",
+                    "endText": " • ",
+                    "isEnabled": true,
+                    "decoratorOptions": {
+                        "borderWidth": "1px",
+                        "borderStyle": "solid",
+                        "borderRadius": "8px",
+                        "light": {
+                            "borderColor": "red",
+                            "backgroundColor": "DarkBlue",
+                            "color": "pink"
+                        },
+                        "dark": {
+                            "borderColor": "yellow",
+                            "backgroundColor": "#3c300e",
+                            "color": "gold"
+                        }
+                    }
+                },
+                {
+                    "description": "Hidden Title - Highlights Hidden Title Block",
+                    "startText": " ",
+                    "endText": " ",
+                    "isEnabled": true,
+                    "decoratorOptions": {
+                        "borderWidth": "1px",
+                        "borderStyle": "solid",
+                        "borderRadius": "8px",
+                        "light": {
+                            "borderColor": "yellow",
+                            "backgroundColor": "#ff806f",
+                            "color": "#79180b"
+                        },
+                        "dark": {
+                            "borderColor": "yellow",
+                            "backgroundColor": "#72600c",
+                            "color": "#E6F1C8"
+                        }
+                    }
+                },
+                {
+                    "description": "Underline - Underline Text Block",
+                    "startText": "₋",
+                    "endText": "₋",
+                    "isEnabled": true,
+                    "decoratorOptions": {
+                        "fontWeight": "bold",
+                        "light": {
+                            "backgroundColor": "",
+                            "color": "black",
+                            "textDecoration": "underline black 2px"
+                        },
+                        "dark": {
+                            "backgroundColor": "",
+                            "color": "cyan",
+                            "textDecoration": "underline cyan 2px"
+                        }
+                    }
+                },
+                {
+                    "description": "Strikethrough - Strikethrough Text Block",
+                    "startText": "╶",
+                    "endText": "╴",
+                    "isEnabled": true,
+                    "decoratorOptions": {
+                        "fontWeight": "bold",
+                        "light": {
+                            "backgroundColor": "",
+                            "color": "black",
+                            "textDecoration": "line-through red 2px"
+                        },
+                        "dark": {
+                            "backgroundColor": "",
+                            "color": "lime",
+                            "textDecoration": "line-through yellow 2px"
+                        }
+                    }
+                }
+            ],
+            "specialTagsArray": [
+                {
+                    "description": "Filelink - Used to highlight Markdown Local Project Note Files",
+                    "isEnabled": true,
+                    "decoratorOptions": {
+                        "light": {
+                            "backgroundColor": "#6ed3c2",
+                            "color": "#00473b",
+                            "cursor": "pointer",
+                            "textDecoration": "underline",
+                            "borderRadius": "5px"
+                        },
+                        "dark": {
+                            "backgroundColor": "#00473b",
+                            "color": "#6ed3c2",
+                            "cursor": "pointer",
+                            "textDecoration": "underline",
+                            "borderRadius": "5px"
+                        }
+                    }
+                },
+                {
+                    "description": "GlobalFilelink - Used to highlight Markdown Global Note Files",
+                    "isEnabled": true,
+                    "decoratorOptions": {
+                        "light": {
+                            "backgroundColor": "#6e9ad3",
+                            "color": "#082953",
+                            "cursor": "pointer",
+                            "textDecoration": "underline",
+                            "borderRadius": "5px"
+                        },
+                        "dark": {
+                            "backgroundColor": "#082953",
+                            "color": "#6e9ad3",
+                            "cursor": "pointer",
+                            "textDecoration": "underline",
+                            "borderRadius": "5px"
+                        }
+                    }
+                },
+                {
+                    "description": "Parentheses - Highlights Text in Parentheses",
+                    "isEnabled": true,
+                    "decoratorOptions": {
+                        "light": {
+                            "backgroundColor": "",
+                            "color": "#936bf7",
+                            "fontWeight": "bold"
+                        },
+                        "dark": {
+                            "backgroundColor": "",
+                            "color": "#a38cda",
+                            "fontWeight": "bold"
+                        }
+                    }
+                },
+                {
+                    "description": "Curly Braces - Highlights Text in Curly Braces",
+                    "isEnabled": true,
+                    "decoratorOptions": {
+                        "light": {
+                            "backgroundColor": "",
+                            "color": "#9c9900",
+                            "fontWeight": "bold"
+                        },
+                        "dark": {
+                            "backgroundColor": "",
+                            "color": "#fcf950",
+                            "fontWeight": "bold"
+                        }
+                    }
+                },
+                {
+                    "description": "Brackets - Highlights Text in Brackets",
+                    "isEnabled": true,
+                    "decoratorOptions": {
+                        "light": {
+                            "backgroundColor": "",
+                            "color": "#00b4ab",
+                            "fontWeight": "bold"
+                        },
+                        "dark": {
+                            "backgroundColor": "",
+                            "color": "#3afff5",
+                            "fontWeight": "bold"
+                        }
+                    }
+                },
+                {
+                    "description": "Backticks - Highlights Text in Backticks",
+                    "isEnabled": true,
+                    "decoratorOptions": {
+                        "light": {
+                            "backgroundColor": "",
+                            "color": "#104c66",
+                            "fontStyle": "italic"
+                        },
+                        "dark": {
+                            "backgroundColor": "",
+                            "color": "#21a0d3",
+                            "fontStyle": "italic"
+                        }
+                    }
+                },
+                {
+                    "description": "Double Quotes - Highlights Text in Single Quotes",
+                    "isEnabled": true,
+                    "decoratorOptions": {
+                        "light": {
+                            "backgroundColor": "",
+                            "color": "#9e5a2f",
+                            "fontStyle": "italic"
+                        },
+                        "dark": {
+                            "backgroundColor": "",
+                            "color": "#a7e0f7",
+                            "fontStyle": "italic"
+                        }
+                    }
+                },
+                {
+                    "description": "Single Quotes - Highlights Text in Single Quotes",
+                    "isEnabled": true,
+                    "decoratorOptions": {
+                        "light": {
+                            "backgroundColor": "",
+                            "color": "#ca7c4b",
+                            "fontStyle": "italic"
+                        },
+                        "dark": {
+                            "backgroundColor": "",
+                            "color": "#5ecaf5",
+                            "fontStyle": "italic"
+                        }
+                    }
+                }
+            ],
+            "extensions": [
+                {
+                    "description": "# or ; Single line comments",
+                    "ext": [
+                        "asm",
+                        "ini"
+                    ],
+                    "commentsRegEx": "[#|;][^\\r?\\n]\\s*([^\\r?\\n]+?)[\\r?\\n]"
+                },
+                {
+                    "description": "// Single line comments -or- /* Single line comments */ -or- /* Multiline comments */",
+                    "ext": [
+                        "c",
+                        "cc",
+                        "cp",
+                        "cs",
+                        "cpp",
+                        "c++",
+                        "cxx",
+                        "cppm",
+                        "ixx",
+                        "go",
+                        "java",
+                        "js",
+                        "jsx",
+                        "kt",
+                        "kts",
+                        "ktm",
+                        "less",
+                        "php",
+                        "scss",
+                        "ts",
+                        "tsx",
+                        "vue",
+                        "jsonc"
+                    ],
+                    "commentsRegEx": "(?<!:)\\/\\/\\s*(.+$)|\\/\\*\\s*([\\s\\S]+?)\\s*\\*\\/|\\/\\*\\*?[\\r?\\n]([\\s\\S]+?)\\*\\*?\\/"
+                },
+                {
+                    "description": "/* Single line comments */ -or- /* Multiline comments */",
+                    "ext": [
+                        "css"
+                    ],
+                    "commentsRegEx": "\\/\\*\\s*([\\s\\S]+?)\\s*\\*\\/|\\/\\*\\*?[\\r?\\n]([\\s\\S]+?)\\*\\*?\\/"
+                },
+                {
+                    "description": "### Multiline comments -or- # Single line comments",
+                    "ext": [
+                        "coffee"
+                    ],
+                    "commentsRegEx": "\\#\\#\\#\\s*([\\s\\S]+?)\\s*\\#\\#\\#[\\r?\\n]?|\\#[^\\r?\\n]\\s*([\\s\\S]+?)[\\r?\\n]"
+                },
+                {
+                    "description": "// -or- ; Single line comments",
+                    "ext": [
+                        "tbs"
+                    ],
+                    "commentsRegEx": "[//|;]\\s*([^\r\n]+?)[\r\n]"
+                },
+                {
+                    "description": "rem -or- :: -or- & :: Single line comments",
+                    "ext": [
+                        "bat",
+                        "cmd"
+                    ],
+                    "commentsRegEx": "rem\\s*([^\\r?\\n]+?)[\\r?\\n]|::\\s*([^\\r?\\n]+?)[\\r?\\n]|& ::\\s*([^\\r?\\n]+?)[\\r?\\n]"
+                },
+                {
+                    "description": "<!-- Single line comments --> -or- {{* Single and Multiline comments *}} -or- // Single line comments -or- /* Single line comments */ -or- /* Multiline comments */",
+                    "ext": [
+                        "html",
+                        "vue"
+                    ],
+                    "commentsRegEx": "<!--\\s*([\\s\\S]*?)\\s*-->|\\{\\{\\/\\*[\\r?\\n]?([\\s\\S]*?)\\*\\/}\\}|(?<!:)\\/\\/\\s*(.+$)|\\/\\*\\s*([\\s\\S]+?)\\s*\\*\\/|\\/\\*\\*?[\\r?\\n]([\\s\\S]+?)\\*\\*?\\/"
+                },
+                {
+                    "description": "<!-- Single line and Multiline comments --> -or- {::comment} Single line and Multiline comments {:/comment} -or- []: # Single line comments",
+                    "ext": [
+                        "md"
+                    ],
+                    "commentsRegEx": "<!---?\\s*([\\s\\S]+?)\\s*-->|{::comment}[\\r?\\n]?\\s*([\\s\\S]+?){:\\/comment}|\\[[\\s\\S]*?\\]:\\s+#\\s+([^\\r?\\n]+)[\\r?\\n]?"
+                }
+            ]
+        }
+    ],
+    "required": [
+        "tagSettingsVersion",
+        "tagsArray",
+        "tagBlocksArray",
+        "specialTagsArray",
+        "extensions"
+    ],
+    "properties": {
+        "tagSettingsVersion": {
+            "$id": "#/properties/tagSettingsVersion",
+            "type": "string",
+            "title": "The Tag Settings Schema",
+            "description": "Used Internally for Future Updates to this Settings File.",
+            "default": "1 - Used Internally for Future Updates to this Settings File",
+            "examples": [
+                "1 - Used Internally for Future Updates to this Settings File"
+            ]
+        },
+        "tagsArray": {
+            "$id": "#/properties/tagsArray",
+            "type": "array",
+            "title": "The tagsArray Schema",
+            "description": "Array of all defined keywords.",
+            "default": [],
+            "examples": [
+                [
+                    {
+                        "description": "BUG - Highlights the Word BUG",
+                        "keyword": "bug",
+                        "isEnabled": true,
+                        "decoratorOptions": {
+                            "borderRadius": "5px",
+                            "light": {
+                                "borderColor": "#ff806f",
+                                "backgroundColor": "#ff806f",
+                                "color": "#79180b"
+                            },
+                            "dark": {
+                                "borderColor": "#79180b",
+                                "backgroundColor": "#79180b",
+                                "color": "#ff806f"
+                            }
+                        }
+                    },
+                    {
+                        "description": "CHANGED - Highlights the Word CHANGED",
+                        "keyword": "changed",
+                        "isEnabled": true,
+                        "decoratorOptions": {
+                            "borderRadius": "5px",
+                            "light": {
+                                "borderColor": "#c5952d",
+                                "backgroundColor": "#c5952d",
+                                "color": "#33270b"
+                            },
+                            "dark": {
+                                "borderColor": "#4b3d17",
+                                "backgroundColor": "#4b3d17",
+                                "color": "#c5952d"
+                            }
+                        }
+                    }
+                ]
+            ],
+            "additionalItems": true,
+            "items": {
+                "$id": "#/properties/tagsArray/items",
+                "anyOf": [
+                    {
+                        "$id": "#/properties/tagsArray/items/anyOf/0",
+                        "type": "object",
+                        "title": "The first anyOf schema",
+                        "description": "Keyword to highlight.",
+                        "default": {},
+                        "examples": [
+                            {
+                                "description": "BUG - Highlights the Word BUG",
+                                "keyword": "bug",
+                                "isEnabled": true,
+                                "decoratorOptions": {
+                                    "borderRadius": "5px",
+                                    "light": {
+                                        "borderColor": "#ff806f",
+                                        "backgroundColor": "#ff806f",
+                                        "color": "#79180b"
+                                    },
+                                    "dark": {
+                                        "borderColor": "#79180b",
+                                        "backgroundColor": "#79180b",
+                                        "color": "#ff806f"
+                                    }
+                                }
+                            }
+                        ],
+                        "required": [
+                            "description",
+                            "keyword",
+                            "isEnabled",
+                            "decoratorOptions"
+                        ],
+                        "properties": {
+                            "description": {
+                                "$id": "#/properties/tagsArray/items/anyOf/0/properties/description",
+                                "type": "string",
+                                "title": "The description schema",
+                                "description": "Keyword Description.",
+                                "default": "",
+                                "examples": [
+                                    "BUG - Highlights the Word BUG"
+                                ]
+                            },
+                            "keyword": {
+                                "$id": "#/properties/tagsArray/items/anyOf/0/properties/keyword",
+                                "type": "string",
+                                "title": "The keyword schema",
+                                "description": "Keyword Text to highlight.",
+                                "default": "",
+                                "examples": [
+                                    "bug"
+                                ]
+                            },
+                            "isEnabled": {
+                                "$id": "#/properties/tagsArray/items/anyOf/0/properties/isEnabled",
+                                "type": "boolean",
+                                "title": "The isEnabled schema",
+                                "description": "Enable or Disable highlighting of this keyword.",
+                                "default": true,
+                                "examples": [
+                                    false
+                                ]
+                            },
+                            "decoratorOptions": {
+                                "$id": "#/properties/tagsArray/items/anyOf/0/properties/decoratorOptions",
+                                "type": "object",
+                                "title": "The decoratorOptions schema",
+                                "description": "Decorator options to apply to this keyword.",
+                                "default": {},
+                                "examples": [
+                                    {
+                                        "borderRadius": "5px",
+                                        "light": {
+                                            "borderColor": "#ff806f",
+                                            "backgroundColor": "#ff806f",
+                                            "color": "#79180b"
+                                        },
+                                        "dark": {
+                                            "borderColor": "#79180b",
+                                            "backgroundColor": "#79180b",
+                                            "color": "#ff806f"
+                                        }
+                                    }
+                                ],
+                                "required": [
+                                    "light",
+                                    "dark"
+                                ],
+                                "properties": {
+                                    "borderRadius": {
+                                        "$id": "#/properties/tagsArray/items/anyOf/0/properties/decoratorOptions/properties/borderRadius",
+                                        "type": "string",
+                                        "title": "The borderRadius schema",
+                                        "description": "Adds rounded corners to this keywords background color.",
+                                        "default": "",
+                                        "examples": [
+                                            "5px"
+                                        ]
+                                    },
+                                    "light": {
+                                        "$id": "#/properties/tagsArray/items/anyOf/0/properties/decoratorOptions/properties/light",
+                                        "type": "object",
+                                        "title": "The light schema",
+                                        "description": "Decorator options applied to light themes.",
+                                        "default": {},
+                                        "examples": [
+                                            {
+                                                "borderColor": "#ff806f",
+                                                "backgroundColor": "#ff806f",
+                                                "color": "#79180b"
+                                            }
+                                        ],
+                                        "required": [
+                                            "backgroundColor",
+                                            "color"
+                                        ],
+                                        "properties": {
+                                            "borderColor": {
+                                                "$id": "#/properties/tagsArray/items/anyOf/0/properties/decoratorOptions/properties/light/properties/borderColor",
+                                                "type": "string",
+                                                "title": "The borderColor schema",
+                                                "description": "Sets the border color for this keyword.",
+                                                "default": "",
+                                                "examples": [
+                                                    "#ff806f"
+                                                ]
+                                            },
+                                            "backgroundColor": {
+                                                "$id": "#/properties/tagsArray/items/anyOf/0/properties/decoratorOptions/properties/light/properties/backgroundColor",
+                                                "type": "string",
+                                                "title": "The backgroundColor schema",
+                                                "description": "Sets the background color for this keyword.",
+                                                "default": "",
+                                                "examples": [
+                                                    "#ff806f"
+                                                ]
+                                            },
+                                            "color": {
+                                                "$id": "#/properties/tagsArray/items/anyOf/0/properties/decoratorOptions/properties/light/properties/color",
+                                                "type": "string",
+                                                "title": "The color schema",
+                                                "description": "Sets the text color for this keyword.",
+                                                "default": "",
+                                                "examples": [
+                                                    "#79180b"
+                                                ]
+                                            }
+                                        },
+                                        "additionalProperties": true
+                                    },
+                                    "dark": {
+                                        "$id": "#/properties/tagsArray/items/anyOf/0/properties/decoratorOptions/properties/dark",
+                                        "type": "object",
+                                        "title": "The dark schema",
+                                        "description": "Decorator options applied to dark themes.",
+                                        "default": {},
+                                        "examples": [
+                                            {
+                                                "borderColor": "#79180b",
+                                                "backgroundColor": "#79180b",
+                                                "color": "#ff806f"
+                                            }
+                                        ],
+                                        "required": [
+                                            "backgroundColor",
+                                            "color"
+                                        ],
+                                        "properties": {
+                                            "borderColor": {
+                                                "$id": "#/properties/tagsArray/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/borderColor",
+                                                "type": "string",
+                                                "title": "The borderColor schema",
+                                                "description": "Sets the border color for this keyword.",
+                                                "default": "",
+                                                "examples": [
+                                                    "#79180b"
+                                                ]
+                                            },
+                                            "backgroundColor": {
+                                                "$id": "#/properties/tagsArray/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/backgroundColor",
+                                                "type": "string",
+                                                "title": "The backgroundColor schema",
+                                                "description": "Sets the background color for this keyword.",
+                                                "default": "",
+                                                "examples": [
+                                                    "#79180b"
+                                                ]
+                                            },
+                                            "color": {
+                                                "$id": "#/properties/tagsArray/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/color",
+                                                "type": "string",
+                                                "title": "The color schema",
+                                                "description": "Sets the text color for this keyword.",
+                                                "default": "",
+                                                "examples": [
+                                                    "#ff806f"
+                                                ]
+                                            }
+                                        },
+                                        "additionalProperties": true
+                                    }
+                                },
+                                "additionalProperties": true
+                            }
+                        },
+                        "additionalProperties": true
+                    }
+                ]
+            }
+        },
+        "tagBlocksArray": {
+            "$id": "#/properties/tagBlocksArray",
+            "type": "array",
+            "title": "The tagBlocksArray schema",
+            "description": "Array of all tag blocks.",
+            "default": [],
+            "examples": [
+                [
+                    {
+                        "description": "Main Title - Highlights Main Title Block",
+                        "startText": " ● ",
+                        "endText": " ● ",
+                        "isEnabled": true,
+                        "decoratorOptions": {
+                            "borderWidth": "2px",
+                            "borderStyle": "solid",
+                            "borderRadius": "8px",
+                            "light": {
+                                "borderColor": "red",
+                                "backgroundColor": "yellow",
+                                "color": "black"
+                            },
+                            "dark": {
+                                "borderColor": "gold",
+                                "backgroundColor": "teal",
+                                "color": "gold"
+                            }
+                        }
+                    },
+                    {
+                        "description": "Sub Title - Highlights Sub Title Block",
+                        "startText": " • ",
+                        "endText": " • ",
+                        "isEnabled": true,
+                        "decoratorOptions": {
+                            "borderWidth": "1px",
+                            "borderStyle": "solid",
+                            "borderRadius": "8px",
+                            "light": {
+                                "borderColor": "red",
+                                "backgroundColor": "DarkBlue",
+                                "color": "pink"
+                            },
+                            "dark": {
+                                "borderColor": "yellow",
+                                "backgroundColor": "#3c300e",
+                                "color": "gold"
+                            }
+                        }
+                    }
+                ]
+            ],
+            "additionalItems": true,
+            "items": {
+                "$id": "#/properties/tagBlocksArray/items",
+                "anyOf": [
+                    {
+                        "$id": "#/properties/tagBlocksArray/items/anyOf/0",
+                        "type": "object",
+                        "title": "The first anyOf schema",
+                        "description": "Tag Block to highlight.",
+                        "default": {},
+                        "examples": [
+                            {
+                                "description": "Main Title - Highlights Main Title Block",
+                                "startText": " ● ",
+                                "endText": " ● ",
+                                "isEnabled": true,
+                                "decoratorOptions": {
+                                    "borderWidth": "2px",
+                                    "borderStyle": "solid",
+                                    "borderRadius": "8px",
+                                    "light": {
+                                        "borderColor": "red",
+                                        "backgroundColor": "yellow",
+                                        "color": "black"
+                                    },
+                                    "dark": {
+                                        "borderColor": "gold",
+                                        "backgroundColor": "teal",
+                                        "color": "gold"
+                                    }
+                                }
+                            }
+                        ],
+                        "required": [
+                            "description",
+                            "startText",
+                            "endText",
+                            "isEnabled",
+                            "decoratorOptions"
+                        ],
+                        "properties": {
+                            "description": {
+                                "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/description",
+                                "type": "string",
+                                "title": "The description schema",
+                                "description": "Brief description of the tag block.",
+                                "default": "",
+                                "examples": [
+                                    "Main Title - Highlights Main Title Block"
+                                ]
+                            },
+                            "startText": {
+                                "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/startText",
+                                "type": "string",
+                                "title": "The startText schema",
+                                "description": "Text string to identify the start of the tag block.",
+                                "default": "",
+                                "examples": [
+                                    " ● "
+                                ]
+                            },
+                            "endText": {
+                                "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/endText",
+                                "type": "string",
+                                "title": "The endText schema",
+                                "description": "Text string to identify the end of the tag block.",
+                                "default": "",
+                                "examples": [
+                                    " ● "
+                                ]
+                            },
+                            "isEnabled": {
+                                "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/isEnabled",
+                                "type": "boolean",
+                                "title": "The isEnabled schema",
+                                "description": "Enable or Disable highlighting of this tag block.",
+                                "default": false,
+                                "examples": [
+                                    true
+                                ]
+                            },
+                            "decoratorOptions": {
+                                "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/decoratorOptions",
+                                "type": "object",
+                                "title": "The decoratorOptions schema",
+                                "description": "Decorator options to apply to this tag block.",
+                                "default": {},
+                                "examples": [
+                                    {
+                                        "borderWidth": "2px",
+                                        "borderStyle": "solid",
+                                        "borderRadius": "8px",
+                                        "light": {
+                                            "borderColor": "red",
+                                            "backgroundColor": "yellow",
+                                            "color": "black"
+                                        },
+                                        "dark": {
+                                            "borderColor": "gold",
+                                            "backgroundColor": "teal",
+                                            "color": "gold"
+                                        }
+                                    }
+                                ],
+                                "required": [
+                                    "light",
+                                    "dark"
+                                ],
+                                "properties": {
+                                    "borderWidth": {
+                                        "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/decoratorOptions/properties/borderWidth",
+                                        "type": "string",
+                                        "title": "The borderWidth schema",
+                                        "description": "Sets the border width of this tag block.",
+                                        "default": "",
+                                        "examples": [
+                                            "2px"
+                                        ]
+                                    },
+                                    "borderStyle": {
+                                        "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/decoratorOptions/properties/borderStyle",
+                                        "type": "string",
+                                        "title": "The borderStyle schema",
+                                        "description": "Sets the border style of this tag block.",
+                                        "default": "",
+                                        "examples": [
+                                            "solid"
+                                        ]
+                                    },
+                                    "borderRadius": {
+                                        "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/decoratorOptions/properties/borderRadius",
+                                        "type": "string",
+                                        "title": "The borderRadius schema",
+                                        "description": "Sets rounded corners for this tag blocks background color.",
+                                        "default": "",
+                                        "examples": [
+                                            "8px"
+                                        ]
+                                    },
+                                    "light": {
+                                        "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/decoratorOptions/properties/light",
+                                        "type": "object",
+                                        "title": "The light schema",
+                                        "description": "Decorator options applied to light themes.",
+                                        "default": {},
+                                        "examples": [
+                                            {
+                                                "borderColor": "red",
+                                                "backgroundColor": "yellow",
+                                                "color": "black"
+                                            }
+                                        ],
+                                        "required": [
+                                            "backgroundColor",
+                                            "color"
+                                        ],
+                                        "properties": {
+                                            "borderColor": {
+                                                "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/decoratorOptions/properties/light/properties/borderColor",
+                                                "type": "string",
+                                                "title": "The borderColor schema",
+                                                "description": "Sets the border color of this tag block.",
+                                                "default": "",
+                                                "examples": [
+                                                    "red"
+                                                ]
+                                            },
+                                            "backgroundColor": {
+                                                "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/decoratorOptions/properties/light/properties/backgroundColor",
+                                                "type": "string",
+                                                "title": "The backgroundColor schema",
+                                                "description": "Sets the background color of this tag block.",
+                                                "default": "",
+                                                "examples": [
+                                                    "yellow"
+                                                ]
+                                            },
+                                            "color": {
+                                                "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/decoratorOptions/properties/light/properties/color",
+                                                "type": "string",
+                                                "title": "The color schema",
+                                                "description": "Sets the color of this tag block.",
+                                                "default": "",
+                                                "examples": [
+                                                    "black"
+                                                ]
+                                            }
+                                        },
+                                        "additionalProperties": true
+                                    },
+                                    "dark": {
+                                        "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/decoratorOptions/properties/dark",
+                                        "type": "object",
+                                        "title": "The dark schema",
+                                        "description": "Decorator options applied to dark themes.",
+                                        "default": {},
+                                        "examples": [
+                                            {
+                                                "borderColor": "gold",
+                                                "backgroundColor": "teal",
+                                                "color": "gold"
+                                            }
+                                        ],
+                                        "required": [
+                                            "backgroundColor",
+                                            "color"
+                                        ],
+                                        "properties": {
+                                            "borderColor": {
+                                                "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/borderColor",
+                                                "type": "string",
+                                                "title": "The borderColor schema",
+                                                "description": "Sets the border color of this tag block.",
+                                                "default": "",
+                                                "examples": [
+                                                    "gold"
+                                                ]
+                                            },
+                                            "backgroundColor": {
+                                                "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/backgroundColor",
+                                                "type": "string",
+                                                "title": "The backgroundColor schema",
+                                                "description": "Sets the background color of this tag block.",
+                                                "default": "",
+                                                "examples": [
+                                                    "teal"
+                                                ]
+                                            },
+                                            "color": {
+                                                "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/color",
+                                                "type": "string",
+                                                "title": "The color schema",
+                                                "description": "Sets the text color of this tag block.",
+                                                "default": "",
+                                                "examples": [
+                                                    "gold"
+                                                ]
+                                            }
+                                        },
+                                        "additionalProperties": true
+                                    }
+                                },
+                                "additionalProperties": true
+                            }
+                        },
+                        "additionalProperties": true
+                    }
+                ]
+            }
+        },
+        "specialTagsArray": {
+            "$id": "#/properties/specialTagsArray",
+            "type": "array",
+            "title": "The specialTagsArray schema",
+            "description": "Array of all unique tags.",
+            "default": [],
+            "examples": [
+                [
+                    {
+                        "description": "Filelink - Used to highlight Markdown Local Project Note Files",
+                        "isEnabled": true,
+                        "decoratorOptions": {
+                            "light": {
+                                "backgroundColor": "#6ed3c2",
+                                "color": "#00473b",
+                                "cursor": "pointer",
+                                "textDecoration": "underline",
+                                "borderRadius": "5px"
+                            },
+                            "dark": {
+                                "backgroundColor": "#00473b",
+                                "color": "#6ed3c2",
+                                "cursor": "pointer",
+                                "textDecoration": "underline",
+                                "borderRadius": "5px"
+                            }
+                        }
+                    },
+                    {
+                        "description": "GlobalFilelink - Used to highlight Markdown Global Note Files",
+                        "isEnabled": true,
+                        "decoratorOptions": {
+                            "light": {
+                                "backgroundColor": "#6e9ad3",
+                                "color": "#082953",
+                                "cursor": "pointer",
+                                "textDecoration": "underline",
+                                "borderRadius": "5px"
+                            },
+                            "dark": {
+                                "backgroundColor": "#082953",
+                                "color": "#6e9ad3",
+                                "cursor": "pointer",
+                                "textDecoration": "underline",
+                                "borderRadius": "5px"
+                            }
+                        }
+                    }
+                ]
+            ],
+            "additionalItems": true,
+            "items": {
+                "$id": "#/properties/specialTagsArray/items",
+                "anyOf": [
+                    {
+                        "$id": "#/properties/specialTagsArray/items/anyOf/0",
+                        "type": "object",
+                        "title": "The first anyOf schema",
+                        "description": "Special tags to highlight.",
+                        "default": {},
+                        "examples": [
+                            {
+                                "description": "Filelink - Used to highlight Markdown Local Project Note Files",
+                                "isEnabled": true,
+                                "decoratorOptions": {
+                                    "light": {
+                                        "backgroundColor": "#6ed3c2",
+                                        "color": "#00473b",
+                                        "cursor": "pointer",
+                                        "textDecoration": "underline",
+                                        "borderRadius": "5px"
+                                    },
+                                    "dark": {
+                                        "backgroundColor": "#00473b",
+                                        "color": "#6ed3c2",
+                                        "cursor": "pointer",
+                                        "textDecoration": "underline",
+                                        "borderRadius": "5px"
+                                    }
+                                }
+                            }
+                        ],
+                        "required": [
+                            "description",
+                            "isEnabled",
+                            "decoratorOptions"
+                        ],
+                        "properties": {
+                            "description": {
+                                "$id": "#/properties/specialTagsArray/items/anyOf/0/properties/description",
+                                "type": "string",
+                                "title": "The description schema",
+                                "description": "Brief description of the special tag.",
+                                "default": "",
+                                "examples": [
+                                    "Filelink - Used to highlight Markdown Local Project Note Files"
+                                ]
+                            },
+                            "isEnabled": {
+                                "$id": "#/properties/specialTagsArray/items/anyOf/0/properties/isEnabled",
+                                "type": "boolean",
+                                "title": "The isEnabled schema",
+                                "description": "Enable or Disable highlighting of this special tag.",
+                                "default": false,
+                                "examples": [
+                                    true
+                                ]
+                            },
+                            "decoratorOptions": {
+                                "$id": "#/properties/specialTagsArray/items/anyOf/0/properties/decoratorOptions",
+                                "type": "object",
+                                "title": "The decoratorOptions schema",
+                                "description": "Decorator options to apply to this special tag.",
+                                "default": {},
+                                "examples": [
+                                    {
+                                        "light": {
+                                            "backgroundColor": "#6ed3c2",
+                                            "color": "#00473b",
+                                            "cursor": "pointer",
+                                            "textDecoration": "underline",
+                                            "borderRadius": "5px"
+                                        },
+                                        "dark": {
+                                            "backgroundColor": "#00473b",
+                                            "color": "#6ed3c2",
+                                            "cursor": "pointer",
+                                            "textDecoration": "underline",
+                                            "borderRadius": "5px"
+                                        }
+                                    }
+                                ],
+                                "required": [
+                                    "light",
+                                    "dark"
+                                ],
+                                "properties": {
+                                    "light": {
+                                        "$id": "#/properties/specialTagsArray/items/anyOf/0/properties/decoratorOptions/properties/light",
+                                        "type": "object",
+                                        "title": "The light schema",
+                                        "description": "Decorator options applied to light themes.",
+                                        "default": {},
+                                        "examples": [
+                                            {
+                                                "backgroundColor": "#6ed3c2",
+                                                "color": "#00473b",
+                                                "cursor": "pointer",
+                                                "textDecoration": "underline",
+                                                "borderRadius": "5px"
+                                            }
+                                        ],
+                                        "required": [
+                                            "backgroundColor",
+                                            "color"
+                                        ],
+                                        "properties": {
+                                            "backgroundColor": {
+                                                "$id": "#/properties/specialTagsArray/items/anyOf/0/properties/decoratorOptions/properties/light/properties/backgroundColor",
+                                                "type": "string",
+                                                "title": "The backgroundColor schema",
+                                                "description": "Sets the background color of this special tag.",
+                                                "default": "",
+                                                "examples": [
+                                                    "#6ed3c2"
+                                                ]
+                                            },
+                                            "color": {
+                                                "$id": "#/properties/specialTagsArray/items/anyOf/0/properties/decoratorOptions/properties/light/properties/color",
+                                                "type": "string",
+                                                "title": "The color schema",
+                                                "description": "Sets the text color of this special tag.",
+                                                "default": "",
+                                                "examples": [
+                                                    "#00473b"
+                                                ]
+                                            },
+                                            "cursor": {
+                                                "$id": "#/properties/specialTagsArray/items/anyOf/0/properties/decoratorOptions/properties/light/properties/cursor",
+                                                "type": "string",
+                                                "title": "The cursor schema",
+                                                "description": "Sets the cursor icon of this special tag.",
+                                                "default": "",
+                                                "examples": [
+                                                    "pointer"
+                                                ]
+                                            },
+                                            "textDecoration": {
+                                                "$id": "#/properties/specialTagsArray/items/anyOf/0/properties/decoratorOptions/properties/light/properties/textDecoration",
+                                                "type": "string",
+                                                "title": "The textDecoration schema",
+                                                "description": "Sets the text decoration for this special tag.",
+                                                "default": "",
+                                                "examples": [
+                                                    "underline"
+                                                ]
+                                            },
+                                            "borderRadius": {
+                                                "$id": "#/properties/specialTagsArray/items/anyOf/0/properties/decoratorOptions/properties/light/properties/borderRadius",
+                                                "type": "string",
+                                                "title": "The borderRadius schema",
+                                                "description": "Sets rounded corners to this special tags background color.",
+                                                "default": "",
+                                                "examples": [
+                                                    "5px"
+                                                ]
+                                            }
+                                        },
+                                        "additionalProperties": true
+                                    },
+                                    "dark": {
+                                        "$id": "#/properties/specialTagsArray/items/anyOf/0/properties/decoratorOptions/properties/dark",
+                                        "type": "object",
+                                        "title": "The dark schema",
+                                        "description": "Decorator options applied to dark themes.",
+                                        "default": {},
+                                        "examples": [
+                                            {
+                                                "backgroundColor": "#00473b",
+                                                "color": "#6ed3c2",
+                                                "cursor": "pointer",
+                                                "textDecoration": "underline",
+                                                "borderRadius": "5px"
+                                            }
+                                        ],
+                                        "required": [
+                                            "backgroundColor",
+                                            "color"
+                                        ],
+                                        "properties": {
+                                            "backgroundColor": {
+                                                "$id": "#/properties/specialTagsArray/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/backgroundColor",
+                                                "type": "string",
+                                                "title": "The backgroundColor schema",
+                                                "description": "Sets the background color for this special tag.",
+                                                "default": "",
+                                                "examples": [
+                                                    "#00473b"
+                                                ]
+                                            },
+                                            "color": {
+                                                "$id": "#/properties/specialTagsArray/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/color",
+                                                "type": "string",
+                                                "title": "The color schema",
+                                                "description": "Sets the text color for this special tag.",
+                                                "default": "",
+                                                "examples": [
+                                                    "#6ed3c2"
+                                                ]
+                                            },
+                                            "cursor": {
+                                                "$id": "#/properties/specialTagsArray/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/cursor",
+                                                "type": "string",
+                                                "title": "The cursor schema",
+                                                "description": "Sets the cursor icon for this special tag.",
+                                                "default": "",
+                                                "examples": [
+                                                    "pointer"
+                                                ]
+                                            },
+                                            "textDecoration": {
+                                                "$id": "#/properties/specialTagsArray/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/textDecoration",
+                                                "type": "string",
+                                                "title": "The textDecoration schema",
+                                                "description": "Sets the text decoration for this special tag.",
+                                                "default": "",
+                                                "examples": [
+                                                    "underline"
+                                                ]
+                                            },
+                                            "borderRadius": {
+                                                "$id": "#/properties/specialTagsArray/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/borderRadius",
+                                                "type": "string",
+                                                "title": "The borderRadius schema",
+                                                "description": "Sets rounded corners to this special tags background color.",
+                                                "default": "",
+                                                "examples": [
+                                                    "5px"
+                                                ]
+                                            }
+                                        },
+                                        "additionalProperties": true
+                                    }
+                                },
+                                "additionalProperties": true
+                            }
+                        },
+                        "additionalProperties": true
+                    }
+                ]
+            }
+        },
+        "extensions": {
+            "$id": "#/properties/extensions",
+            "type": "array",
+            "title": "The extensions schema",
+            "description": "Array of all supported file extensions to highlight.",
+            "default": [],
+            "examples": [
+                [
+                    {
+                        "description": "# or ; Single line comments",
+                        "ext": [
+                            "asm",
+                            "ini"
+                        ],
+                        "commentsRegEx": "[#|;][^\\r?\\n]\\s*([^\\r?\\n]+?)[\\r?\\n]"
+                    },
+                    {
+                        "description": "// Single line comments -or- /* Single line comments */ -or- /* Multiline comments */",
+                        "ext": [
+                            "c",
+                            "cc",
+                            "cp",
+                            "cs",
+                            "cpp",
+                            "c++",
+                            "cxx",
+                            "cppm",
+                            "ixx",
+                            "go",
+                            "java",
+                            "js",
+                            "jsx",
+                            "kt",
+                            "kts",
+                            "ktm",
+                            "less",
+                            "php",
+                            "scss",
+                            "ts",
+                            "tsx",
+                            "vue",
+                            "jsonc"
+                        ],
+                        "commentsRegEx": "(?<!:)\\/\\/\\s*(.+$)|\\/\\*\\s*([\\s\\S]+?)\\s*\\*\\/|\\/\\*\\*?[\\r?\\n]([\\s\\S]+?)\\*\\*?\\/"
+                    }
+                ]
+            ],
+            "additionalItems": true,
+            "items": {
+                "$id": "#/properties/extensions/items",
+                "anyOf": [
+                    {
+                        "$id": "#/properties/extensions/items/anyOf/0",
+                        "type": "object",
+                        "title": "The first anyOf schema",
+                        "description": "Adds support for extensions.",
+                        "default": {},
+                        "examples": [
+                            {
+                                "description": "# or ; Single line comments",
+                                "ext": [
+                                    "asm",
+                                    "ini"
+                                ],
+                                "commentsRegEx": "[#|;][^\\r?\\n]\\s*([^\\r?\\n]+?)[\\r?\\n]"
+                            }
+                        ],
+                        "required": [
+                            "description",
+                            "ext",
+                            "commentsRegEx"
+                        ],
+                        "properties": {
+                            "description": {
+                                "$id": "#/properties/extensions/items/anyOf/0/properties/description",
+                                "type": "string",
+                                "title": "The description schema",
+                                "description": "Description of the comments Regular Expression.",
+                                "default": "",
+                                "examples": [
+                                    "# or ; Single line comments"
+                                ]
+                            },
+                            "ext": {
+                                "$id": "#/properties/extensions/items/anyOf/0/properties/ext",
+                                "type": "array",
+                                "title": "The ext schema",
+                                "description": "Array of extensions that use these comment definitions.",
+                                "default": [],
+                                "examples": [
+                                    [
+                                        "asm",
+                                        "ini"
+                                    ]
+                                ],
+                                "additionalItems": true,
+                                "items": {
+                                    "$id": "#/properties/extensions/items/anyOf/0/properties/ext/items",
+                                    "anyOf": [
+                                        {
+                                            "$id": "#/properties/extensions/items/anyOf/0/properties/ext/items/anyOf/0",
+                                            "type": "string",
+                                            "title": "The first anyOf schema",
+                                            "description": "All extensions that use these comment definitions.",
+                                            "default": "",
+                                            "examples": [
+                                                "asm",
+                                                "ini"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            },
+                            "commentsRegEx": {
+                                "$id": "#/properties/extensions/items/anyOf/0/properties/commentsRegEx",
+                                "type": "string",
+                                "title": "The commentsRegEx schema",
+                                "description": "Regular Expression used to search for comments (escaped backslash required).",
+                                "default": "",
+                                "examples": [
+                                    "[#|;][^\\r?\\n]\\s*([^\\r?\\n]+?)[\\r?\\n]"
+                                ]
+                            }
+                        },
+                        "additionalProperties": true
+                    }
+                ]
+            }
+        }
+    },
+    "additionalProperties": true
+}
