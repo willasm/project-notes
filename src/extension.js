@@ -605,7 +605,7 @@ async function notesEdit() {
     // ========================================================================== //
     //      notesEdit - Search for Project Notes and Show Quick Pick
     let inputAsWorkspaceRelativeFolder = '.vscode';
-    let glob = '**/' + inputAsWorkspaceRelativeFolder + '/*.MD';
+    let glob = '**/' + inputAsWorkspaceRelativeFolder + '/*.{MD,md,Md,mD}';
     let results = await vscode.workspace.findFiles(glob, null, 500);
     if (results.length == 0) { // If Zero Note Files Found, Inform User and Return
         vscode.window.showWarningMessage('No Project Note Files Found!');
@@ -654,7 +654,7 @@ async function notesPreview() {
     // ========================================================================== //
     //      notesPreview - Search for Project Notes and Show Quick Pick
     let inputAsWorkspaceRelativeFolder = '.vscode';
-    let glob = '**/' + inputAsWorkspaceRelativeFolder + '/*.MD';
+    let glob = '**/' + inputAsWorkspaceRelativeFolder + '/*.{MD,md,Md,mD}';
     let results = await vscode.workspace.findFiles(glob, null, 500);
     if (results.length == 0) { // If Zero Note Files Found, Inform User and Return
         vscode.window.showWarningMessage('No Project Note Files Found!');
@@ -785,8 +785,8 @@ async function notesGlobalEdit() {
     };
 
     // ========================================================================== //
-    //      notesGlobalPreview - Search for Global Notes and Show Quick Pick
-    results = await vscode.workspace.findFiles(new vscode.RelativePattern(globalNotesFolder, '*.{md,MD,mD,Md}'), '**/node_modules/**');
+    //      notesGlobalEdit - Search for Global Notes and Show Quick Pick
+    results = await vscode.workspace.findFiles(new vscode.RelativePattern(globalNotesFolder, '*.{md,MD,mD,Md}'));
     if (results.length == 0) { // If Zero Note Files Found, Inform User and Return
         vscode.window.showWarningMessage('No Global Note Files Found!');
         return;
@@ -798,7 +798,7 @@ async function notesGlobalEdit() {
     const result = await vscode.window.showQuickPick(items, options);
 
     // ========================================================================== //
-    //      notesGlobalPreview - Open Global Note File or Return if Cancelled
+    //      notesGlobalEdit - Open Global Note File or Return if Cancelled
     if (result == undefined) {
         // If Result = `undefined`, No File was Picked so Return
         return;
@@ -826,7 +826,7 @@ async function notesGlobalPreview() {
 
     // ========================================================================== //
     //      notesGlobalPreview - Search for Global Notes and Show Quick Pick
-    results = await vscode.workspace.findFiles(new vscode.RelativePattern(globalNotesFolder, '*.{md,MD,mD,Md}'), '**/node_modules/**');
+    results = await vscode.workspace.findFiles(new vscode.RelativePattern(globalNotesFolder, '*.{md,MD,mD,Md}'));
     if (results.length == 0) { // If Zero Note Files Found, Inform User and Return
         vscode.window.showWarningMessage('No Global Note Files Found!');
         return;
