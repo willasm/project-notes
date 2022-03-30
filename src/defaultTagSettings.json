@@ -225,7 +225,7 @@
       "endText": " ● ",
       "isEnabled": true,
       "decoratorOptions": {
-        "borderWidth": "2px",
+        "borderWidth": "1px",
         "borderStyle": "solid",
         "borderRadius": "8px",
         "light": {
@@ -234,9 +234,9 @@
           "color": "#000000"
         },
         "dark": {
-          "borderColor": "#ffff00",
-          "backgroundColor": "#ffd700",
-          "color": "#ffff00"
+          "borderColor": "#e3e7e1",
+          "backgroundColor": "#834f3d",
+          "color": "#f0f0ac"
         }
       }
     },
@@ -255,7 +255,7 @@
           "color": "#305679"
         },
         "dark": {
-          "borderColor": "#ffc0cb",
+          "borderColor": "#f2d1d8",
           "backgroundColor": "#3c300e",
           "color": "#ffff00"
         }

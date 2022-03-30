@@ -11,6 +11,7 @@
 - New `Tags` can be added to the [settings](SETTINGS.md) file
 - All `Tags` can be enabled or disabled individually in the [settings](SETTINGS.md) file
 - Highlighting of user definable `Tag Blocks`
+- Snippets for the pre-defined tag blocks
 - Added [settings](SETTINGS.md) documentation file
 - Added [Upgrading from previous versions](UPGRADING.md) documentation file
 - New screenshots to reflect the new changes

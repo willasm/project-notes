@@ -24,6 +24,7 @@ It is possible to [add new extensions](SETTINGS.md) to the settings file. If you
 - Supports Light and Dark Themes.
 - All `Tags` can be enabled or disabled individually in the [settings](SETTINGS.md) file.
 - Highlighting of user definable `Tag Blocks` - Any text surrounded by user definable text characters.
+- [Snippets](#snippets-for-pre-defined-tag-blocks) for the pre-defined tag blocks
 - New `Tags` can be added to the settings file.
 - `Tags` are case insensitive.
 - `Tags` trailing colon is optional.
@@ -39,13 +40,13 @@ Example Highlighting Light Theme (Light+ default light) ....
 
 ## Extension Commands
 These commands availiable from the command pallette: (Windows: CTRL+Shift+P or F1) (Mac: CMD+Shift+P)
-- `Project Notes: Open or Create Note`
+- `Project Notes: Open or Create Project Note`
 
     Opens or Creates a Project Note File from a Comment File Link. [See Using File Links](#using-file-links)
-- `Project Notes: Open Existing Note (Edit Mode)`
+- `Project Notes: Open Existing Project Note (Edit Mode)`
 
     Opens an Existing Project Note File in Edit Mode.
-- `Project Notes: Open Existing Note (Preview Mode)`
+- `Project Notes: Open Existing Project Note (Preview Mode)`
 
     Opens an Existing Project Note File in Preview Mode.
 
@@ -89,6 +90,18 @@ All Project Note Files are stored in your projects `.vscode` folder (which is cr
 ## Changing TAG Colors and Styling
 
 Refer to the [settings file documentation](SETTINGS.md)
+
+## Snippets for pre-defined tag blocks
+Snippets are provided for the pre-defined tag blocks. They can be entered by typing the prefixes...
+- `tagmaintitle`
+- `tagsubtitle`
+- `taghiddentitle`
+- `tagunderline`
+- `tagstrikethrough`
+
+Here is an example...
+
+![Example Screenshot](./images/Snippets.gif)
 
 ## Release Notes
 See the [Release Notes](RELEASE.md) for details.

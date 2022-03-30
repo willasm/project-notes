@@ -12,7 +12,10 @@
 		"vscode": "^1.63.0"
 	},
 	"categories": [
-		"Other"
+		"Other",
+		"Visualization",
+		"Formatters",
+		"Snippets"
 	],
 	"icon": "images/icon.png",
 	"keywords": [
@@ -43,15 +46,15 @@
 		"commands": [
 			{
 				"command": "project-notes.openorcreatenote",
-				"title": "Project Notes: Open or Create Note"
+				"title": "Project Notes: Open or Create Project Note"
 			},
 			{
 				"command": "project-notes.notesedit",
-				"title": "Project Notes: Open Existing Note (Edit Mode)"
+				"title": "Project Notes: Open Existing Project Note (Edit Mode)"
 			},
 			{
 				"command": "project-notes.notespreview",
-				"title": "Project Notes: Open Existing Note (Preview Mode)"
+				"title": "Project Notes: Open Existing Project Note (Preview Mode)"
 			},
 			{
 				"command": "project-notes.setnotesglobalfolder",
@@ -94,7 +97,12 @@
 		"jsonValidation": [
 			{
 				"fileMatch": "project-notes-tag-settings.json",
-				"url": "./src\\tagSettings-schema.json"
+				"url": "./src/tagSettings-schema.json"
+			}
+		],
+		"snippets": [
+			{
+				"path": "./src/snippets/snippets.json.code-snippets"
 			}
 		]
 	},
