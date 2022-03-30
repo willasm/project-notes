@@ -1,3 +1,22 @@
+# Project Notes + TODO Highlighter Upgrading Notes
+
+## Highlighting Changes
+
+In previous versions the highlighting was provided through the `textMateRules` section under the `editor.tokenColorCustomizations` key in the users settings.json file. This meant the user had to add the settings from the `addtosettings.md` file manually if you wished to change any of the default colors. In this version I have switched to using text decorations which eliminates that requirement alltogether. As a result of this you can now safely remove those settings (if you had already added them) as they are no longer required. You can view the [old settings](#old-settings) at the bottom of this document if you wish to remove them.
+
+## Using Symbols `! @ # $`
+
+Using the symbols `! @ # $` to highlight specific words has now been removed as you can now add your own `keywords` or `tag blocks` to the settings file. This has the benefit of eliminating unwanted highlighting of some words as those symbols are commonly used for other purposes. My apologies if you are currently using them in your code but it had to be done.
+
+## Project and Global Notes
+
+Previously the `.MD` extension was optional. This is now a requirement to remove any confusion as to what type of files the notes system uses. The trigger for `Project Notes` has also been changed from `file: filename` to `project file: filename.md` to more clearly differentiate between global and project notes.
+
+## Old Settings
+
+Removing these settings from your `settings.json` file is recommended. They will not cause any problems if left in but they do make your `settings.json` file much larger than it needs to be.
+
+```
   "editor.tokenColorCustomizations": {
     "textMateRules": [
       {
@@ -170,3 +189,4 @@
       }
     ]
   }
+```

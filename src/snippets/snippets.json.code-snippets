@@ -1,0 +1,37 @@
+{
+    "Main Title Tag": {
+        "prefix": "tagmaintitle",
+        "body": [
+          " ● ${1:Main Title Text} ● $0"
+        ],
+        "description": "Main Title Tag"
+      },
+    "Sub Title Tag": {
+        "prefix": "tagsubtitle",
+        "body": [
+          " • ${1:Sub Title Text} • $0"
+        ],
+        "description": "Sub Title Tag"
+    },
+    "Hidden Title Tag": {
+        "prefix": "taghiddentitle",
+        "body": [
+          " ${1:Hidden Title Text} $0"
+        ],
+        "description": "Hidden Title Tag"
+    },
+    "Underline Tag": {
+        "prefix": "tagunderline",
+        "body": [
+          "₋${1:Underline Text}₋$0"
+        ],
+        "description": "Underline Tag"
+    },
+    "Strikethrough Tag": {
+        "prefix": "tagstrikethrough",
+        "body": [
+          "╶${1:Strikethrough Text}╴$0"
+        ],
+        "description": "Strikethrough Tag"
+    }
+}

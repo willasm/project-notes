@@ -1,0 +1,555 @@
+{
+  "tagSettingsVersion": "1 - Used Internally for Future Updates to this Settings File",
+  "tagsArray": [
+    {
+      "description": "BUG - Highlights the Word BUG",
+      "keyword": "bug",
+      "isEnabled": true,
+      "decoratorOptions": {
+        "borderRadius": "5px",
+        "light": {
+          "borderColor": "#ff806f",
+          "backgroundColor": "#ff806f",
+          "color": "#79180b"
+        },
+        "dark": {
+          "borderColor": "#79180b",
+          "backgroundColor": "#79180b",
+          "color": "#ff806f"
+        }
+      }
+    },
+    {
+      "description": "CHANGED - Highlights the Word CHANGED",
+      "keyword": "changed",
+      "isEnabled": true,
+      "decoratorOptions": {
+        "borderRadius": "5px",
+        "light": {
+          "borderColor": "#c5952d",
+          "backgroundColor": "#c5952d",
+          "color": "#33270b"
+        },
+        "dark": {
+          "borderColor": "#4b3d17",
+          "backgroundColor": "#4b3d17",
+          "color": "#c5952d"
+        }
+      }
+    },
+    {
+      "description": "DEBUG - Highlights the Word DEBUG",
+      "keyword": "debug",
+      "isEnabled": true,
+      "decoratorOptions": {
+        "borderRadius": "5px",
+        "light": {
+          "borderColor": "#c07936",
+          "backgroundColor": "#c07936",
+          "color": "#5f3919"
+        },
+        "dark": {
+          "borderColor": "#5f3919",
+          "backgroundColor": "#5f3919",
+          "color": "#c07936"
+        }
+      }
+    },
+    {
+      "description": "FIXME - Highlights the Word FIXME",
+      "keyword": "fixme",
+      "isEnabled": true,
+      "decoratorOptions": {
+        "borderRadius": "5px",
+        "light": {
+          "borderColor": "#f3c280",
+          "backgroundColor": "#f3c280",
+          "color": "#502f05"
+        },
+        "dark": {
+          "borderColor": "#502f05",
+          "backgroundColor": "#502f05",
+          "color": "#f3c280"
+        }
+      }
+    },
+    {
+      "description": "HACK - Highlights the Word HACK",
+      "keyword": "hack",
+      "isEnabled": true,
+      "decoratorOptions": {
+        "borderRadius": "5px",
+        "light": {
+          "borderColor": "#c83ef1",
+          "backgroundColor": "#c83ef1",
+          "color": "#562e63"
+        },
+        "dark": {
+          "borderColor": "#562e63",
+          "backgroundColor": "#562e63",
+          "color": "#c83ef1"
+        }
+      }
+    },
+    {
+      "description": "IDEA - Highlights the Word IDEA",
+      "keyword": "idea",
+      "isEnabled": true,
+      "decoratorOptions": {
+        "borderRadius": "5px",
+        "light": {
+          "borderColor": "#f0cc2e",
+          "backgroundColor": "#f0cc2e",
+          "color": "#57480d"
+        },
+        "dark": {
+          "borderColor": "#57480d",
+          "backgroundColor": "#57480d",
+          "color": "#f0cc2e"
+        }
+      }
+    },
+    {
+      "description": "NOTE - Highlights the Word NOTE",
+      "keyword": "note",
+      "isEnabled": true,
+      "decoratorOptions": {
+        "borderRadius": "5px",
+        "light": {
+          "borderColor": "#d1bbdd",
+          "backgroundColor": "#d1bbdd",
+          "color": "#73548f"
+        },
+        "dark": {
+          "borderColor": "#73548f",
+          "backgroundColor": "#73548f",
+          "color": "#d1bbdd"
+        }
+      }
+    },
+    {
+      "description": "OPTIMIZE - Highlights the Word OPTIMIZE",
+      "keyword": "optimize",
+      "isEnabled": true,
+      "decoratorOptions": {
+        "borderRadius": "5px",
+        "light": {
+          "borderColor": "#a6ffdd",
+          "backgroundColor": "#a6ffdd",
+          "color": "#3c5e51"
+        },
+        "dark": {
+          "borderColor": "#3c5e51",
+          "backgroundColor": "#3c5e51",
+          "color": "#a6ffdd"
+        }
+      }
+    },
+    {
+      "description": "RESEARCH - Highlights the Word RESEARCH",
+      "keyword": "research",
+      "isEnabled": true,
+      "decoratorOptions": {
+        "borderRadius": "5px",
+        "light": {
+          "borderColor": "#94e1f1",
+          "backgroundColor": "#94e1f1",
+          "color": "#293e44"
+        },
+        "dark": {
+          "borderColor": "#293e44",
+          "backgroundColor": "#293e44",
+          "color": "#94e1f1"
+        }
+      }
+    },
+    {
+      "description": "REVIEW - Highlights the Word REVIEW",
+      "keyword": "review",
+      "isEnabled": true,
+      "decoratorOptions": {
+        "borderRadius": "5px",
+        "light": {
+          "borderColor": "#40bdee",
+          "backgroundColor": "#40bdee",
+          "color": "#153c4b"
+        },
+        "dark": {
+          "borderColor": "#153c4b",
+          "backgroundColor": "#153c4b",
+          "color": "#40bdee"
+        }
+      }
+    },
+    {
+      "description": "TEMP - Highlights the Word TEMP",
+      "keyword": "temp",
+      "isEnabled": true,
+      "decoratorOptions": {
+        "borderRadius": "5px",
+        "light": {
+          "borderColor": "#97af8f",
+          "backgroundColor": "#97af8f",
+          "color": "#45812e"
+        },
+        "dark": {
+          "borderColor": "#45812e",
+          "backgroundColor": "#45812e",
+          "color": "#97af8f"
+        }
+      }
+    },
+    {
+      "description": "TODO - Highlights the Word TODO",
+      "keyword": "todo",
+      "isEnabled": true,
+      "decoratorOptions": {
+        "borderRadius": "5px",
+        "light": {
+          "borderColor": "#b5c058",
+          "backgroundColor": "#b5c058",
+          "color": "#6a721e"
+        },
+        "dark": {
+          "borderColor": "#6a721e",
+          "backgroundColor": "#6a721e",
+          "color": "#b5c058"
+        }
+      }
+    }
+  ],
+  "tagBlocksArray": [
+    {
+      "description": "Main Title - Highlights Main Title Block",
+      "startText": " ● ",
+      "endText": " ● ",
+      "isEnabled": true,
+      "decoratorOptions": {
+        "borderWidth": "1px",
+        "borderStyle": "solid",
+        "borderRadius": "8px",
+        "light": {
+          "borderColor": "#FF0000",
+          "backgroundColor": "#ffff00",
+          "color": "#000000"
+        },
+        "dark": {
+          "borderColor": "#e3e7e1",
+          "backgroundColor": "#834f3d",
+          "color": "#f0f0ac"
+        }
+      }
+    },
+    {
+      "description": "Sub Title - Highlights Sub Title Block",
+      "startText": " • ",
+      "endText": " • ",
+      "isEnabled": true,
+      "decoratorOptions": {
+        "borderWidth": "1px",
+        "borderStyle": "solid",
+        "borderRadius": "8px",
+        "light": {
+          "borderColor": "#008080",
+          "backgroundColor": "#ff0000",
+          "color": "#305679"
+        },
+        "dark": {
+          "borderColor": "#f2d1d8",
+          "backgroundColor": "#3c300e",
+          "color": "#ffff00"
+        }
+      }
+    },
+    {
+      "description": "Hidden Title - Highlights Hidden Title Block",
+      "startText": " ",
+      "endText": " ",
+      "isEnabled": true,
+      "decoratorOptions": {
+        "borderWidth": "1px",
+        "borderStyle": "solid",
+        "borderRadius": "8px",
+        "light": {
+          "borderColor": "#ffd700",
+          "backgroundColor": "#ff806f",
+          "color": "#79180b"
+        },
+        "dark": {
+          "borderColor": "#ffd700",
+          "backgroundColor": "#72600c",
+          "color": "#E6F1C8"
+        }
+      }
+    },
+    {
+      "description": "Underline - Underline Text Block",
+      "startText": "₋",
+      "endText": "₋",
+      "isEnabled": true,
+      "decoratorOptions": {
+        "fontWeight": "bold",
+        "light": {
+          "backgroundColor": "",
+          "color": "#000000",
+          "textDecoration": "underline black 2px"
+
+        },
+        "dark": {
+          "backgroundColor": "",
+          "color": "#ffff00",
+          "textDecoration": "underline cyan 2px"
+        }
+      }
+    },
+    {
+      "description": "Strikethrough - Strikethrough Text Block",
+      "startText": "╶",
+      "endText": "╴",
+      "isEnabled": true,
+      "decoratorOptions": {
+        "fontWeight": "bold",
+        "light": {
+          "backgroundColor": "",
+          "color": "#000000",
+          "textDecoration": "line-through red 2px"
+        },
+        "dark": {
+          "backgroundColor": "",
+          "color": "#0ff0fe",
+          "textDecoration": "line-through yellow 2px"
+        }
+      }
+    }
+  ],
+  "specialTagsArray": [
+    {
+      "description": "Filelink - Used to highlight Markdown Local Project Note Files",
+      "isEnabled": true,
+      "decoratorOptions": {
+        "light": {
+          "backgroundColor": "#6ed3c2",
+          "color": "#00473b",
+          "cursor": "pointer",
+          "textDecoration": "underline",
+          "borderRadius": "5px"
+        },
+        "dark": {
+          "backgroundColor": "#00473b",
+          "color": "#6ed3c2",
+          "cursor": "pointer",
+          "textDecoration": "underline",
+          "borderRadius": "5px"
+        }
+      }
+    },
+    {
+      "description": "GlobalFilelink - Used to highlight Markdown Global Note Files",
+      "isEnabled": true,
+      "decoratorOptions": {
+          "light": {
+            "backgroundColor": "#6e9ad3",
+            "color": "#082953",
+            "cursor": "pointer",
+            "textDecoration": "underline",
+            "borderRadius": "5px"
+          },
+          "dark": {
+            "backgroundColor": "#082953",
+            "color": "#6e9ad3",
+            "cursor": "pointer",
+            "textDecoration": "underline",
+            "borderRadius": "5px"
+          }
+        }
+      },
+      {
+      "description": "Parentheses - Highlights Text in Parentheses",
+      "isEnabled": true,
+      "decoratorOptions": {
+        "light": {
+          "backgroundColor": "",
+          "color": "#936bf7",
+          "fontWeight": "bold"
+        },
+        "dark": {
+          "backgroundColor": "",
+          "color": "#a38cda",
+          "fontWeight": "bold"
+        }
+      }
+    },
+    {
+      "description": "Curly Braces - Highlights Text in Curly Braces",
+      "isEnabled": true,
+      "decoratorOptions": {
+        "light": {
+          "backgroundColor": "",
+          "color": "#9c9900",
+          "fontWeight": "bold"
+        },
+        "dark": {
+          "backgroundColor": "",
+          "color": "#fcf950",
+          "fontWeight": "bold"
+        }
+      }
+    },
+    {
+      "description": "Brackets - Highlights Text in Brackets",
+      "isEnabled": true,
+      "decoratorOptions": {
+        "light": {
+          "backgroundColor": "",
+          "color": "#00b4ab",
+          "fontWeight": "bold"
+        },
+        "dark": {
+          "backgroundColor": "",
+          "color": "#3afff5",
+          "fontWeight": "bold"
+        }
+      }
+    },
+    {
+      "description": "Backticks - Highlights Text in Backticks",
+      "isEnabled": true,
+      "decoratorOptions": {
+        "light": {
+          "backgroundColor": "",
+          "color": "#104c66",
+          "fontStyle": "italic"
+        },
+        "dark": {
+          "backgroundColor": "",
+          "color": "#21a0d3",
+          "fontStyle": "italic"
+        }
+      }
+    },
+    {
+      "description": "Double Quotes - Highlights Text in Single Quotes",
+      "isEnabled": true,
+      "decoratorOptions": {
+        "light": {
+          "backgroundColor": "",
+          "color": "#9e5a2f",
+          "fontStyle": "italic"
+        },
+        "dark": {
+          "backgroundColor": "",
+          "color": "#a7e0f7",
+          "fontStyle": "italic"
+        }
+      }
+    },
+    {
+      "description": "Single Quotes - Highlights Text in Single Quotes",
+      "isEnabled": true,
+      "decoratorOptions": {
+        "light": {
+          "backgroundColor": "",
+          "color": "#ca7c4b",
+          "fontStyle": "italic"
+        },
+        "dark": {
+          "backgroundColor": "",
+          "color": "#5ecaf5",
+          "fontStyle": "italic"
+        }
+      }
+    }
+  ],
+  "extensions": [
+    {
+      "description": "# or ; Single line comments",
+      "ext": ["asm", "ini"],
+      "commentsRegEx": "[#|;][^\\r\\n]\\s*([^\\r\\n]+?)[\\r\\n]"
+    },
+    {
+      "description": "// Single line comments -or- /* Single line comments */ -or- /* Multiline comments */",
+      "ext": ["c", "cc", "cp", "cs", "cpp", "c++", "cxx", "cppm", "ixx", "go", "java", "js", "jsx", "kt", "kts", "ktm", "less", "php", "scss", "swift", "ts", "tsx", "vue", "jsonc"],
+      "commentsRegEx": "(?<!:)\\/\\/\\s*(.+$)|\\/\\*\\s*([\\s\\S]+?)\\s*\\*\\/|\\/\\*\\*?[\\r\\n]([\\s\\S]+?)\\*\\*?\\/"
+    },
+    {
+      "description": "/* Single line comments */ -and- /* Multiline comments */",
+      "ext": ["css"],
+      "commentsRegEx": "\\/\\*\\s*([\\s\\S]+?)\\s*\\*\\/"
+    },
+    {
+      "description": "### Multiline comments -or- # Single line comments",
+      "ext": ["coffee"],
+      "commentsRegEx": "\\#\\#\\#\\s*([\\s\\S]+?)\\s*\\#\\#\\#[\\r\\n]?|\\#[^\\r\\n]\\s*([\\s\\S]+?)[\\r\\n]"
+    },
+    {
+      "description": "// -or- ; Single line comments",
+      "ext": ["tbs"],
+      "commentsRegEx": "[//|;]\\s*([^\r\n]+?)[\r\n]"
+    },
+    {
+      "description": "rem -or- :: -or- & :: Single line comments",
+      "ext": ["bat", "cmd"],
+      "commentsRegEx": "rem\\s*([^\\r\\n]+?)[\\r\\n]|::\\s*([^\\r\\n]+?)[\\r\\n]|& ::\\s*([^\\r\\n]+?)[\\r\\n]"
+    },
+    {
+      "description": "<!-- Single line comments --> -or- {{* Single and Multiline comments *}} -or- // Single line comments -or- /* Single line comments */ -or- /* Multiline comments */",
+      "ext": ["html", "vue"],
+      "commentsRegEx": "<!--\\s*([\\s\\S]*?)\\s*-->|\\{\\{\\/\\*[\\r\\n]?([\\s\\S]*?)\\*\\/}\\}|(?<!:)\\/\\/\\s*(.+$)|\\/\\*\\s*([\\s\\S]+?)\\s*\\*\\/|\\/\\*\\*?[\\r\\n]([\\s\\S]+?)\\*\\*?\\/"
+    },
+    {
+      "description": "<!-- Single line and Multiline comments --> -or- {::comment} Single line and Multiline comments {:/comment} -or- []: # Single line comments",
+      "ext": ["md"],
+      "commentsRegEx": "<!---?\\s*([\\s\\S]+?)\\s*-->|{::comment}[\\r\\n]?\\s*([\\s\\S]+?){:\\/comment}|\\[[\\s\\S]*?\\]:\\s+#\\s+([^\\r\\n]+)[\\r\\n]?"
+    },
+    {
+      "description": "/* Multiline comments */ -and- /* Single line comments */ -or- -- Single line comments",
+      "ext": ["sql"],
+      "commentsRegEx": "\\/\\*\\s*([\\s\\S]+?)\\s*\\*\\/|--\\s*([^\\r\\n]+)"
+    },
+    {
+      "description": "\"\"\" Multiline comments \"\"\" -or- # Single line comments",
+      "ext": ["py"],
+      "commentsRegEx": "\\\"\\\"\\\"\\s*([\\s\\S]+?)[\\r\\n]*\\\"\\\"\\\"|#\\s*([^\\r\\n]+)"
+    },
+    {
+      "description": "=begin Multiline comments =end -or- # Single line comments",
+      "ext": ["rb"],
+      "commentsRegEx": "(?:=begin)[\\r\\n]+\\s*([\\s\\S]*?)(?:=end)|#\\s*([^\\r\\n]+)"
+    },
+    {
+      "description": "/// Single line comments -and- //! Single line comments -and- // Single line comments",
+      "ext": ["rs", "rlib"],
+      "commentsRegEx": "\\/\\/\\/[^\\r\\n]\\s*([^\\r\\n]+)|\\/\\/![^\\r\\n]\\s*([^\\r\\n]+)|\\/\\/[^\\/!\\r\\n]([^\\r\\n]+)"
+    },
+    {
+      "description": "{# Single line comments -and- Multiline comments #}",
+      "ext": ["twig"],
+      "commentsRegEx": "{#\\s*([\\s\\S]+?)\\s*#}"
+    },
+    {
+      "description": "{# Single line comments -or- =anyword Multiline comments =cut",
+      "ext": ["pl"],
+      "commentsRegEx": "(?:^=)(?:[^\\r\\n]+)[\\r\\n]\\s*([\\s\\S]+?)[\\r\\n]+=cut|(?:#)\\s*([^\\r\\n]+)"
+    },
+    {
+      "description": "%{ Multiline comments %} -or % Single line comments -or- ...Commenting part of a statement spanning multiple lines uses ellipsis...",
+      "ext": ["m", "mat"],
+      "commentsRegEx": "^%{[\\r\\n]([\\s\\S]+?)^%}|%\\s*([^\\r\\n]+)|\\.\\.\\.([^\\r\\n]+)\\.\\.\\."
+    },
+    {
+      "description": "(single quote) Single line comment",
+      "ext": ["bas", "cls"],
+      "commentsRegEx": "'\\s*([^\\r\\n]+)"
+    },
+    {
+      "description": "# Single line comment",
+      "ext": ["r"],
+      "commentsRegEx": "#\\s*([^\\r\\n]+)"
+    },
+    {
+      "description": "// Single line comment -or- { Multiline comment } -or- (* Multiline comment*)",
+      "ext": ["dpr", "pas"],
+      "commentsRegEx": "\\/\\/\\s*([^\\r\\n]+?)[\\r\\n]|\\(\\*\\s*([\\s\\S]+?)\\s*\\*\\)|\\{\\s*([\\s\\S]+?)\\s*\\}"
+    }
+  ]
+}
