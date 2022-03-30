@@ -497,15 +497,15 @@ async function openOrCreateNote() {
 
     // openOrCreateNote - Get current lines text 
     const lineText = editor.document.lineAt(editor.selection.active.line).text;
-    const fileregex = new RegExp(/project file: *([A-Za-z0-9_-]+)/i);
+    const fileregex = new RegExp(/project file: *([A-Za-z0-9_-]+.md)/i);
     var found = fileregex.test(lineText);
 
     // openOrCreateNote - Get Filename from comment 
     if (found) {
-        const filenameArray = fileregex.exec(lineText);
-        var filename = filenameArray[1] + '.MD';
-        // ========================================================================== //
-        //      openOrCreateNote - Get current workspace folder for Filename
+        let filenameArray = fileregex.exec(lineText);
+        var filename = filenameArray[1];
+
+    // openOrCreateNote - Get current workspace folder for Filename 
     } else {
         let filepath = vscode.workspace.workspaceFolders[0].uri.path;
         var filename = new String(filepath).substring(filepath.lastIndexOf('/') + 1) + '.MD';
@@ -644,8 +644,6 @@ async function setNotesGlobalFolder() {
     const folderUri = await vscode.window.showOpenDialog(options);
     if (folderUri && folderUri[0]) {
         globalNotesFolder = folderUri[0].fsPath;
-        //console.log('Selected file: ' + folderUri[0].fsPath);
-        //console.log(globalNotesFolder);
         let settings = vscode.workspace.getConfiguration("project-notes");
         settings.update("globalNotesFolder",globalNotesFolder,1);
     }
@@ -673,15 +671,15 @@ async function openOrCreateGlobalNote() {
 
     // openOrCreateGlobalNote - Get current lines text 
     const lineText = editor.document.lineAt(editor.selection.active.line).text;
-    const globalfileregex = new RegExp(/global file: *([A-Za-z0-9_-]+)/i);
+    const globalfileregex = new RegExp(/global file: *([A-Za-z0-9_-]+.md)/i);
     var found = globalfileregex.test(lineText);
     let fileName;
     let filePath;
 
     // openOrCreateGlobalNote - Get Filename from comment 
     if (found) {
-        const filenameArray = globalfileregex.exec(lineText);
-        fileName = filenameArray[1] + '.MD';
+        let filenameArray = globalfileregex.exec(lineText);
+        fileName = filenameArray[1];
         filePath = globalNotesFolder+'\\'+fileName;
     
     // openOrCreateGlobalNote - Prompt for Filename from User 

@@ -26,7 +26,7 @@ This is the actual tag word that will be be highlighted, (bug) in the screenshot
 Boolean value of true (enabled) or false (disabled). While you could simply delete an entry entirely it is preferable to set this entry to false to disable it.
 
 ##### "decoratorOptions"
-This is where you provide all the colors and styling to be applied to the keyword. In the screenshot "borderRadius" is what provides the rounded corners of the background. The "light" and "dark" objects contain entries which are specific to those theme types.
+This is where you provide all the colors and styling to be applied to the keyword. In the screenshot in the [Readme](README.md) file "borderRadius" is what provides the rounded corners of the background. The "light" and "dark" objects contain entries which are specific to those theme types.
  - "borderColor" sets the border color.
  - "backgroundColor" sets the background color. Note: you can set this to an empty string "" or simply delete the key/value pair to remove the background color.
  - "color" the color for the text itself.
