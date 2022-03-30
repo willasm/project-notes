@@ -14,7 +14,7 @@ Previously the `.MD` extension was optional. This is now a requirement to remove
 
 ## Old Settings
 
-Removing these settings from your `settings.json` file is recommended. They will not cause any problems if left in but they do make your `settin.json` file much larger than it needs to be.
+Removing these settings from your `settings.json` file is recommended. They will not cause any problems if left in but they do make your `settings.json` file much larger than it needs to be.
 
 ```
   "editor.tokenColorCustomizations": {

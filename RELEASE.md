@@ -2,10 +2,10 @@
 
 <!-- ## [v-inc] ${YEAR4}-${MONTHNUMBER}-${DATE} -->
 
-## [0.0.6] 2022-03-29
+## [1.0.0] 2022-03-30
 - New command - `Project Notes: Edit Tags Settings File`
 - New command - `Project Notes: Restore Tag Settings File`
-- All tag settings are now stored in `project-notes-tag-settings.json` file
+- All tag settings are now stored in `project-notes-tag-settings.json`
 - Added schema json file for settings file
 - Light and Dark theme aware highlighting
 - New `Tags` can be added to the [settings](SETTINGS.md) file

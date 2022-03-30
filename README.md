@@ -13,14 +13,14 @@ Adds TODO syntax highlighting support to comments in your source files.
 
 Note: This extension provides syntax highlighting for definable keywords within your source code. The highlighting is enabled by file extension. It has support for the following languages by file extension...
 
-`asm bas bat c c++ cc cls cmd coffee cp cpp cppm css cxx dpr go html ini ixx js jsonc jsx less m mat md pas pl php py r rlib rs rb scss sql swift tbs ts twig txs vue`
+`.asm .bas .bat .c .c++ .cc .cls .cmd .coffee .cp .cpp .cppm .cs .css .cxx .dpr .go .html .ini .ixx .java .js .jsonc .jsx .kt .kts .ktm .less .m .mat .md .pas .pl .php .py .r .rlib .rs .rb .scss .sql .swift .tbs .ts .twig .txs .vue`
 
 It is possible to [add new extensions](SETTINGS.md) to the settings file. If you are using a programming language that this extension does not support and you need assistance adding it to the settings file, please submit an issue on my [Github Issues page](https://github.com/willasm/project-notes/issues) and I will add support for it to this extension.
 
 ## Features
 - Link to project note files in Markdown format.
 - Link to global note files in Markdown format.
-- Adds syntax highlighting in comments to the default tags `TODO, NOTE, FIXME, BUG, DEBUG, HACK, TEMP, IDEA, REVIEW, RESEARCH, CHANGED, and OPTIMIZE`.
+- Adds syntax highlighting in comments to the default tags `BUG, CHANGED, DEBUG, FIXME, HACK, IDEA, NOTE, OPTIMIZE, RESEARCH, REVIEW, TEMP and TODO`.
 - Supports Light and Dark Themes.
 - All `Tags` can be enabled or disabled individually in the [settings](SETTINGS.md) file.
 - Highlighting of user definable `Tag Blocks` - Any text surrounded by user definable text characters.
