@@ -740,6 +740,7 @@
                                             "borderColor": {
                                                 "$id": "#/properties/tagsArray/items/anyOf/0/properties/decoratorOptions/properties/light/properties/borderColor",
                                                 "type": "string",
+                                                "format": "color",
                                                 "title": "The borderColor schema",
                                                 "description": "Sets the border color for this keyword.",
                                                 "default": "",
@@ -750,6 +751,7 @@
                                             "backgroundColor": {
                                                 "$id": "#/properties/tagsArray/items/anyOf/0/properties/decoratorOptions/properties/light/properties/backgroundColor",
                                                 "type": "string",
+                                                "format": "color",
                                                 "title": "The backgroundColor schema",
                                                 "description": "Sets the background color for this keyword.",
                                                 "default": "",
@@ -760,6 +762,7 @@
                                             "color": {
                                                 "$id": "#/properties/tagsArray/items/anyOf/0/properties/decoratorOptions/properties/light/properties/color",
                                                 "type": "string",
+                                                "format": "color",
                                                 "title": "The color schema",
                                                 "description": "Sets the text color for this keyword.",
                                                 "default": "",
@@ -791,6 +794,7 @@
                                             "borderColor": {
                                                 "$id": "#/properties/tagsArray/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/borderColor",
                                                 "type": "string",
+                                                "format": "color",
                                                 "title": "The borderColor schema",
                                                 "description": "Sets the border color for this keyword.",
                                                 "default": "",
@@ -801,6 +805,7 @@
                                             "backgroundColor": {
                                                 "$id": "#/properties/tagsArray/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/backgroundColor",
                                                 "type": "string",
+                                                "format": "color",
                                                 "title": "The backgroundColor schema",
                                                 "description": "Sets the background color for this keyword.",
                                                 "default": "",
@@ -811,6 +816,7 @@
                                             "color": {
                                                 "$id": "#/properties/tagsArray/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/color",
                                                 "type": "string",
+                                                "format": "color",
                                                 "title": "The color schema",
                                                 "description": "Sets the text color for this keyword.",
                                                 "default": "",
@@ -1042,6 +1048,7 @@
                                             "borderColor": {
                                                 "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/decoratorOptions/properties/light/properties/borderColor",
                                                 "type": "string",
+                                                "format": "color",
                                                 "title": "The borderColor schema",
                                                 "description": "Sets the border color of this tag block.",
                                                 "default": "",
@@ -1052,6 +1059,7 @@
                                             "backgroundColor": {
                                                 "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/decoratorOptions/properties/light/properties/backgroundColor",
                                                 "type": "string",
+                                                "format": "color",
                                                 "title": "The backgroundColor schema",
                                                 "description": "Sets the background color of this tag block.",
                                                 "default": "",
@@ -1062,6 +1070,7 @@
                                             "color": {
                                                 "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/decoratorOptions/properties/light/properties/color",
                                                 "type": "string",
+                                                "format": "color",
                                                 "title": "The color schema",
                                                 "description": "Sets the color of this tag block.",
                                                 "default": "",
@@ -1093,6 +1102,7 @@
                                             "borderColor": {
                                                 "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/borderColor",
                                                 "type": "string",
+                                                "format": "color",
                                                 "title": "The borderColor schema",
                                                 "description": "Sets the border color of this tag block.",
                                                 "default": "",
@@ -1103,6 +1113,7 @@
                                             "backgroundColor": {
                                                 "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/backgroundColor",
                                                 "type": "string",
+                                                "format": "color",
                                                 "title": "The backgroundColor schema",
                                                 "description": "Sets the background color of this tag block.",
                                                 "default": "",
@@ -1113,6 +1124,7 @@
                                             "color": {
                                                 "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/color",
                                                 "type": "string",
+                                                "format": "color",
                                                 "title": "The color schema",
                                                 "description": "Sets the text color of this tag block.",
                                                 "default": "",
@@ -1292,6 +1304,7 @@
                                             "backgroundColor": {
                                                 "$id": "#/properties/specialTagsArray/items/anyOf/0/properties/decoratorOptions/properties/light/properties/backgroundColor",
                                                 "type": "string",
+                                                "format": "color",
                                                 "title": "The backgroundColor schema",
                                                 "description": "Sets the background color of this special tag.",
                                                 "default": "",
@@ -1302,6 +1315,7 @@
                                             "color": {
                                                 "$id": "#/properties/specialTagsArray/items/anyOf/0/properties/decoratorOptions/properties/light/properties/color",
                                                 "type": "string",
+                                                "format": "color",
                                                 "title": "The color schema",
                                                 "description": "Sets the text color of this special tag.",
                                                 "default": "",
@@ -1365,6 +1379,7 @@
                                             "backgroundColor": {
                                                 "$id": "#/properties/specialTagsArray/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/backgroundColor",
                                                 "type": "string",
+                                                "format": "color",
                                                 "title": "The backgroundColor schema",
                                                 "description": "Sets the background color for this special tag.",
                                                 "default": "",
@@ -1375,6 +1390,7 @@
                                             "color": {
                                                 "$id": "#/properties/specialTagsArray/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/color",
                                                 "type": "string",
+                                                "format": "color",
                                                 "title": "The color schema",
                                                 "description": "Sets the text color for this special tag.",
                                                 "default": "",

@@ -229,14 +229,14 @@
         "borderStyle": "solid",
         "borderRadius": "8px",
         "light": {
-          "borderColor": "red",
-          "backgroundColor": "yellow",
-          "color": "black"
+          "borderColor": "#FF0000",
+          "backgroundColor": "#ffff00",
+          "color": "#000000"
         },
         "dark": {
-          "borderColor": "gold",
-          "backgroundColor": "teal",
-          "color": "gold"
+          "borderColor": "#ffff00",
+          "backgroundColor": "#ffd700",
+          "color": "#ffff00"
         }
       }
     },
@@ -250,14 +250,14 @@
         "borderStyle": "solid",
         "borderRadius": "8px",
         "light": {
-          "borderColor": "red",
-          "backgroundColor": "DarkBlue",
-          "color": "pink"
+          "borderColor": "#008080",
+          "backgroundColor": "#ff0000",
+          "color": "#305679"
         },
         "dark": {
-          "borderColor": "yellow",
+          "borderColor": "#ffc0cb",
           "backgroundColor": "#3c300e",
-          "color": "gold"
+          "color": "#ffff00"
         }
       }
     },
@@ -271,12 +271,12 @@
         "borderStyle": "solid",
         "borderRadius": "8px",
         "light": {
-          "borderColor": "yellow",
+          "borderColor": "#ffd700",
           "backgroundColor": "#ff806f",
           "color": "#79180b"
         },
         "dark": {
-          "borderColor": "yellow",
+          "borderColor": "#ffd700",
           "backgroundColor": "#72600c",
           "color": "#E6F1C8"
         }
@@ -291,13 +291,13 @@
         "fontWeight": "bold",
         "light": {
           "backgroundColor": "",
-          "color": "black",
+          "color": "#000000",
           "textDecoration": "underline black 2px"
 
         },
         "dark": {
           "backgroundColor": "",
-          "color": "cyan",
+          "color": "#ffff00",
           "textDecoration": "underline cyan 2px"
         }
       }
@@ -311,12 +311,12 @@
         "fontWeight": "bold",
         "light": {
           "backgroundColor": "",
-          "color": "black",
+          "color": "#000000",
           "textDecoration": "line-through red 2px"
         },
         "dark": {
           "backgroundColor": "",
-          "color": "lime",
+          "color": "#0ff0fe",
           "textDecoration": "line-through yellow 2px"
         }
       }
