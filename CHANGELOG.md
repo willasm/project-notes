@@ -1,19 +1,25 @@
 # Change Log
 <!--
-## [1.0.1]
+## [1.0.2]
 ### Added
 ### Changed
-- Pick lists are now alpha numerically sorted
 ### Deprecated
 ### Removed
 ### Fixed
-- Global note edit string typo for pick list
 ### Security
 ### Updated
-- Readme with suggestion for "editor.quickSuggestions.comments": true
 -->
 
 <!-- ## [v-inc] ${YEAR4}-${MONTHNUMBER}-${DATE} -->
+
+## [1.0.1] 2022-03-31
+### Changed
+- Pick lists are now alpha numerically sorted
+### Fixed
+- Global note edit string typo for pick list
+### Updated
+- Readme with suggestion for "editor.quickSuggestions.comments": true
+- Readme with notification about Known Issues
 
 ## [1.0.0] 2022-03-30
 ### Added
