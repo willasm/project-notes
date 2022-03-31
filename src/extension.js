@@ -551,17 +551,16 @@ async function notesEdit() {
     let items = [];
     let options = {
         placeHolder: "Select Project Note to Edit",
-        title: "---=== Project Notes - View Note in Edit Mode ===---"
-    };
+        title: "---=== Project Notes - View Project Note in Edit Mode ===---"
+    }
 
     // notesEdit - Search for Project Notes and Show Quick Pick 
-    let inputAsWorkspaceRelativeFolder = '.vscode';
-    let glob = '**/' + inputAsWorkspaceRelativeFolder + '/*.{MD,md,Md,mD}';
-    let results = await vscode.workspace.findFiles(glob, null, 500);
+    results = await vscode.workspace.findFiles('**/.vscode/*.{md,MD,mD,Md}',null,500);//<--bug*/
     if (results.length == 0) { // If Zero Note Files Found, Inform User and Return
         vscode.window.showWarningMessage('No Project Note Files Found!');
         return;
     }
+    results.sort();
     for (const file of results) {
         const base = path.basename(file.fsPath);
         items.push(base);
@@ -597,17 +596,16 @@ async function notesPreview() {
     let items = [];
     let options = {
         placeHolder: "Select Project Note to Preview",
-        title: "---=== Project Notes - View Note in Preview Mode ===---"
-    };
+        title: "---=== Project Notes - View Project Note in Preview Mode ===---"
+    }
 
     // notesPreview - Search for Project Notes and Show Quick Pick 
-    let inputAsWorkspaceRelativeFolder = '.vscode';
-    let glob = '**/' + inputAsWorkspaceRelativeFolder + '/*.{MD,md,Md,mD}';
-    let results = await vscode.workspace.findFiles(glob, null, 500);
+    results = await vscode.workspace.findFiles('**/.vscode/*.{md,MD,mD,Md}',null,500);//*/
     if (results.length == 0) { // If Zero Note Files Found, Inform User and Return
         vscode.window.showWarningMessage('No Project Note Files Found!');
         return;
     }
+    results.sort();
     for (const file of results) {
         const base = path.basename(file.fsPath);
         items.push(base);
@@ -728,8 +726,8 @@ async function notesGlobalEdit() {
     }
     let items = [];
     let options = {
-        placeHolder: "Select Global Note to Preview",
-        title: "---=== Project Notes - View Global Note in Preview Mode ===---"
+        placeHolder: "Select Global Note to Edit",
+        title: "---=== Project Notes - View Global Note in Edit Mode ===---"
     };
 
     // notesGlobalEdit - Search for Global Notes and Show Quick Pick 
@@ -738,6 +736,7 @@ async function notesGlobalEdit() {
         vscode.window.showWarningMessage('No Global Note Files Found!');
         return;
     }
+    results.sort();
     for (const file of results) {
         const base = path.basename(file.fsPath);
         items.push(base);
@@ -776,6 +775,7 @@ async function notesGlobalPreview() {
         vscode.window.showWarningMessage('No Global Note Files Found!');
         return;
     }
+    results.sort();
     for (const file of results) {
         const base = path.basename(file.fsPath);
         items.push(base);

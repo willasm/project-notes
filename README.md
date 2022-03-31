@@ -93,6 +93,9 @@ Refer to the [settings file documentation](SETTINGS.md)
 
 ## Snippets for pre-defined tag blocks
 Snippets are provided for the pre-defined tag blocks. They can be entered by typing the prefixes...
+Note: To enable snippets selection menu in comments, add this line to your settings.json file.
+"editor.quickSuggestions.comments": true
+
 - `tagmaintitle`
 - `tagsubtitle`
 - `taghiddentitle`
@@ -102,6 +105,15 @@ Snippets are provided for the pre-defined tag blocks. They can be entered by typ
 Here is an example...
 
 ![Example Screenshot](./images/Snippets.gif)
+
+## Known Issues
+In a case like this...
+
+`results = await vscode.workspace.findFiles('**/.vscode/*.{md,MD,mD,Md}',null,500);`
+
+the `/*` in the quoted string will trigger the start of a comment and all following code will highlighted as if it was in a comment until it finds a closing `*/`. Until I resolve this, if you happen to have this occur in your code an easy work around is to force it closed by appending the closing comment characters like this...
+
+`results = await vscode.workspace.findFiles('**/.vscode/*.{md,MD,mD,Md}',null,500);//*/`
 
 ## Release Notes
 See the [Release Notes](RELEASE.md) for details.

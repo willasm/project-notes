@@ -1,13 +1,16 @@
 # Change Log
 <!--
-## [1.0.0]
+## [1.0.1]
 ### Added
 ### Changed
+- Pick lists are now alpha numerically sorted
 ### Deprecated
 ### Removed
 ### Fixed
+- Global note edit string typo for pick list
 ### Security
-### Updated 
+### Updated
+- Readme with suggestion for "editor.quickSuggestions.comments": true
 -->
 
 <!-- ## [v-inc] ${YEAR4}-${MONTHNUMBER}-${DATE} -->
