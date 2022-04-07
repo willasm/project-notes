@@ -122,6 +122,8 @@ function updateDecorations() {
     // updateDecorations - Search for tag matches 
     let commentMatch;
     let keywordMatch;
+    let commentInString = /^[^'"\r\n]+(['"])[^'"]+[\r\n]/gmi        // Ignore comments in strings
+    // /* .{MD,md,Md,mD,XX}';\r\n
     const text = activeEditor.document.getText();                   // Load active document into text buffer
 
     // Tags Decorations
@@ -147,21 +149,28 @@ function updateDecorations() {
         let keyword = element.keyword
         let keywordRegex = new RegExp('\\b'+keyword+'\\b:?', 'gi');
         while (commentMatch = commentsRegEx.exec(text)) {
-            while (keywordMatch = keywordRegex.exec(commentMatch[0])) {
-                let startPosition = commentMatch.index + keywordMatch.index;
-                let endPosition = startPosition + keywordMatch[0].length;
-                for (let hoverTextIndex = 1; hoverTextIndex < 5; hoverTextIndex++) {
-                    hoverText = commentMatch[0];                        // Default to entire comment in case no match found
-                    if (commentMatch[hoverTextIndex] != undefined) {
-                        hoverText = commentMatch[hoverTextIndex];
-                        break;
-                    }
-                };
-                let rangeStart = activeEditor.document.positionAt(startPosition);
-                let rangeEnd = activeEditor.document.positionAt(endPosition);
-                const decoration = { range: new vscode.Range(rangeStart, rangeEnd), hoverMessage: hoverText };
-                decorationOptionsArray[index].push(decoration);
+            // Skip comments in strings 
+            let inString = commentInString.exec(commentMatch);
+            if (inString !== null) {
+                commentsRegEx.lastIndex = commentMatch.index + 3
+                continue;
             }
+                while (keywordMatch = keywordRegex.exec(commentMatch[0])) {
+                    let startPosition = commentMatch.index + keywordMatch.index;
+                    let endPosition = startPosition + keywordMatch[0].length;
+                    for (let hoverTextIndex = 1; hoverTextIndex < 5; hoverTextIndex++) {
+                        // Default to entire comment in case no match found 
+                        hoverText = commentMatch[0];
+                        if (commentMatch[hoverTextIndex] != undefined) {
+                            hoverText = commentMatch[hoverTextIndex];
+                            break;
+                        }
+                    };
+                    let rangeStart = activeEditor.document.positionAt(startPosition);
+                    let rangeEnd = activeEditor.document.positionAt(endPosition);
+                    const decoration = { range: new vscode.Range(rangeStart, rangeEnd), hoverMessage: hoverText };
+                    decorationOptionsArray[index].push(decoration);
+                }
         }
         if (element.isEnabled) {
             activeEditor.setDecorations(decorationTypes[index], decorationOptionsArray[index]);
@@ -177,15 +186,21 @@ function updateDecorations() {
         let regExEndFixed = regExEnd.replace(/[|\\{}()[\]^$+*?.]/g, '\\$&');
         let tagBlockRegEx = new RegExp(regExStartFixed+'([^\r\n]+?)'+regExEndFixed,'gi');
         while (commentMatch = commentsRegEx.exec(text)) {
-            while (specialMatch = tagBlockRegEx.exec(commentMatch[0])) {
-                let startPosition = commentMatch.index + specialMatch.index;
-                let endPosition = startPosition + specialMatch[0].length;
-                let hoverText = '--== '+specialMatch[0]+' ==--';
-                let rangeSpecialStart = activeEditor.document.positionAt(startPosition);
-                let rangeSpecialEnd = activeEditor.document.positionAt(endPosition);
-                const decoration = { range: new vscode.Range(rangeSpecialStart, rangeSpecialEnd), hoverMessage: hoverText };
-                decorationOptionsArray[index].push(decoration);
+            // Skip comments in strings 
+            let inString = commentInString.exec(commentMatch);
+            if (inString !== null) {
+                commentsRegEx.lastIndex = commentMatch.index + 3
+                continue;
             }
+            while (specialMatch = tagBlockRegEx.exec(commentMatch[0])) {
+                    let startPosition = commentMatch.index + specialMatch.index;
+                    let endPosition = startPosition + specialMatch[0].length;
+                    let hoverText = '--== '+specialMatch[0]+' ==--';
+                    let rangeSpecialStart = activeEditor.document.positionAt(startPosition);
+                    let rangeSpecialEnd = activeEditor.document.positionAt(endPosition);
+                    const decoration = { range: new vscode.Range(rangeSpecialStart, rangeSpecialEnd), hoverMessage: hoverText };
+                    decorationOptionsArray[index].push(decoration);
+                }
         }
         if (element.isEnabled) {
             activeEditor.setDecorations(decorationTypes[index], decorationOptionsArray[index]);
@@ -197,17 +212,23 @@ function updateDecorations() {
     let specialTagIndex = 0;
     let filelinkRegEx = /project file:\s*([\w\s\d!@()\-+]+.md)/gi;
     while (commentMatch = commentsRegEx.exec(text)) {
-        while (specialMatch = filelinkRegEx.exec(commentMatch[0])) {
-            let fileNameRegEx = new RegExp(specialMatch[1],'gi');
-            let fileNameIndex = fileNameRegEx.exec(commentMatch[0]).index;
-            let startPosition = commentMatch.index + fileNameIndex;
-            let endPosition = startPosition + specialMatch[1].length;
-            let hoverText = '--== '+specialMatch[1]+' ==--';
-            let rangeSpecialStart = activeEditor.document.positionAt(startPosition);
-            let rangeSpecialEnd = activeEditor.document.positionAt(endPosition);
-            const decoration = { range: new vscode.Range(rangeSpecialStart, rangeSpecialEnd), hoverMessage: hoverText };
-            decorationOptionsArray[index].push(decoration);
+        // Skip comments in strings 
+        let inString = commentInString.exec(commentMatch);
+        if (inString !== null) {
+            commentsRegEx.lastIndex = commentMatch.index + 3
+            continue;
         }
+        while (specialMatch = filelinkRegEx.exec(commentMatch[0])) {
+                let fileNameRegEx = new RegExp(specialMatch[1],'gi');
+                let fileNameIndex = fileNameRegEx.exec(commentMatch[0]).index;
+                let startPosition = commentMatch.index + fileNameIndex;
+                let endPosition = startPosition + specialMatch[1].length;
+                let hoverText = '--== '+specialMatch[1]+' ==--';
+                let rangeSpecialStart = activeEditor.document.positionAt(startPosition);
+                let rangeSpecialEnd = activeEditor.document.positionAt(endPosition);
+                const decoration = { range: new vscode.Range(rangeSpecialStart, rangeSpecialEnd), hoverMessage: hoverText };
+                decorationOptionsArray[index].push(decoration);
+            }
     }
     if (tagFileJsonData.specialTagsArray[specialTagIndex].isEnabled) {
         activeEditor.setDecorations(decorationTypes[index], decorationOptionsArray[index]);
@@ -218,17 +239,23 @@ function updateDecorations() {
     // updateDecorations - Special Tags - Global File Link 
     let globalFilelinkRegEx = /global file:\s*([\w\s\d!@()\-+]+.md)/gi;
     while (commentMatch = commentsRegEx.exec(text)) {
-        while (specialMatch = globalFilelinkRegEx.exec(commentMatch[0])) {
-            let GlobalfileNameRegEx = new RegExp(specialMatch[1],'gi');
-            let GlobalfileNameIndex = GlobalfileNameRegEx.exec(commentMatch[0]).index;
-            let startPosition = commentMatch.index + GlobalfileNameIndex;
-            let endPosition = startPosition + specialMatch[1].length;
-            let hoverText = '--== '+specialMatch[1]+' ==--';
-            let rangeSpecialStart = activeEditor.document.positionAt(startPosition);
-            let rangeSpecialEnd = activeEditor.document.positionAt(endPosition);
-            const decoration = { range: new vscode.Range(rangeSpecialStart, rangeSpecialEnd), hoverMessage: hoverText };
-            decorationOptionsArray[index].push(decoration);
+        // Skip comments in strings 
+        let inString = commentInString.exec(commentMatch);
+        if (inString !== null) {
+            commentsRegEx.lastIndex = commentMatch.index + 3
+            continue;
         }
+        while (specialMatch = globalFilelinkRegEx.exec(commentMatch[0])) {
+                let GlobalfileNameRegEx = new RegExp(specialMatch[1],'gi');
+                let GlobalfileNameIndex = GlobalfileNameRegEx.exec(commentMatch[0]).index;
+                let startPosition = commentMatch.index + GlobalfileNameIndex;
+                let endPosition = startPosition + specialMatch[1].length;
+                let hoverText = '--== '+specialMatch[1]+' ==--';
+                let rangeSpecialStart = activeEditor.document.positionAt(startPosition);
+                let rangeSpecialEnd = activeEditor.document.positionAt(endPosition);
+                const decoration = { range: new vscode.Range(rangeSpecialStart, rangeSpecialEnd), hoverMessage: hoverText };
+                decorationOptionsArray[index].push(decoration);
+            }
     }
     if (tagFileJsonData.specialTagsArray[specialTagIndex].isEnabled) {
         activeEditor.setDecorations(decorationTypes[index], decorationOptionsArray[index]);
@@ -239,15 +266,27 @@ function updateDecorations() {
     // updateDecorations - Special Tags - Parentheses 
     let parenthesesRegEx = /(\(.+\))/gi;
     while (commentMatch = commentsRegEx.exec(text)) {
-        while (specialMatch = parenthesesRegEx.exec(commentMatch[0])) {
-            let startPosition = commentMatch.index + specialMatch.index;
-            let endPosition = startPosition + specialMatch[0].length;
-            let hoverText = '--== '+specialMatch[0]+' ==--';
-            let rangeSpecialStart = activeEditor.document.positionAt(startPosition);
-            let rangeSpecialEnd = activeEditor.document.positionAt(endPosition);
-            const decoration = { range: new vscode.Range(rangeSpecialStart, rangeSpecialEnd), hoverMessage: hoverText };
-            decorationOptionsArray[index].push(decoration);
+        // Skip comments in strings 
+        let inString = commentInString.exec(commentMatch);
+        if (inString !== null) {
+            // Bug Testing
+            // console.log(commentMatch);
+            // console.log('inString.index: ',inString.index);
+            // console.log('commentMatch.index: ',commentMatch.index);
+            // console.log('commentsRegEx.lastIndex: ',commentsRegEx.lastIndex);
+            // console.log('inString[0]: ',inString[0]);
+            commentsRegEx.lastIndex = commentMatch.index + 3
+            continue;
         }
+        while (specialMatch = parenthesesRegEx.exec(commentMatch[0])) {
+                let startPosition = commentMatch.index + specialMatch.index;
+                let endPosition = startPosition + specialMatch[0].length;
+                let hoverText = '--== '+specialMatch[0]+' ==--';
+                let rangeSpecialStart = activeEditor.document.positionAt(startPosition);
+                let rangeSpecialEnd = activeEditor.document.positionAt(endPosition);
+                const decoration = { range: new vscode.Range(rangeSpecialStart, rangeSpecialEnd), hoverMessage: hoverText };
+                decorationOptionsArray[index].push(decoration);
+            }
     }
     if (tagFileJsonData.specialTagsArray[specialTagIndex].isEnabled) {
         activeEditor.setDecorations(decorationTypes[index], decorationOptionsArray[index]);
@@ -258,15 +297,21 @@ function updateDecorations() {
     // updateDecorations - Special Tags - Curly Braces 
     let curlyRegEx = /(\{.+\})/gi;
     while (commentMatch = commentsRegEx.exec(text)) {
-        while (specialMatch = curlyRegEx.exec(commentMatch[0])) {
-            let startPosition = commentMatch.index + specialMatch.index;
-            let endPosition = startPosition + specialMatch[0].length;
-            let hoverText = '--== '+specialMatch[0]+' ==--';
-            let rangeSpecialStart = activeEditor.document.positionAt(startPosition);
-            let rangeSpecialEnd = activeEditor.document.positionAt(endPosition);
-            const decoration = { range: new vscode.Range(rangeSpecialStart, rangeSpecialEnd), hoverMessage: hoverText };
-            decorationOptionsArray[index].push(decoration);
+        // Skip comments in strings 
+        let inString = commentInString.exec(commentMatch);
+        if (inString !== null) {
+            commentsRegEx.lastIndex = commentMatch.index + 3
+            continue;
         }
+        while (specialMatch = curlyRegEx.exec(commentMatch[0])) {
+                let startPosition = commentMatch.index + specialMatch.index;
+                let endPosition = startPosition + specialMatch[0].length;
+                let hoverText = '--== '+specialMatch[0]+' ==--';
+                let rangeSpecialStart = activeEditor.document.positionAt(startPosition);
+                let rangeSpecialEnd = activeEditor.document.positionAt(endPosition);
+                const decoration = { range: new vscode.Range(rangeSpecialStart, rangeSpecialEnd), hoverMessage: hoverText };
+                decorationOptionsArray[index].push(decoration);
+            }
     }
     if (tagFileJsonData.specialTagsArray[specialTagIndex].isEnabled) {
         activeEditor.setDecorations(decorationTypes[index], decorationOptionsArray[index]);
@@ -277,15 +322,21 @@ function updateDecorations() {
     // updateDecorations - Special Tags - Brackets 
     let bracketRegEx = /(\[(.+)\])/gi;
     while (commentMatch = commentsRegEx.exec(text)) {
-        while (specialMatch = bracketRegEx.exec(commentMatch[0])) {
-            let startPosition = commentMatch.index + specialMatch.index;
-            let endPosition = startPosition + specialMatch[0].length;
-            let hoverText = '--== '+specialMatch[0]+' ==--';
-            let rangeSpecialStart = activeEditor.document.positionAt(startPosition);
-            let rangeSpecialEnd = activeEditor.document.positionAt(endPosition);
-            const decoration = { range: new vscode.Range(rangeSpecialStart, rangeSpecialEnd), hoverMessage: hoverText };
-            decorationOptionsArray[index].push(decoration);
+        // Skip comments in strings 
+        let inString = commentInString.exec(commentMatch);
+        if (inString !== null) {
+            commentsRegEx.lastIndex = commentMatch.index + 3
+            continue;
         }
+        while (specialMatch = bracketRegEx.exec(commentMatch[0])) {
+                let startPosition = commentMatch.index + specialMatch.index;
+                let endPosition = startPosition + specialMatch[0].length;
+                let hoverText = '--== '+specialMatch[0]+' ==--';
+                let rangeSpecialStart = activeEditor.document.positionAt(startPosition);
+                let rangeSpecialEnd = activeEditor.document.positionAt(endPosition);
+                const decoration = { range: new vscode.Range(rangeSpecialStart, rangeSpecialEnd), hoverMessage: hoverText };
+                decorationOptionsArray[index].push(decoration);
+            }
     }
     if (tagFileJsonData.specialTagsArray[specialTagIndex].isEnabled) {
         activeEditor.setDecorations(decorationTypes[index], decorationOptionsArray[index]);
@@ -296,15 +347,21 @@ function updateDecorations() {
     // updateDecorations - Special Tags - Backticks 
     let backtickRegEx = /(`.*?`)/gi;
     while (commentMatch = commentsRegEx.exec(text)) {
-        while (specialMatch = backtickRegEx.exec(commentMatch[0])) {
-            let startPosition = commentMatch.index + specialMatch.index;
-            let endPosition = startPosition + specialMatch[0].length;
-            let hoverText = '--== '+specialMatch[0]+' ==--';
-            let rangeSpecialStart = activeEditor.document.positionAt(startPosition);
-            let rangeSpecialEnd = activeEditor.document.positionAt(endPosition);
-            const decoration = { range: new vscode.Range(rangeSpecialStart, rangeSpecialEnd), hoverMessage: hoverText };
-            decorationOptionsArray[index].push(decoration);
+        // Skip comments in strings 
+        let inString = commentInString.exec(commentMatch);
+       if (inString !== null) {
+            commentsRegEx.lastIndex = commentMatch.index + 3
+            continue;
         }
+        while (specialMatch = backtickRegEx.exec(commentMatch[0])) {
+                let startPosition = commentMatch.index + specialMatch.index;
+                let endPosition = startPosition + specialMatch[0].length;
+                let hoverText = '--== '+specialMatch[0]+' ==--';
+                let rangeSpecialStart = activeEditor.document.positionAt(startPosition);
+                let rangeSpecialEnd = activeEditor.document.positionAt(endPosition);
+                const decoration = { range: new vscode.Range(rangeSpecialStart, rangeSpecialEnd), hoverMessage: hoverText };
+                decorationOptionsArray[index].push(decoration);
+            }
     }
     if (tagFileJsonData.specialTagsArray[specialTagIndex].isEnabled) {
         activeEditor.setDecorations(decorationTypes[index], decorationOptionsArray[index]);
@@ -315,15 +372,21 @@ function updateDecorations() {
     // updateDecorations - Special Tags - Double Quotes 
     let doubleQuotesRegEx = /(\".*?\")/gi;
     while (commentMatch = commentsRegEx.exec(text)) {
-        while (specialMatch = doubleQuotesRegEx.exec(commentMatch[0])) {
-            let startPosition = commentMatch.index + specialMatch.index;
-            let endPosition = startPosition + specialMatch[0].length;
-            let hoverText = '--== '+specialMatch[0]+' ==--';
-            let rangeSpecialStart = activeEditor.document.positionAt(startPosition);
-            let rangeSpecialEnd = activeEditor.document.positionAt(endPosition);
-            const decoration = { range: new vscode.Range(rangeSpecialStart, rangeSpecialEnd), hoverMessage: hoverText };
-            decorationOptionsArray[index].push(decoration);
+        // Skip comments in strings 
+        let inString = commentInString.exec(commentMatch);
+       if (inString !== null) {
+            commentsRegEx.lastIndex = commentMatch.index + 3
+            continue;
         }
+        while (specialMatch = doubleQuotesRegEx.exec(commentMatch[0])) {
+                let startPosition = commentMatch.index + specialMatch.index;
+                let endPosition = startPosition + specialMatch[0].length;
+                let hoverText = '--== '+specialMatch[0]+' ==--';
+                let rangeSpecialStart = activeEditor.document.positionAt(startPosition);
+                let rangeSpecialEnd = activeEditor.document.positionAt(endPosition);
+                const decoration = { range: new vscode.Range(rangeSpecialStart, rangeSpecialEnd), hoverMessage: hoverText };
+                decorationOptionsArray[index].push(decoration);
+            }
     }
     if (tagFileJsonData.specialTagsArray[specialTagIndex].isEnabled) {
         activeEditor.setDecorations(decorationTypes[index], decorationOptionsArray[index]);
@@ -334,15 +397,21 @@ function updateDecorations() {
     // updateDecorations - Special Tags - Single Quotes 
     let singleQuotesRegEx = /('.*')/gi;
     while (commentMatch = commentsRegEx.exec(text)) {
-        while (specialMatch = singleQuotesRegEx.exec(commentMatch[0])) {
-            let startPosition = commentMatch.index + specialMatch.index;
-            let endPosition = startPosition + specialMatch[0].length;
-            let hoverText = '--== '+specialMatch[0]+' ==--';
-            let rangeSpecialStart = activeEditor.document.positionAt(startPosition);
-            let rangeSpecialEnd = activeEditor.document.positionAt(endPosition);
-            const decoration = { range: new vscode.Range(rangeSpecialStart, rangeSpecialEnd), hoverMessage: hoverText };
-            decorationOptionsArray[index].push(decoration);
+        // Skip comments in strings 
+        let inString = commentInString.exec(commentMatch);
+       if (inString !== null) {
+            commentsRegEx.lastIndex = commentMatch.index + 3
+            continue;
         }
+        while (specialMatch = singleQuotesRegEx.exec(commentMatch[0])) {
+                let startPosition = commentMatch.index + specialMatch.index;
+                let endPosition = startPosition + specialMatch[0].length;
+                let hoverText = '--== '+specialMatch[0]+' ==--';
+                let rangeSpecialStart = activeEditor.document.positionAt(startPosition);
+                let rangeSpecialEnd = activeEditor.document.positionAt(endPosition);
+                const decoration = { range: new vscode.Range(rangeSpecialStart, rangeSpecialEnd), hoverMessage: hoverText };
+                decorationOptionsArray[index].push(decoration);
+            }
     }
     if (tagFileJsonData.specialTagsArray[specialTagIndex].isEnabled) {
         activeEditor.setDecorations(decorationTypes[index], decorationOptionsArray[index]);
@@ -555,7 +624,7 @@ async function notesEdit() {
     }
 
     // notesEdit - Search for Project Notes and Show Quick Pick 
-    results = await vscode.workspace.findFiles('**/.vscode/*.{md,MD,mD,Md}',null,500);//<--bug*/
+    results = await vscode.workspace.findFiles('**/.vscode/*.{md,MD,mD,Md}',null,500);//<--bug*/(Fixed in v1.1.0)
     if (results.length == 0) { // If Zero Note Files Found, Inform User and Return
         vscode.window.showWarningMessage('No Project Note Files Found!');
         return;

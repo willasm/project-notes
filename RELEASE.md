@@ -2,14 +2,26 @@
 
 <!-- ## [v-inc] ${YEAR4}-${MONTHNUMBER}-${DATE} -->
 
-## [1.0.1] 2022-03-31
+## [1.1.0] 2022-04-07
+### Added
+Snippet `tagKeyword`
+Snippet `tagProjectNote`
+Snippet `tagGlobalNote`
+Snippet `commentHiddenTitle`
+Snippet `commentKeyword`
+Snippet `commentBoxSingleLine`
+Snippet `commentBoxDblLine`
+Screenshot of some of the new snippets
 ### Changed
-- Pick lists are now alpha numerically sorted
+Snippet `tagmaintitle` renamed to camelCase `tagMainTitle`
+Snippet `tagsubtitle` renamed to camelCase `tagSubTitle`
+Snippet `taghiddentitle` renamed to camelCase `tagHiddenTitle`
+Snippet `tagunderline` renamed to camelCase `tagUnderline`
+Snippet `tagstrikethrough` renamed to camelCase `tagStrikethrough`
 ### Fixed
-- Global note edit string typo for pick list
+Does not highlight comments in strings now
 ### Updated
-- Readme with suggestion for "editor.quickSuggestions.comments": true
-- Readme with notification about Known Issues
+Readme.md
 
 For a full list of changes, please see the projects [Changelog](CHANGELOG.md) file.
 
