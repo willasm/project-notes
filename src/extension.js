@@ -624,7 +624,7 @@ async function notesEdit() {
     }
 
     // notesEdit - Search for Project Notes and Show Quick Pick 
-    results = await vscode.workspace.findFiles('**/.vscode/*.{md,MD,mD,Md}',null,500);//<--bug*/(Fixed in v1.1.0)
+    results = await vscode.workspace.findFiles('**/.vscode/*.{md,MD,mD,Md}',null,500);//<-- bug: */(Fixed in v1.1.0)
     if (results.length == 0) { // If Zero Note Files Found, Inform User and Return
         vscode.window.showWarningMessage('No Project Note Files Found!');
         return;
@@ -752,9 +752,12 @@ async function openOrCreateGlobalNote() {
     // openOrCreateGlobalNote - Prompt for Filename from User 
     } else {
         fileName = await vscode.window.showInputBox({
-        placeHolder: "Global Note Name to Open or Create",
+        placeHolder: "Enter Global Note Name (Will open if it exists, will create otherwise)",
         prompt: "Open or Create New Global Note: "
         });
+        if (fileName === undefined) {
+            return;
+        }
         let parts = fileName.split(".");
         fileName = parts[0]+'.MD';
         filePath = globalNotesFolder+'\\'+fileName;

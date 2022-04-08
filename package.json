@@ -1,5 +1,5 @@
 {
-	"name": "project-notes",
+    "name": "project-notes",
 	"displayName": "Project Notes + TODO Highlighter",
 	"description": "Color Highlighted Comments with Links to Markdown File Notes",
 	"publisher": "willasm",
@@ -7,7 +7,7 @@
 		"name": "William McKeever"
 	},
 	"license": "MIT - SEE LICENSE IN LICENSE.md",
-	"version": "1.1.0",
+	"version": "1.1.1",
 	"engines": {
 		"vscode": "^1.63.0"
 	},
