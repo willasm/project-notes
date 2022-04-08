@@ -2,26 +2,9 @@
 
 <!-- ## [v-inc] ${YEAR4}-${MONTHNUMBER}-${DATE} -->
 
-## [1.1.0] 2022-04-07
-### Added
-Snippet `tagKeyword`
-Snippet `tagProjectNote`
-Snippet `tagGlobalNote`
-Snippet `commentHiddenTitle`
-Snippet `commentKeyword`
-Snippet `commentBoxSingleLine`
-Snippet `commentBoxDblLine`
-Screenshot of some of the new snippets
-### Changed
-Snippet `tagmaintitle` renamed to camelCase `tagMainTitle`
-Snippet `tagsubtitle` renamed to camelCase `tagSubTitle`
-Snippet `taghiddentitle` renamed to camelCase `tagHiddenTitle`
-Snippet `tagunderline` renamed to camelCase `tagUnderline`
-Snippet `tagstrikethrough` renamed to camelCase `tagStrikethrough`
+## [1.1.1] 2022-04-08
 ### Fixed
-Does not highlight comments in strings now
-### Updated
-Readme.md
+- Open or Create Global Note command cancellation not handled correctly
 
 For a full list of changes, please see the projects [Changelog](CHANGELOG.md) file.
 
