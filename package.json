@@ -1,5 +1,5 @@
 {
-    "name": "project-notes",
+	"name": "project-notes",
 	"displayName": "Project Notes + TODO Highlighter",
 	"description": "Color Highlighted Comments with Links to Markdown File Notes",
 	"publisher": "willasm",
@@ -7,7 +7,7 @@
 		"name": "William McKeever"
 	},
 	"license": "MIT - SEE LICENSE IN LICENSE.md",
-	"version": "1.1.1",
+	"version": "1.2.0",
 	"engines": {
 		"vscode": "^1.63.0"
 	},
@@ -30,7 +30,8 @@
 	],
 	"activationEvents": [
 		"onStartupFinished",
-		"onCommand:project-notes.openorcreatenote"
+		"onView:projectNotesTreeview",
+		"onView:globalNotesTreeview"
 	],
 	"bugs": {
 		"url": "https://github.com/willasm/project-notes/issues",
@@ -45,32 +46,60 @@
 	"contributes": {
 		"commands": [
 			{
-				"command": "project-notes.openorcreatenote",
-				"title": "Project Notes: Open or Create Project Note"
+				"command": "project-notes.newProjectNote",
+				"title": "New Project Note",
+				"category": "ProjectNotes",
+				"icon": "$(new-file)"
 			},
 			{
-				"command": "project-notes.notesedit",
-				"title": "Project Notes: Open Existing Project Note (Edit Mode)"
+				"command": "project-notes.renameProjectNote",
+				"title": "Rename Project Note",
+				"category": "ProjectNotes",
+				"icon": "$(edit)"
 			},
 			{
-				"command": "project-notes.notespreview",
-				"title": "Project Notes: Open Existing Project Note (Preview Mode)"
+				"command": "project-notes.previewProjectNote",
+				"title": "Preview Project Note",
+				"category": "ProjectNotes",
+				"icon": "$(open-preview)"
 			},
 			{
-				"command": "project-notes.setnotesglobalfolder",
-				"title": "Project Notes: Set Globals Notes Folder Location"
+				"command": "project-notes.deleteProjectNote",
+				"title": "Delete Project Note",
+				"category": "ProjectNotes",
+				"icon": "$(trash)"
 			},
 			{
-				"command": "project-notes.openorcreateglobalnote",
-				"title": "Project Notes: Open or Create Global Note"
+				"command": "project-notes.newGlobalNote",
+				"title": "New Global Note",
+				"category": "GlobalNotes",
+				"icon": "$(new-file)"
 			},
 			{
-				"command": "project-notes.notesglobaledit",
-				"title": "Project Notes: Open Existing Global Note (Edit Mode)"
+				"command": "project-notes.renameGlobalNote",
+				"title": "Rename Global Note",
+				"category": "GlobalNotes",
+				"icon": "$(edit)"
 			},
 			{
-				"command": "project-notes.notesglobalpreview",
-				"title": "Project Notes: Open Existing Global Note (Preview Mode)"
+				"command": "project-notes.previewGlobalNote",
+				"title": "Preview Global Note",
+				"category": "GlobalNotes",
+				"icon": "$(open-preview)"
+			},
+			{
+				"command": "project-notes.deleteGlobalNote",
+				"title": "Delete Global Note",
+				"category": "GlobalNotes",
+				"icon": "$(trash)"
+			},
+			{
+				"command": "project-notes.openNoteLink",
+				"title": "Project Notes: Open Note File Link"
+			},
+			{
+				"command": "project-notes.setNotesGlobalFolder",
+				"title": "Project Notes: Set Global Notes Folder Location"
 			},
 			{
 				"command": "project-notes.edit-settings-file",
@@ -81,6 +110,117 @@
 				"title": "Project Notes: Restore Tag Settings File"
 			}
 		],
+		"viewsContainers": {
+			"activitybar": [
+				{
+					"id": "project-notes-container",
+					"title": "Project Notes",
+					"icon": "images/project-notes.svg"
+				}
+			]
+		},
+		"views": {
+			"project-notes-container": [
+				{
+					"id": "projectNotesTreeview",
+					"name": "Project Notes"
+				},
+				{
+					"id": "globalNotesTreeview",
+					"name": "Global Notes"
+				}
+			]
+		},
+		"viewsWelcome": [
+			{
+				"view": "projectNotesTreeview",
+				"contents": "No Project Notes found\n[Create a New Project Note](command:project-notes.newProjectNote)"
+			},
+			{
+				"view": "globalNotesTreeview",
+				"contents": "No Global Notes found\n[Create a New Global Note](command:project-notes.newGlobalNote)"
+			}
+		],
+		"menus": {
+			"commandPalette": [
+				{
+					"command": "project-notes.newProjectNote",
+					"when": "false"
+				},
+				{
+					"command": "project-notes.renameProjectNote",
+					"when": "false"
+				},
+				{
+					"command": "project-notes.previewProjectNote",
+					"when": "false"
+				},
+				{
+					"command": "project-notes.deleteProjectNote",
+					"when": "false"
+				},
+				{
+					"command": "project-notes.newGlobalNote",
+					"when": "false"
+				},
+				{
+					"command": "project-notes.renameGlobalNote",
+					"when": "false"
+				},
+				{
+					"command": "project-notes.previewGlobalNote",
+					"when": "false"
+				},
+				{
+					"command": "project-notes.deleteGlobalNote",
+					"when": "false"
+				}
+			],
+			"view/title": [
+				{
+					"command": "project-notes.newProjectNote",
+					"when": "view == projectNotesTreeview",
+					"group": "navigation"
+				},
+				{
+					"command": "project-notes.newGlobalNote",
+					"when": "view == globalNotesTreeview",
+					"group": "navigation"
+				}
+			],
+			"view/item/context": [
+				{
+					"command": "project-notes.previewProjectNote",
+					"when": "view == projectNotesTreeview",
+					"group": "inline"
+				},
+				{
+					"command": "project-notes.renameProjectNote",
+					"when": "view == projectNotesTreeview",
+					"group": "inline"
+				},
+				{
+					"command": "project-notes.deleteProjectNote",
+					"when": "view == projectNotesTreeview",
+					"group": "inline"
+				},
+				{
+					"command": "project-notes.previewGlobalNote",
+					"when": "view == globalNotesTreeview",
+					"group": "inline"
+				},
+				{
+					"command": "project-notes.renameGlobalNote",
+					"when": "view == globalNotesTreeview",
+					"group": "inline"
+				},
+				{
+					"command": "project-notes.deleteGlobalNote",
+					"when": "view == globalNotesTreeview",
+					"group": "inline"
+				}
+			]
+		},
 		"configuration": [
 			{
 				"type": "object",

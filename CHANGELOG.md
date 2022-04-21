@@ -11,6 +11,22 @@
 
 <!-- ## [v-inc] ${YEAR4}-${MONTHNUMBER}-${DATE} -->
 
+## [1.2.0] 2022-04-21
+### Added
+- Both Project notes and Global notes are now available from activity bar outline views
+- Command `Project Notes: Open Note File Link`
+- Screenshot of new outline views
+### Removed
+- The following commands have been removed as they are now available from the activity bar outline views via their respective buttons
+  - Command `Project Notes: Open or Create Project Note`
+  - Command `Project Notes: Open Existing Project Note (Edit Mode)`
+  - Command `Project Notes: Open Existing Project Note (Preview Mode)`
+  - Command `Project Notes: Open or Create Global Note`
+  - Command `Project Notes: Open Existing Global Note (Edit Mode)`
+  - Command `Project Notes: Open Existing Global Note (Preview Mode)`
+### Updated
+- Readme.md
+
 ## [1.1.1] 2022-04-08
 ### Fixed
 - Open or Create Global Note command cancellation not handled correctly
