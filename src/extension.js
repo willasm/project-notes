@@ -537,7 +537,8 @@ async function renameProjectNote() {
     // renameProjectNote - Prompt user for new name 
     let fileName = await vscode.window.showInputBox({
         placeHolder: "Enter new project note name (Extension .md is not required)",
-        prompt: "Rename Project Note: "
+        prompt: "Rename Project Note: ",
+        value: path.basename(arguments[0].fsPath)
     });
     if (fileName === undefined) {
         return;
@@ -629,7 +630,8 @@ async function renameGlobalNote() {
     // renameGlobalNote - Prompt user for new name 
     let fileName = await vscode.window.showInputBox({
         placeHolder: "Enter new global note name (Extension .md is not required)",
-        prompt: "Rename Global Note: "
+        prompt: "Rename Global Note: ",
+        value: path.basename(arguments[0].fsPath)
     });
     if (fileName === undefined) {
         return;
