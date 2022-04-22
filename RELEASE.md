@@ -2,21 +2,9 @@
 
 <!-- ## [v-inc] ${YEAR4}-${MONTHNUMBER}-${DATE} -->
 
-## [1.2.0] 2022-04-21
+## [1.2.1] 2022-04-22
 ### Added
-- Both Project notes and Global notes are now available from activity bar outline views
-- Command `Project Notes: Open Note File Link`
-- Screenshot of new outline views
-### Removed
-- The following commands have been removed as they are now available from the activity bar outline views via their respective buttons
-  - Command `Project Notes: Open or Create Project Note`
-  - Command `Project Notes: Open Existing Project Note (Edit Mode)`
-  - Command `Project Notes: Open Existing Project Note (Preview Mode)`
-  - Command `Project Notes: Open or Create Global Note`
-  - Command `Project Notes: Open Existing Global Note (Edit Mode)`
-  - Command `Project Notes: Open Existing Global Note (Preview Mode)`
-### Updated
-- Readme.md
+- Renaming notes input field is now pre-filled with the current name
 
 For a full list of changes, please see the projects [Changelog](CHANGELOG.md) file.
 

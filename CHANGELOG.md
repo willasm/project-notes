@@ -11,6 +11,10 @@
 
 <!-- ## [v-inc] ${YEAR4}-${MONTHNUMBER}-${DATE} -->
 
+## [1.2.1] 2022-04-22
+### Added
+- Renaming notes input field is now pre-filled with the current name
+
 ## [1.2.0] 2022-04-21
 ### Added
 - Both Project notes and Global notes are now available from activity bar outline views
