@@ -696,6 +696,11 @@ async function promptUserForRestart() {
 //  │                     • Get the Current Files Extension •                      │
 //  ╰──────────────────────────────────────────────────────────────────────────────╯
 function getExtension() {
+	let activeEditor = vscode.window.activeTextEditor;
+	if (!activeEditor) {
+        currentFileExt = "";
+		return;
+	}
     var a = vscode.window.activeTextEditor.document.fileName.split(".");
     if( a.length === 1 || ( a[0] === "" && a.length === 2 ) ) {
         currentFileExt = "";
