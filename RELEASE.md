@@ -2,9 +2,11 @@
 
 <!-- ## [v-inc] ${YEAR4}-${MONTHNUMBER}-${DATE} -->
 
-## [1.2.1] 2022-04-22
-### Added
-- Renaming notes input field is now pre-filled with the current name
+## [1.3.0] 2022-07-24
+### Fixed
+Extension failed to load when vscode was opened without a file loaded
+(Thank you to sanihaq for bringing this to my attention)
+
 
 For a full list of changes, please see the projects [Changelog](CHANGELOG.md) file.
 
