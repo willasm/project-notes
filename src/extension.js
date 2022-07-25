@@ -34,7 +34,10 @@ async function activate(context) {
     const tagFileJsonData = JSON.parse(tagFileData);        // Parse the tag settings json file
     if (globalNotesFolder.length == 0) {                    // Set default global notes location to global storage
         globalNotesFolder = context.globalStorageUri.fsPath;//  if not defined by user
+        let settings = vscode.workspace.getConfiguration("project-notes");
+        settings.update("globalNotesFolder",globalNotesFolder,1);
     }
+    console.log('globalNotesFolder ',globalNotesFolder);
 
     //---- Set gutter icon, but it overwrites breakpoints so I'm leaving it out
     // tagFileJsonData.tagsArray.forEach(element => {
@@ -595,7 +598,7 @@ async function newGlobalNote() {
     }
     let parts = fileName.split(".");
     fileName = parts[0]+'.md';
-    let newGlobalNote = "c:\\programming\\tools\\VSCode\\MyNotes\\Project-Notes-Global\\"+fileName;
+    let newGlobalNote = globalNotesFolder + '\\' + fileName;
   
     // newGlobalNote - Create New Global Note and Open for Editing  
     const workspaceEdit = new vscode.WorkspaceEdit();
