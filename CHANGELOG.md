@@ -11,6 +11,11 @@
 
 <!-- ## [v-inc] ${YEAR4}-${MONTHNUMBER}-${DATE} -->
 
+## [1.4.0] 2022-07-25
+### Fixed
+Global notes folder was not updated correctly on location change
+(Thank you to sanihaq for bringing this to my attention)
+
 ## [1.3.0] 2022-07-24
 ### Fixed
 Extension failed to load when vscode was opened without a file loaded
