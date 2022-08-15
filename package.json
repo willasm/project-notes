@@ -9,7 +9,7 @@
 	"license": "MIT - SEE LICENSE IN LICENSE.md",
 	"version": "1.5.0",
 	"engines": {
-		"vscode": "^1.63.0"
+		"vscode": "^1.69.0"
 	},
 	"categories": [
 		"Other",
