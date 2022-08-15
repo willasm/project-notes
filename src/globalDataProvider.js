@@ -35,12 +35,12 @@ class GlobalNoteDataProvider {
   }
 
   onCreateFiles() {
-    //console.log('Created File...');
+    console.log('Created File...');
     this.refresh();
   }
 
   onDeleteFiles() {
-    //console.log('Deleted File...');
+    console.log('Deleted File...');
     this.refresh();
   }
 

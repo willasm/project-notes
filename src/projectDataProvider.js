@@ -47,7 +47,9 @@ class ProjectNoteDataProvider {
   async convertFilesToTreeItems() {
     let projectFilesList = [];
     this.files = projectFilesList;
-    let results = await vscode.workspace.findFiles('**/.vscode/*.{md,MD,mD,Md}',null,500);
+    let settings = vscode.workspace.getConfiguration("project-notes");
+    let localNotesFolder = settings.get("localNotesFolder");
+    let results = await vscode.workspace.findFiles(`**/${localNotesFolder}/*.{md,MD,mD,Md}`,null,500);
     //console.log(results);
     for (const file of results) {
       const base = path.basename(file.fsPath);

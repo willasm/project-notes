@@ -2,6 +2,7 @@ const vscode = require('vscode');
 const path = require("path");
 const fs = require("fs");
 const os = require("os");
+const { env } = require("process");
 const { readFile } = require('fs/promises');
 const ProjectProvider = require("./projectDataProvider.js");
 const GlobalProvider = require("./globalDataProvider.js");
@@ -16,6 +17,9 @@ let currentFileExt;
 let commentsRegEx;
 let settings = vscode.workspace.getConfiguration("project-notes");
 let globalNotesFolder = settings.get("globalNotesFolder");
+let localNotesFolder = settings.get("localNotesFolder");
+let localNotesPath = vscode.workspace.workspaceFolders[0].uri.fsPath+'\\'+localNotesFolder;
+//let newProjectNote = vscode.workspace.workspaceFolders[0].uri.fsPath+'\\'+localNotesFolder+'\\'+fileName;
 
 //  ╭──────────────────────────────────────────────────────────────────────────────╮
 //  │                            ● Function Activate ●                             │
@@ -33,11 +37,24 @@ async function activate(context) {
     tagFileData = await readFile(tagSettingsFile, 'utf-8'); // Read file into memory
     const tagFileJsonData = JSON.parse(tagFileData);        // Parse the tag settings json file
     if (globalNotesFolder.length == 0) {                    // Set default global notes location to global storage
-        globalNotesFolder = context.globalStorageUri.fsPath;//  if not defined by user
+        let globalNotesFolderUri = vscode.Uri.file(path.join(os.homedir(), '\.pnotes'));
+        globalNotesFolder = globalNotesFolderUri.fsPath;
         let settings = vscode.workspace.getConfiguration("project-notes");
-        settings.update("globalNotesFolder",globalNotesFolder,1);
-    }
-    console.log('globalNotesFolder ',globalNotesFolder);
+        settings.update("globalNotesFolder",globalNotesFolder, 1);
+    };
+    // Activate - Create global notes folder and Quick Tips.md if needed  
+    if (!fs.existsSync(globalNotesFolder)) {
+        fs.mkdirSync(globalNotesFolder, { recursive: true });
+//        let srcTipFile = vscode.extensions.getExtension("willasm.project-notes").extensionPath+'\\Quick Tips.md';
+//        let destTipFile = globalNotesFolder+'\\Project Notes - Quick Tips.md';
+//        fs.copyFileSync(srcTipFile,destTipFile);
+//        let uriTipFile = vscode.Uri.file(destTipFile);
+//        vscode.commands.executeCommand('markdown.showPreview', uriTipFile);
+    };
+    // Activate - Create local notes folder if needed  
+    if (!fs.existsSync(localNotesPath)) {
+        fs.mkdirSync(localNotesPath, { recursive: true });
+    };
 
     //---- Set gutter icon, but it overwrites breakpoints so I'm leaving it out
     // tagFileJsonData.tagsArray.forEach(element => {
@@ -53,6 +70,16 @@ async function activate(context) {
     const GlobalOutlineProvider = new GlobalProvider(context, globalNotesFolder);
     vscode.window.registerTreeDataProvider('globalNotesTreeview', GlobalOutlineProvider);
 
+    // Activate - Create Global Notes folder file watcher 
+    const globalWatcher = vscode.workspace.createFileSystemWatcher(new vscode.RelativePattern(vscode.Uri.file(globalNotesFolder), '*.{md,MD,Md,mD}'));
+    globalWatcher.onDidCreate(uri => GlobalOutlineProvider.refresh()); // Listen to files/folders being created
+    globalWatcher.onDidDelete(uri => GlobalOutlineProvider.refresh()); // Listen to files/folders getting deleted
+
+    // Activate - Create Local Notes folder file watcher 
+    const localWatcher = vscode.workspace.createFileSystemWatcher(new vscode.RelativePattern(vscode.Uri.file(localNotesPath), '*.{md,MD,Md,mD}'));
+    localWatcher.onDidCreate(uri => ProjectOutlineProvider.refresh()); // Listen to files/folders being created
+    localWatcher.onDidDelete(uri => ProjectOutlineProvider.refresh()); // Listen to files/folders getting deleted
+
     // Activate - Get the extension for current file 
     getExtension();
 
@@ -67,6 +94,7 @@ async function activate(context) {
     vscode.commands.registerCommand('project-notes.deleteGlobalNote', deleteGlobalNote);
     vscode.commands.registerCommand('project-notes.openNoteLink', openNoteLink);
     vscode.commands.registerCommand('project-notes.setNotesGlobalFolder', setNotesGlobalFolder);
+    vscode.commands.registerCommand('project-notes.setNotesLocalFolder', setNotesLocalFolder);
     vscode.commands.registerCommand('project-notes.edit-settings-file', editTagSettingsFile);
     vscode.commands.registerCommand('project-notes.restore-settings-file', restoreTagSettingsFile);
     vscode.commands.registerCommand('project-notes.init-settings-file', initTagSettingsFilePath);
@@ -82,9 +110,12 @@ async function activate(context) {
     context.subscriptions.push(renameGlobalNote);
     context.subscriptions.push(deleteGlobalNote);
     context.subscriptions.push(setNotesGlobalFolder);
+    context.subscriptions.push(setNotesLocalFolder);
     context.subscriptions.push(editTagSettingsFile);
     context.subscriptions.push(restoreTagSettingsFile);
     context.subscriptions.push(initTagSettingsFilePath);
+    context.subscriptions.push(globalWatcher);
+    context.subscriptions.push(localWatcher);
 
     // Activate - Get active editor 
 	let activeEditor = vscode.window.activeTextEditor;
@@ -503,10 +534,18 @@ async function newProjectNote() {
     if (fileName === undefined || fileName === "") {
       return;
     }
+
+    // newProjectNote - Get full path to new local note 
     let parts = fileName.split(".");
     fileName = parts[0]+'.md';
-    let newProjectNote = vscode.workspace.workspaceFolders[0].uri.fsPath+'\\.vscode\\'+fileName;
+    let newProjectNote = vscode.workspace.workspaceFolders[0].uri.fsPath+'\\'+localNotesFolder+'\\'+fileName;
   
+    // newProjectNote - Create local notes folder if needed 
+    let newProjectNotePath = vscode.workspace.workspaceFolders[0].uri.fsPath+'\\'+localNotesFolder;
+    if (!fs.existsSync(newProjectNotePath)) {
+        fs.mkdirSync(newProjectNotePath, { recursive: true });
+    };
+
     // newProjectNote - Create New Project Note and Open for Editing  
     const workspaceEdit = new vscode.WorkspaceEdit();
     workspaceEdit.createFile(vscode.Uri.file(newProjectNote), { overwrite: false, ignoreIfExists: true });
@@ -548,7 +587,7 @@ async function renameProjectNote() {
     }
     let parts = fileName.split(".");
     fileName = parts[0]+'.md';
-    let newProjectNote = vscode.workspace.workspaceFolders[0].uri.fsPath+'\\.vscode\\'+fileName;
+    let newProjectNote = vscode.workspace.workspaceFolders[0].uri.fsPath+'\\'+localNotesFolder+'\\'+fileName;
     
     // renameProjectNote - Perform Rename 
     const workspaceEdit = new vscode.WorkspaceEdit();
@@ -683,7 +722,7 @@ async function promptUserForRestart() {
     // TODO: There must be a more elegant way of doing this...
     const action = 'Reload';
     await vscode.window.showInformationMessage(
-            `Reload window required in order for changes in settings file to take effect.`, 'Cancel', action
+            `Reload window required in order for changes to take effect.`, 'Cancel', action
         )
         .then(selectedAction => {
         if (selectedAction === action) {
@@ -784,7 +823,36 @@ async function setNotesGlobalFolder() {
         globalNotesFolder = folderUri[0].fsPath;
         let settings = vscode.workspace.getConfiguration("project-notes");
         settings.update("globalNotesFolder",globalNotesFolder,1);
+        promptUserForRestart();
     }
+};
+
+
+//  ╭──────────────────────────────────────────────────────────────────────────────╮
+//  │                       ● Function setNotesLocalFolder ●                       │
+//  │                                                                              │
+//  │                      • Set Local Notes Folder Location •                     │
+//  ╰──────────────────────────────────────────────────────────────────────────────╯
+async function setNotesLocalFolder() {
+
+    // setNotesLocalFolder - Get Local Notes Folder From User 
+    let options = {
+        placeHolder: `Current local notes folder is ${localNotesFolder}`,
+        prompt: "Enter new local notes folder name",
+        title: "---=== Project Notes - Set Local Notes Folder Name ===---"
+    };
+    const newLocalFolder = await vscode.window.showInputBox(options);
+
+    // setNotesLocalFolder - Check if User Cancelled 
+    if (!newLocalFolder) {
+        return;
+    }
+
+    // setNotesLocalFolder - Save New Local Notes Folder 
+    let settings = vscode.workspace.getConfiguration("project-notes");
+    settings.update("localNotesFolder",newLocalFolder,1);
+    promptUserForRestart();
+
 };
 
 
@@ -815,7 +883,7 @@ async function openNoteLink() {
     if (foundProjectNote) {
         let filenameArray = projectRegex.exec(lineText);
         let filename = filenameArray[1];
-        notesFilePath = path.join(workspaceFolders[0].uri.fsPath, './.vscode/') + filename;
+        notesFilePath = path.join(workspaceFolders[0].uri.fsPath, './'+localNotesFolder+'/')+filename;
     }
 
     // openNoteLink - Get Global Note Filename from comment 
