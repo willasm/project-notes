@@ -7,7 +7,7 @@
 		"name": "William McKeever"
 	},
 	"license": "MIT - SEE LICENSE IN LICENSE.md",
-	"version": "1.4.0",
+	"version": "1.5.0",
 	"engines": {
 		"vscode": "^1.63.0"
 	},
@@ -100,6 +100,10 @@
 			{
 				"command": "project-notes.setNotesGlobalFolder",
 				"title": "Project Notes: Set Global Notes Folder Location"
+			},
+			{
+				"command": "project-notes.setNotesLocalFolder",
+				"title": "Project Notes: Set Local Notes Folder Name"
 			},
 			{
 				"command": "project-notes.edit-settings-file",
@@ -232,6 +236,17 @@
 						"description": "Folder Location for Global Notes"
 					}
 				}
+			},
+			{
+				"type": "object",
+				"title": "Project Notes",
+				"properties": {
+					"project-notes.localNotesFolder": {
+						"type": "string",
+						"default": ".pnotes",
+						"description": "Folder Name for Local Notes"
+					}
+				}
 			}
 		],
 		"jsonValidation": [
@@ -252,14 +267,15 @@
 		"test": "node ./test/runTest.js"
 	},
 	"devDependencies": {
-		"@types/vscode": "^1.63.0",
-		"@types/glob": "^7.1.4",
-		"@types/mocha": "^9.0.0",
-		"@types/node": "14.x",
-		"eslint": "^7.32.0",
-		"glob": "^7.1.7",
-		"mocha": "^9.1.1",
-		"typescript": "^4.4.3",
-		"@vscode/test-electron": "^1.6.2"
-	}
+		"@types/glob": "^7.2.0",
+		"@types/mocha": "^9.1.1",
+		"@types/node": "18.x",
+		"@types/vscode": "^1.69.0",
+		"@vscode/test-electron": "^2.1.5",
+		"eslint": "^8.20.0",
+		"glob": "^8.0.3",
+		"mocha": "^10.0.0",
+		"typescript": "^4.7.4"
+	},
+	"dependencies": {}
 }
