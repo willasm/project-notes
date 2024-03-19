@@ -1,7 +1,8 @@
-![](https://vsmarketplacebadge.apphb.com/version-short/willasm.project-notes.svg)
-![](https://vsmarketplacebadge.apphb.com/installs-short/willasm.project-notes.svg)
-![](https://vsmarketplacebadge.apphb.com/downloads-short/willasm.project-notes.svg)
-![](https://vsmarketplacebadge.apphb.com/rating/willasm.project-notes.svg)
+![](https://img.shields.io/visual-studio-marketplace/v/willasm.project-notes)
+![](https://img.shields.io/visual-studio-marketplace/d/willasm.project-notes)
+![](https://img.shields.io/visual-studio-marketplace/r/willasm.project-notes)
+![](https://img.shields.io/visual-studio-marketplace/release-date/willasm.project-notes)
+![](https://img.shields.io/visual-studio-marketplace/last-updated/willasm.project-notes)
 
 # Important Notes for Version 1.5.0 Update
 The default location for Local Notes has been changed from `.vscode` to `.pnotes` as requested by this extensions users. The new default folder name can be changed with the command `Project Notes: Set Local Notes Folder Name`. If you have existing notes stored in your `.vscode` folder, just drag them into the new `.pnotes` folder to have them show up in the project notes list.

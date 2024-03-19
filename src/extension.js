@@ -18,8 +18,8 @@ let commentsRegEx;
 let settings = vscode.workspace.getConfiguration("project-notes");
 let globalNotesFolder = settings.get("globalNotesFolder");
 let localNotesFolder = settings.get("localNotesFolder");
-let localNotesPath = vscode.workspace.workspaceFolders[0].uri.fsPath+'\\'+localNotesFolder;
-//let newProjectNote = vscode.workspace.workspaceFolders[0].uri.fsPath+'\\'+localNotesFolder+'\\'+fileName;
+let localNotesPath = vscode.workspace.workspaceFolders[0].uri.fsPath+path.sep+localNotesFolder;
+//let newProjectNote = vscode.workspace.workspaceFolders[0].uri.fsPath+path.sep+localNotesFolder+path.sep+fileName;
 
 //  ╭──────────────────────────────────────────────────────────────────────────────╮
 //  │                            ● Function Activate ●                             │
@@ -32,7 +32,7 @@ async function activate(context) {
     myContext = context;                                    // Save Context for global access
     // Get Tag Settings Data
     tagSettingsPath = context.globalStorageUri.fsPath;      // Get Global Storage Path
-    tagSettingsFile = tagSettingsPath + '\\' + 'project-notes-tag-settings.json'; // Tag settings json file
+    tagSettingsFile = tagSettingsPath + path.sep + 'project-notes-tag-settings.json'; // Tag settings json file
     await initTagSettingsFilePath();                        // Initialize Tag settings file and path
     tagFileData = await readFile(tagSettingsFile, 'utf-8'); // Read file into memory
     const tagFileJsonData = JSON.parse(tagFileData);        // Parse the tag settings json file
@@ -45,8 +45,8 @@ async function activate(context) {
     // Activate - Create global notes folder and Quick Tips.md if needed  
     if (!fs.existsSync(globalNotesFolder)) {
         fs.mkdirSync(globalNotesFolder, { recursive: true });
-//        let srcTipFile = vscode.extensions.getExtension("willasm.project-notes").extensionPath+'\\Quick Tips.md';
-//        let destTipFile = globalNotesFolder+'\\Project Notes - Quick Tips.md';
+//        let srcTipFile = vscode.extensions.getExtension("willasm.project-notes").extensionPath+path.sep+'Quick Tips.md';
+//        let destTipFile = globalNotesFolder+path.sep+'Project Notes - Quick Tips.md';
 //        fs.copyFileSync(srcTipFile,destTipFile);
 //        let uriTipFile = vscode.Uri.file(destTipFile);
 //        vscode.commands.executeCommand('markdown.showPreview', uriTipFile);
@@ -538,10 +538,10 @@ async function newProjectNote() {
     // newProjectNote - Get full path to new local note 
     let parts = fileName.split(".");
     fileName = parts[0]+'.md';
-    let newProjectNote = vscode.workspace.workspaceFolders[0].uri.fsPath+'\\'+localNotesFolder+'\\'+fileName;
+    let newProjectNote = vscode.workspace.workspaceFolders[0].uri.fsPath+path.sep+localNotesFolder+path.sep+fileName;
   
     // newProjectNote - Create local notes folder if needed 
-    let newProjectNotePath = vscode.workspace.workspaceFolders[0].uri.fsPath+'\\'+localNotesFolder;
+    let newProjectNotePath = vscode.workspace.workspaceFolders[0].uri.fsPath+path.sep+localNotesFolder;
     if (!fs.existsSync(newProjectNotePath)) {
         fs.mkdirSync(newProjectNotePath, { recursive: true });
     };
@@ -587,7 +587,7 @@ async function renameProjectNote() {
     }
     let parts = fileName.split(".");
     fileName = parts[0]+'.md';
-    let newProjectNote = vscode.workspace.workspaceFolders[0].uri.fsPath+'\\'+localNotesFolder+'\\'+fileName;
+    let newProjectNote = vscode.workspace.workspaceFolders[0].uri.fsPath+path.sep+localNotesFolder+path.sep+fileName;
     
     // renameProjectNote - Perform Rename 
     const workspaceEdit = new vscode.WorkspaceEdit();
@@ -637,7 +637,7 @@ async function newGlobalNote() {
     }
     let parts = fileName.split(".");
     fileName = parts[0]+'.md';
-    let newGlobalNote = globalNotesFolder + '\\' + fileName;
+    let newGlobalNote = globalNotesFolder + path.sep + fileName;
   
     // newGlobalNote - Create New Global Note and Open for Editing  
     const workspaceEdit = new vscode.WorkspaceEdit();
@@ -680,7 +680,7 @@ async function renameGlobalNote() {
     }
     let parts = fileName.split(".");
     fileName = parts[0]+'.md';
-    let newGlobalNote = globalNotesFolder+'\\'+fileName;
+    let newGlobalNote = globalNotesFolder+path.sep+fileName;
     
     // renameGlobalNote - Perform Rename 
     const workspaceEdit = new vscode.WorkspaceEdit();
@@ -890,7 +890,7 @@ async function openNoteLink() {
     if (foundGlobalNote) {
         let filenameArray = globalRegex.exec(lineText);
         let filename = filenameArray[1];
-        notesFilePath = globalNotesFolder+'\\'+filename;
+        notesFilePath = globalNotesFolder+path.sep+filename;
     }
 
     // openNoteLink - Open Project Note -or- Global Note Filename.MD if either is found 
