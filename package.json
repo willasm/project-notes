@@ -7,9 +7,9 @@
 		"name": "William McKeever"
 	},
 	"license": "MIT - SEE LICENSE IN LICENSE.md",
-	"version": "1.5.0",
+	"version": "1.6.0",
 	"engines": {
-		"vscode": "^1.69.0"
+		"vscode": "^1.75.0"
 	},
 	"categories": [
 		"Other",
@@ -29,9 +29,7 @@
 		"organize"
 	],
 	"activationEvents": [
-		"onStartupFinished",
-		"onView:projectNotesTreeview",
-		"onView:globalNotesTreeview"
+		"onStartupFinished"
 	],
 	"bugs": {
 		"url": "https://github.com/willasm/project-notes/issues",

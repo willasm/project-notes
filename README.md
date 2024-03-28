@@ -4,11 +4,6 @@
 ![](https://img.shields.io/visual-studio-marketplace/release-date/willasm.project-notes)
 ![](https://img.shields.io/visual-studio-marketplace/last-updated/willasm.project-notes)
 
-# Important Notes for Version 1.5.0 Update
-The default location for Local Notes has been changed from `.vscode` to `.pnotes` as requested by this extensions users. The new default folder name can be changed with the command `Project Notes: Set Local Notes Folder Name`. If you have existing notes stored in your `.vscode` folder, just drag them into the new `.pnotes` folder to have them show up in the project notes list.
-
-The default location for Global Notes has been moved from this extensions global storage location to the folder `.pnotes` in the users home folder. This only applies to new users. Existing (and new) users can always use the command `Project Notes: Set Global Notes Folder Location` to set the location to any desired location. If you would like to move your existing notes from this extensions Global Storage folder to a new location, the global storage folder is typically found at `~\.vscode\data\user-data\User\globalStorage\willasm.project-notes`.
-
 # Project Notes + TODO Highlighter
 
 Maintains 2 lists of notes in markdown file format. Notes are either project specific or global. Local project notes are associated with the current project that is currently loaded while global notes are accessible at all times. Notes may be viewed in preview or edit modes. [Links](#using-file-links) to both project and global notes can be embedded within your source code.

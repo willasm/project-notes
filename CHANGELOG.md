@@ -1,15 +1,10 @@
 # Change Log
-<!--
-### Added
-### Changed
-### Deprecated
-### Removed
-### Fixed
-### Security
-### Updated
--->
 
 <!-- ## [v-inc] ${YEAR4}-${MONTHNUMBER}-${DATE} -->
+
+## [1.6.0] 2024-03-28
+### Fixed
+- Hard coded paths were causing the extension to fail on Linux and Mac systems
 
 # Important Notes for Version 1.5.0 Update
 The default location for Local Notes has been changed from `.vscode` to `.pnotes` as requested by this extensions users. The new default folder name can be changed with the command `Project Notes: Set Local Notes Folder Name`. If you have existing notes stored in your `.vscode` folder, just drag them into the new `.pnotes` folder to have them show up in the project notes list.

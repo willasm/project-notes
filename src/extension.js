@@ -37,7 +37,7 @@ async function activate(context) {
     tagFileData = await readFile(tagSettingsFile, 'utf-8'); // Read file into memory
     const tagFileJsonData = JSON.parse(tagFileData);        // Parse the tag settings json file
     if (globalNotesFolder.length == 0) {                    // Set default global notes location to global storage
-        let globalNotesFolderUri = vscode.Uri.file(path.join(os.homedir(), '\.pnotes'));
+        let globalNotesFolderUri = vscode.Uri.file(path.join(os.homedir(), path.sep, '.pnotes'));
         globalNotesFolder = globalNotesFolderUri.fsPath;
         let settings = vscode.workspace.getConfiguration("project-notes");
         settings.update("globalNotesFolder",globalNotesFolder, 1);
@@ -45,11 +45,6 @@ async function activate(context) {
     // Activate - Create global notes folder and Quick Tips.md if needed  
     if (!fs.existsSync(globalNotesFolder)) {
         fs.mkdirSync(globalNotesFolder, { recursive: true });
-//        let srcTipFile = vscode.extensions.getExtension("willasm.project-notes").extensionPath+path.sep+'Quick Tips.md';
-//        let destTipFile = globalNotesFolder+path.sep+'Project Notes - Quick Tips.md';
-//        fs.copyFileSync(srcTipFile,destTipFile);
-//        let uriTipFile = vscode.Uri.file(destTipFile);
-//        vscode.commands.executeCommand('markdown.showPreview', uriTipFile);
     };
     // Activate - Create local notes folder if needed  
     if (!fs.existsSync(localNotesPath)) {
