@@ -12,9 +12,15 @@
 
 <!-- ## [v-inc] ${YEAR4}-${MONTHNUMBER}-${DATE} -->
 
-## [1.6.0] 2024-03-28
+## [1.7.0] 2024-07-04
+### Updated
+- This extension will no longer be updated (See README.md for details)
+- Snippets final cursor positioning
+- Default tag settings file has many updates
+- Tag settings schema file has many improvements added, should be much easier to edit settings now
 ### Fixed
-- Hard coded paths were causing the extension to fail on Linux and Mac systems
+- Corrected some paths generation for Linux/Mac compatability
+- A few typos corrected
 
 
 For a full list of changes, please see the projects [Changelog](CHANGELOG.md) file.

@@ -34,7 +34,7 @@ async function activate(context) {
     tagSettingsPath = context.globalStorageUri.fsPath;      // Get Global Storage Path
     tagSettingsFile = tagSettingsPath + path.sep + 'project-notes-tag-settings.json'; // Tag settings json file
     await initTagSettingsFilePath();                        // Initialize Tag settings file and path
-    tagFileData = await readFile(tagSettingsFile, 'utf-8'); // Read file into memory
+    let tagFileData = await readFile(tagSettingsFile, 'utf-8'); // Read file into memory
     const tagFileJsonData = JSON.parse(tagFileData);        // Parse the tag settings json file
     if (globalNotesFolder.length == 0) {                    // Set default global notes location to global storage
         let globalNotesFolderUri = vscode.Uri.file(path.join(os.homedir(), path.sep, '.pnotes'));
@@ -104,6 +104,7 @@ async function activate(context) {
     context.subscriptions.push(previewGlobalNote);
     context.subscriptions.push(renameGlobalNote);
     context.subscriptions.push(deleteGlobalNote);
+    context.subscriptions.push(openNoteLink);
     context.subscriptions.push(setNotesGlobalFolder);
     context.subscriptions.push(setNotesLocalFolder);
     context.subscriptions.push(editTagSettingsFile);
@@ -538,15 +539,15 @@ async function newProjectNote() {
     // newProjectNote - Create local notes folder if needed 
     let newProjectNotePath = vscode.workspace.workspaceFolders[0].uri.fsPath+path.sep+localNotesFolder;
     if (!fs.existsSync(newProjectNotePath)) {
-        fs.mkdirSync(newProjectNotePath, { recursive: true });
+        fs.mkdirSync(newProjectNotePath, {recursive: true});
     };
 
     // newProjectNote - Create New Project Note and Open for Editing  
     const workspaceEdit = new vscode.WorkspaceEdit();
-    workspaceEdit.createFile(vscode.Uri.file(newProjectNote), { overwrite: false, ignoreIfExists: true });
+    workspaceEdit.createFile(vscode.Uri.file(newProjectNote), {overwrite: false});
     await vscode.workspace.applyEdit(workspaceEdit);
     const document = await vscode.workspace.openTextDocument(newProjectNote);
-    vscode.window.showTextDocument(document, { preview: true });
+    vscode.window.showTextDocument(document, {preview: false});
 
 };
 
@@ -577,7 +578,7 @@ async function renameProjectNote() {
         prompt: "Rename Project Note: ",
         value: path.basename(arguments[0].fsPath)
     });
-    if (fileName === undefined) {
+    if (fileName === undefined || fileName === "") {
         return;
     }
     let parts = fileName.split(".");
@@ -586,7 +587,7 @@ async function renameProjectNote() {
     
     // renameProjectNote - Perform Rename 
     const workspaceEdit = new vscode.WorkspaceEdit();
-    workspaceEdit.renameFile(vscode.Uri.file(arguments[0].fsPath),vscode.Uri.file(newProjectNote), {overwrite: false, ignoreIfExists: true});
+    workspaceEdit.renameFile(vscode.Uri.file(arguments[0].fsPath),vscode.Uri.file(newProjectNote), {overwrite: false});
     await vscode.workspace.applyEdit(workspaceEdit);
 
 };
@@ -617,7 +618,7 @@ async function deleteProjectNote() {
 //  ╭──────────────────────────────────────────────────────────────────────────────╮
 //  │                          ● Function newGlobalNote ●                          │
 //  │                                                                              │
-//  │                    • Open Project Note in Preview Mode •                     │
+//  │                        • Create Global Project Note •                        │
 //  ╰──────────────────────────────────────────────────────────────────────────────╯
 async function newGlobalNote() {
   
@@ -636,10 +637,10 @@ async function newGlobalNote() {
   
     // newGlobalNote - Create New Global Note and Open for Editing  
     const workspaceEdit = new vscode.WorkspaceEdit();
-    workspaceEdit.createFile(vscode.Uri.file(newGlobalNote), { overwrite: false, ignoreIfExists: true });
+    workspaceEdit.createFile(vscode.Uri.file(newGlobalNote), {overwrite: false});
     await vscode.workspace.applyEdit(workspaceEdit);
     const document = await vscode.workspace.openTextDocument(newGlobalNote);
-    vscode.window.showTextDocument(document, { preview: true });
+    vscode.window.showTextDocument(document, {preview: false});
 
 };
 
@@ -670,7 +671,7 @@ async function renameGlobalNote() {
         prompt: "Rename Global Note: ",
         value: path.basename(arguments[0].fsPath)
     });
-    if (fileName === undefined) {
+    if (fileName === undefined || fileName === "") {
         return;
     }
     let parts = fileName.split(".");
@@ -679,7 +680,7 @@ async function renameGlobalNote() {
     
     // renameGlobalNote - Perform Rename 
     const workspaceEdit = new vscode.WorkspaceEdit();
-    workspaceEdit.renameFile(vscode.Uri.file(arguments[0].fsPath),vscode.Uri.file(newGlobalNote), {overwrite: false, ignoreIfExists: true});
+    workspaceEdit.renameFile(vscode.Uri.file(arguments[0].fsPath),vscode.Uri.file(newGlobalNote), {overwrite: false});
     await vscode.workspace.applyEdit(workspaceEdit);
   
 };
@@ -754,7 +755,10 @@ function getExtension() {
 //  │                          • Edit Tag Settings File •                          │
 //  ╰──────────────────────────────────────────────────────────────────────────────╯
 async function editTagSettingsFile() {
+
+    // editTagSettingsFile - Create tags file if needed 
     initTagSettingsFilePath();
+
     // editTagSettingsFile - Open it for editing 
     var document = await vscode.workspace.openTextDocument(tagSettingsFile);
     await vscode.window.showTextDocument(document);
@@ -767,11 +771,23 @@ async function editTagSettingsFile() {
 //  │              • Restore Tag Settings File to Default Settings •               │
 //  ╰──────────────────────────────────────────────────────────────────────────────╯
 async function restoreTagSettingsFile() {
-    fs.rmSync(tagSettingsFile);
-    initTagSettingsFilePath();
-    // restoreTagSettingsFile - Open it for editing 
-    var document = await vscode.workspace.openTextDocument(tagSettingsFile);
-    await vscode.window.showTextDocument(document);
+
+  // restoreTagSettingsFile - Prompt user for confirmation 
+  const selectedItem = await vscode.window.showWarningMessage('All tag settings will be restored to default settings. Any changes you have made will be lost.','Continue','Cancel');
+  if ('Continue' !== selectedItem) {
+    return;
+  };
+
+  // restoreTagSettingsFile - Remove existing tags settings file 
+  await fs.rmSync(tagSettingsFile);
+
+  // editTagSettingsFile - Create default tags settings file 
+  initTagSettingsFilePath();
+
+  // restoreTagSettingsFile - Open it for editing 
+  var document = await vscode.workspace.openTextDocument(tagSettingsFile);
+  await vscode.window.showTextDocument(document);
+
 };
 
 
@@ -782,17 +798,17 @@ async function restoreTagSettingsFile() {
 //  ╰──────────────────────────────────────────────────────────────────────────────╯
 async function initTagSettingsFilePath() {
 
-    // initTagSettingsFilePath - If folder does exist then verifiy extensions files exist 
-    if (fs.existsSync(tagSettingsPath)) {
-        if (!fs.existsSync(tagSettingsFile)) {
-            // Write new settings file if it does not exist
-            fs.writeFileSync(tagSettingsFile, JSON.stringify(defaultTagSettings, null, 2));
-        }
-        return;
-    }
+  // initTagSettingsFilePath - If folder does exist then verifiy extensions files exist 
+  if (fs.existsSync(tagSettingsPath)) {
+    if (!fs.existsSync(tagSettingsFile)) {
+      // Write new settings file if it does not exist
+      fs.writeFileSync(tagSettingsFile, JSON.stringify(defaultTagSettings, null, 2));
+    };
+  } else {
     // initTagSettingsFilePath - Otherwise create folder and Tag Settings File 
     fs.mkdirSync(tagSettingsPath, { recursive: true });
     fs.writeFileSync(tagSettingsFile, JSON.stringify(defaultTagSettings, null, 2));
+  };
 };
 
 
@@ -806,12 +822,12 @@ async function setNotesGlobalFolder() {
     // setNotesGlobalFolder - Get Global Notes Folder From User 
     const home = vscode.Uri.file(path.join(os.homedir()))
     const options = OpenDialogOptions = {
-        title: "Select Folder Location for Global Notes Storage",
+        title: "Select Folder Location for Global Notes",
         defaultUri: home,
         canSelectMany: false,
         canSelectFolders: true,
         canSelectFiles: false,
-        openLabel: "Select Folder for Global Notes Storage"
+        openLabel: "Select Folder for Global Notes"
     };
     const folderUri = await vscode.window.showOpenDialog(options);
     if (folderUri && folderUri[0]) {
@@ -846,7 +862,7 @@ async function setNotesLocalFolder() {
     // setNotesLocalFolder - Save New Local Notes Folder 
     let settings = vscode.workspace.getConfiguration("project-notes");
     settings.update("localNotesFolder",newLocalFolder,1);
-    promptUserForRestart();
+    //promptUserForRestart();
 
 };
 
@@ -854,60 +870,59 @@ async function setNotesLocalFolder() {
 //  ╭──────────────────────────────────────────────────────────────────────────────╮
 //  │                          ● Function openNoteLink ●                           │
 //  │                                                                              │
-//  │                       • Open Project or Global Notes •                       │
+//  │                  • Open Project or Global Note File Links •                  │
 //  ╰──────────────────────────────────────────────────────────────────────────────╯
 async function openNoteLink() {
 
-    // openNoteLink - Verify Text Editor Open 
-    let editor = vscode.window.activeTextEditor;
-    if (!editor) {
-        vscode.window.showWarningMessage('Text Editor Not Open!');
-        return;
-    }
+  // openNoteLink - Verify Text Editor Open 
+  let editor = vscode.window.activeTextEditor;
+  if (!editor) {
+      vscode.window.showWarningMessage('Text Editor Not Open!');
+      return;
+  }
 
-    // openNoteLink - Get current lines text 
-    const workspaceFolders = vscode.workspace.workspaceFolders;
-    const lineText = editor.document.lineAt(editor.selection.active.line).text;
-    const projectRegex = new RegExp(/project file: *([A-Za-z0-9_-]+.md)/i);
-    const globalRegex = new RegExp(/global file: *([A-Za-z0-9_-]+.md)/i);
-    var foundProjectNote = projectRegex.test(lineText);
-    var foundGlobalNote = globalRegex.test(lineText);
-    let notesFilePath = "";
+  // openNoteLink - Get current lines text 
+  const lineText = editor.document.lineAt(editor.selection.active.line).text;
+  const projectRegex = new RegExp(/project file: *([A-Za-z0-9_-]+.md)/i);
+  const globalRegex = new RegExp(/global file: *([A-Za-z0-9_-]+.md)/i);
+  let foundProjectNote = projectRegex.test(lineText);
+  let foundGlobalNote = globalRegex.test(lineText);
+  let notesFilePath = "";
 
-    // openNoteLink - Get Project Note Filename from comment 
-    if (foundProjectNote) {
-        let filenameArray = projectRegex.exec(lineText);
-        let filename = filenameArray[1];
-        notesFilePath = path.join(workspaceFolders[0].uri.fsPath, './'+localNotesFolder+'/')+filename;
-    }
+  // openNoteLink - Get Project Note Filename from comment 
+  if (foundProjectNote) {
+      let filenameArray = projectRegex.exec(lineText);
+      let filename = filenameArray[1];
+      notesFilePath = vscode.workspace.workspaceFolders[0].uri.fsPath+path.sep+localNotesFolder+path.sep+filename;
+  }
 
-    // openNoteLink - Get Global Note Filename from comment 
-    if (foundGlobalNote) {
-        let filenameArray = globalRegex.exec(lineText);
-        let filename = filenameArray[1];
-        notesFilePath = globalNotesFolder+path.sep+filename;
-    }
+  // openNoteLink - Get Global Note Filename from comment 
+  if (foundGlobalNote) {
+      let filenameArray = globalRegex.exec(lineText);
+      let filename = filenameArray[1];
+      notesFilePath = globalNotesFolder+path.sep+filename;
+  }
 
-    // openNoteLink - Open Project Note -or- Global Note Filename.MD if either is found 
-    if (notesFilePath.length == 0) {
-        vscode.window.showWarningMessage('No Project or Global file link found on this line!');
-        return;
-    }
+  // openNoteLink - Open Project Note -or- Global Note Filename.MD if either is found 
+  if (notesFilePath.length == 0) {
+      vscode.window.showWarningMessage('No Project or Global file link found on this line!');
+      return;
+  }
 
-    // openNoteLink - Verfiy file exists, if it does then open it 
-    if (fs.existsSync(notesFilePath)) {
-        // File exists in path
-        vscode.workspace.openTextDocument(vscode.Uri.file(notesFilePath)).then(
-            document => vscode.window.showTextDocument(document));
-            return;
-    };
+  // openNoteLink - Verfiy file exists, if it does then open it 
+  if (fs.existsSync(notesFilePath)) {
+      // File exists in path
+      vscode.workspace.openTextDocument(vscode.Uri.file(notesFilePath)).then(
+          document => vscode.window.showTextDocument(document));
+          return;
+  };
 
-    // openNoteLink - If it does not exist, then create it 
-    const workspaceEdit = new vscode.WorkspaceEdit();
-    workspaceEdit.createFile(vscode.Uri.file(notesFilePath), { overwrite: false, ignoreIfExists: true });
-    await vscode.workspace.applyEdit(workspaceEdit);
-    const document = await vscode.workspace.openTextDocument(notesFilePath);
-    vscode.window.showTextDocument(document, { preview: true });
+  // openNoteLink - If it does not exist, then create it 
+  const workspaceEdit = new vscode.WorkspaceEdit();
+  workspaceEdit.createFile(vscode.Uri.file(notesFilePath), {overwrite: false});
+  await vscode.workspace.applyEdit(workspaceEdit);
+  const document = await vscode.workspace.openTextDocument(notesFilePath);
+  vscode.window.showTextDocument(document, {preview: false});
 
 };
 

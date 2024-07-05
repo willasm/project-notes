@@ -4,6 +4,20 @@
 ![](https://img.shields.io/visual-studio-marketplace/release-date/willasm.project-notes)
 ![](https://img.shields.io/visual-studio-marketplace/last-updated/willasm.project-notes)
 
+# IMPORTANT NOTE
+> I have finally completed a total re-write of this extension which was long overdue. The extension has now been split into 2 new extensions, `Project Notes` on [VSCode Marketplace](https://marketplace.visualstudio.com/items?itemName=willasm.pnotes) and on [Github](https://github.com/willasm/pnotes) and `Comment Highlighter` on [VSCode Marketplace](https://marketplace.visualstudio.com/items?itemName=willasm.comment-highlighter) and on [Github](https://github.com/willasm/comment-highlighter). The syntax highlighting was only intended to be a minor addition to the extension but it has grown to the point where it really needed be its own seperate extension. Seperating the old extension into two extensions allows me to focus exclusivly on each of the new extensions as needed. The old extension will remain available for those that wish to use it but it will only receive limited support for bug fixes if they are discovered.
+
+> I recommend disabling or uninstalling this extension in favour of using the new extensions. They are not compatible with this older version and will cause issues if run simutaneously. If you only ever used the Project Notes feature, then you can just install the new `Project Notes` extension. Same goes for the `Comment Highlighter` extension.
+
+The new extensions offer many new features...
+- Project Notes - Filenames are now colored (User definable)
+- Project Notes - Filenames can now be preceded with an icon (User Definable)
+- Project Notes - Files can have a priority {1 to 5} with its own color and icon
+- Comment Highlighter - Now has a Tag Browser panel
+- Comment Highlighter - Selecting a tag in the Tag Browser will open that file and jump to the tag position
+- Comment Highlighter - The files and tags in the Tag Browser are colored as well (User definable)
+- And much more...
+
 # Project Notes + TODO Highlighter
 
 Maintains 2 lists of notes in markdown file format. Notes are either project specific or global. Local project notes are associated with the current project that is currently loaded while global notes are accessible at all times. Notes may be viewed in preview or edit modes. [Links](#using-file-links) to both project and global notes can be embedded within your source code.

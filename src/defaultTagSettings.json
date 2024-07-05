@@ -1,5 +1,4 @@
 {
-  "tagSettingsVersion": "1 - Used Internally for Future Updates to this Settings File",
   "tagsArray": [
     {
       "description": "BUG - Highlights the Word BUG",
@@ -290,13 +289,11 @@
       "decoratorOptions": {
         "fontWeight": "bold",
         "light": {
-          "backgroundColor": "",
           "color": "#000000",
           "textDecoration": "underline black 2px"
 
         },
         "dark": {
-          "backgroundColor": "",
           "color": "#ffff00",
           "textDecoration": "underline cyan 2px"
         }
@@ -310,12 +307,10 @@
       "decoratorOptions": {
         "fontWeight": "bold",
         "light": {
-          "backgroundColor": "",
           "color": "#000000",
           "textDecoration": "line-through red 2px"
         },
         "dark": {
-          "backgroundColor": "",
           "color": "#0ff0fe",
           "textDecoration": "line-through yellow 2px"
         }
@@ -368,12 +363,10 @@
       "isEnabled": true,
       "decoratorOptions": {
         "light": {
-          "backgroundColor": "",
           "color": "#936bf7",
           "fontWeight": "bold"
         },
         "dark": {
-          "backgroundColor": "",
           "color": "#a38cda",
           "fontWeight": "bold"
         }
@@ -384,12 +377,10 @@
       "isEnabled": true,
       "decoratorOptions": {
         "light": {
-          "backgroundColor": "",
           "color": "#9c9900",
           "fontWeight": "bold"
         },
         "dark": {
-          "backgroundColor": "",
           "color": "#fcf950",
           "fontWeight": "bold"
         }
@@ -400,12 +391,10 @@
       "isEnabled": true,
       "decoratorOptions": {
         "light": {
-          "backgroundColor": "",
           "color": "#00b4ab",
           "fontWeight": "bold"
         },
         "dark": {
-          "backgroundColor": "",
           "color": "#3afff5",
           "fontWeight": "bold"
         }
@@ -416,12 +405,10 @@
       "isEnabled": true,
       "decoratorOptions": {
         "light": {
-          "backgroundColor": "",
           "color": "#104c66",
           "fontStyle": "italic"
         },
         "dark": {
-          "backgroundColor": "",
           "color": "#21a0d3",
           "fontStyle": "italic"
         }
@@ -432,12 +419,10 @@
       "isEnabled": true,
       "decoratorOptions": {
         "light": {
-          "backgroundColor": "",
           "color": "#9e5a2f",
           "fontStyle": "italic"
         },
         "dark": {
-          "backgroundColor": "",
           "color": "#a7e0f7",
           "fontStyle": "italic"
         }
@@ -448,12 +433,10 @@
       "isEnabled": true,
       "decoratorOptions": {
         "light": {
-          "backgroundColor": "",
           "color": "#ca7c4b",
           "fontStyle": "italic"
         },
         "dark": {
-          "backgroundColor": "",
           "color": "#5ecaf5",
           "fontStyle": "italic"
         }
@@ -462,9 +445,9 @@
   ],
   "extensions": [
     {
-      "description": "# or ; Single line comments",
+      "description": "# or ; or // Single line comments",
       "ext": ["asm", "ini"],
-      "commentsRegEx": "[#|;][^\\r\\n]\\s*([^\\r\\n]+?)[\\r\\n]"
+      "commentsRegEx": "[#|;|//][^\\r\\n]\\s*([^\\r\\n]+?)[\\r\\n]"
     },
     {
       "description": "// Single line comments -or- /* Single line comments */ -or- /* Multiline comments */",

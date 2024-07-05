@@ -1,6 +1,5 @@
-node_modules
 .vscode-test/
-extension - Backup.js
 gutterIcon.png
 Quick Tips.md
-.pnotes
+.pnotes/
+.vscode/time_log.json

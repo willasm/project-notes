@@ -51,9 +51,8 @@
   "Tag Keyword": {
     "prefix": "tagKeyword",
     "body": [
-      "${1|TODO: ,BUG: ,CHANGED: ,DEBUG: ,FIXME: ,HACK: ,IDEA: ,NOTE: ,OPTIMIZE: ,RESEARCH: ,REVIEW: ,TEMP: |}",
-      "$0"
-    ],
+		"${1|TODO: ,BUG: ,CHANGED: ,DEBUG: ,FIXME: ,HACK: ,IDEA: ,NOTE: ,OPTIMIZE: ,RESEARCH: ,REVIEW: ,TEMP: |}"
+	],
     "description": "Tag Keyword"
   },
   "Hidden Title Comment": {
@@ -66,8 +65,7 @@
   "Comment Keyword": {
     "prefix": "commentKeyword",
     "body": [
-      "$LINE_COMMENT ${1|TODO: ,BUG: ,CHANGED: ,DEBUG: ,FIXME: ,HACK: ,IDEA: ,NOTE: ,OPTIMIZE: ,RESEARCH: ,REVIEW: ,TEMP: |}",
-      "$0"
+      "$LINE_COMMENT ${1|TODO: ,BUG: ,CHANGED: ,DEBUG: ,FIXME: ,HACK: ,IDEA: ,NOTE: ,OPTIMIZE: ,RESEARCH: ,REVIEW: ,TEMP: |}"
     ],
     "description": "Tag Keyword"
   },
@@ -75,7 +73,7 @@
     "prefix": "commentBoxSingleLine",
     "body": [
       "$LINE_COMMENT  ╭──────────────────────────────────────────────────────────────────────────────╮",
-      "$LINE_COMMENT  │                          ● ${1|Function,Method,Procedure,Subroutine,Routine,Operation,Subprogram|} ${2:NAME} ●                                   │",
+      "$LINE_COMMENT  │                          ● ${1|Function,Class,Method,Procedure,Subroutine,Routine,Operation,Subprogram|} ${2:NAME} ●                                   │",
       "$LINE_COMMENT  │                                                                              │",
       "$LINE_COMMENT  │                           • ${3:DESCRIPTION} •                                    │",
       "$LINE_COMMENT  ╰──────────────────────────────────────────────────────────────────────────────╯",
@@ -87,7 +85,7 @@
     "prefix": "commentBoxDblLine",
     "body": [
       "$LINE_COMMENT  ╔══════════════════════════════════════════════════════════════════════════════╗",
-      "$LINE_COMMENT  ║                          ● ${1|Function,Method,Procedure,Subroutine,Routine,Operation,Subprogram|} ${2:NAME} ●                                   ║",
+      "$LINE_COMMENT  ║                          ● ${1|Function,Class,Method,Procedure,Subroutine,Routine,Operation,Subprogram|} ${2:NAME} ●                                   ║",
       "$LINE_COMMENT  ║                                                                              ║",
       "$LINE_COMMENT  ║                           • ${3:DESCRIPTION} •                                    ║",
       "$LINE_COMMENT  ╚══════════════════════════════════════════════════════════════════════════════╝",
