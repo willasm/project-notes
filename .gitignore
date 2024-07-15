@@ -1,5 +1,3 @@
-.vscode-test/
-gutterIcon.png
-Quick Tips.md
-.pnotes/
+node_modules
+.pnotes
 .vscode/time_log.json
